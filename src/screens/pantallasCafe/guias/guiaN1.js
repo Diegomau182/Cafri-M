@@ -34,7 +34,7 @@ const guiaN1 = ({navigation}) =>{
            
             <ImageBackground style={styles.estiloImagen} source={require('../../../../assets/imagenes/pruebafondoguia.jpg')}>
                 <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.navigate("cajaHerramientasCafe")}}>
-                  <Image style={styles.tamañoFlecha} source={require('../../../../assets/imagenes/flecha.png')}/>
+                  <Image style={styles.tamañoFlecha} source={require('../../../../assets/imagenes/flechaSombra.png')}/>
                 </TouchableOpacity>
               </ImageBackground>
         </View>

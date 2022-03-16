@@ -1,10 +1,33 @@
 import React,{useState,useEffect} from "react";
-import {Text,View,StyleSheet,Image,TouchableOpacity,ActivityIndicator, ScrollView} from "react-native"
+import {Text,View,StyleSheet,Share,Image,TouchableOpacity,ActivityIndicator, ScrollView} from "react-native"
 import * as Font from "expo-font"
 const pantallaInfoT =({navigation:{goBack},route})=>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const title = route.params.title
     const info = route.params.info
+
+    const myCustomShare = async() => {
+        const shareOptions = {
+            message: `${title}: 
+            
+${info}`,
+        }
+        try{
+            const shareReponse = await Share.share(shareOptions)
+            if (shareReponse.action === Share.sharedAction) {
+                if (shareReponse.activityType) {
+                  // shared with activity type of result.activityType
+                } else {
+                  // shared
+                }
+              } else if (shareReponse.action === Share.dismissedAction) {
+                // dismissed
+              }
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
     
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -32,9 +55,13 @@ const pantallaInfoT =({navigation:{goBack},route})=>{
         <>
         <View style={styles.fondo}>
             <View style={styles.contenedorNavegacion}>
-            <TouchableOpacity style={styles.flecha} onPress={()=>{goBack()}}>
-                <Image style={styles.tamañoFlecha} source={require('../../assets/imagenes/flecha.png')}/>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{goBack()}}>
+                    <Image style={styles.tamañoFlecha} source={require('../../assets/imagenes/flecha.png')}/>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.compartir} onPress={myCustomShare}>
+                    <Image style={styles.tamañoCompatir} source={require('../../assets/imagenes/compatir.png')}/>
+                    <Text>Compartir</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.contenedortitulo}>
                 <Text style={styles.titulo}>

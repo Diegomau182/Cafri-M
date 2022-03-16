@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import {Text,View,StyleSheet,Image,TouchableOpacity,ActivityIndicator, Dimensions,ScrollView} from "react-native"
+import {Text,View,StyleSheet,Share,Image,TouchableOpacity,ActivityIndicator, Dimensions,ScrollView} from "react-native"
 import * as Font from "expo-font"
 const { width, height } = Dimensions.get("window");
 
@@ -10,6 +10,35 @@ const pantallaInfoTI =({navigation:{goBack},route})=>{
     const recurso = route.params.import
     const tituloDos = route.params.titleSecond
     const InfoDos = route.params.infoSecond
+
+    
+    const myCustomShare = async() => {
+        const shareOptions = {
+            message: `*** ${title} *** 
+            
+${info}
+
+*** ${tituloDos} ***
+
+${InfoDos}`,
+
+        }
+        try{
+            const shareReponse = await Share.share(shareOptions)
+            if (shareReponse.action === Share.sharedAction) {
+                if (shareReponse.activityType) {
+                  // shared with activity type of result.activityType
+                } else {
+                  // shared
+                }
+              } else if (shareReponse.action === Share.dismissedAction) {
+                // dismissed
+              }
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
 
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -36,9 +65,13 @@ const pantallaInfoTI =({navigation:{goBack},route})=>{
         <>
         <View style={styles.fondo}>
             <View style={styles.contenedorNavegacion}>
-            <TouchableOpacity style={styles.flecha} onPress={()=>{goBack()}}>
-                <Image style={styles.tamañoFlecha} source={require('../../assets/imagenes/flecha.png')}/>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{goBack()}}>
+                    <Image style={styles.tamañoFlecha} source={require('../../assets/imagenes/flecha.png')}/>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.compartir} onPress={myCustomShare}>
+                    <Image style={styles.tamañoCompatir} source={require('../../assets/imagenes/compatir.png')}/>
+                    <Text>Compartir</Text>
+                </TouchableOpacity>
             </View>
             <ScrollView style={styles.contenedorInfo}>
                 <View style={styles.contenedortitulo}>
