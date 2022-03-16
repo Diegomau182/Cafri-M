@@ -1,5 +1,5 @@
 const guiaN1Info =[{
-    name:"presentación",
+    name:"Presentación",
     numero: "01",
     contenido:{
                 title:"Presentación TECHNOSERVE",
