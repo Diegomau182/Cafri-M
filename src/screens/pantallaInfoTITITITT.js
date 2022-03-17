@@ -102,20 +102,23 @@ ${infoSixth}`,
                 <Text style={styles.info}>
                     {info}
                 </Text>
-
-                <Image style={styles.recurso} source={recursoUno}/>
+                <View style={styles.recursoContenedor}>
+                    <Image style={styles.recurso} source={recursoUno}/>
+                </View>
 
                 <Text style={styles.info}>
                     {infoSecond}
                 </Text>
-
-                <Image style={styles.recurso} source={recursoDos}/>
-
+                
+                <View style={styles.recursoContenedor}>
+                    <Image style={styles.recurso} source={recursoDos}/>
+                </View>
+                
                 <Text style={styles.info}>
                     {infoThird}
                 </Text>
                 
-                <Image style={styles.recurso} source={recursoTres}/>
+                { recursoTres ? <View style={styles.recursoContenedor}><Image style={styles.recurso} source={recursoTres}/></View>:<Text></Text>}
 
                 <Text style={styles.info}>
                     {infoQuarter}
@@ -210,8 +213,8 @@ const styles = StyleSheet.create({
         textAlign:"center",
         fontSize:18,
         fontFamily:"PublicSans_Light",
-        marginBottom:"3%",
-        marginTop:"3%",
+        marginBottom:"10%",
+        marginTop:"10%",
         color:"black"
     },
     contenedorInfo:{
@@ -220,9 +223,15 @@ const styles = StyleSheet.create({
         marginBottom:"5%"
 
     },
+    recursoContenedor:{
+        width:"100%",
+        height:height * 0.30,
+        alignItems:"center",
+        justifyContent:"center",
+    },
     recurso:{
-        width:width * 0.40,
-        height:height * 0.25,
+        width:width * 0.90,
+        height:height * 0.30,
     },
 })
 

@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import { StyleSheet,View,ActivityIndicator,Text,ScrollView,ImageBackground,Image,Dimensions,TouchableOpacity} from "react-native";
 import * as Font from "expo-font"
 import ComponenteListaGuias from "../../../components/component/ComponenteListaGuias";
-import infoGuiaN2Frijol from "../../../informacion/frijol/infoGuiaN2Frijol"
+import guiaN3InfoFrijol from "../../../informacion/frijol/infoGuiaN3Frijol"
 const { width, height } = Dimensions.get("window");
 
 
@@ -45,13 +45,27 @@ const guiaN3Frijol = ({navigation}) =>{
           
         </View>
         <ScrollView style={styles.row}>            
-            <ComponenteListaGuias titulo={infoGuiaN2Frijol[0].name}  numero={infoGuiaN2Frijol[0].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",infoGuiaN2Frijol[0].contenido)}}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[0].name}  numero={guiaN3InfoFrijol[0].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[0].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN2Frijol[1].name}  numero={infoGuiaN2Frijol[1].numero}  callback={()=>{navigation.navigate("pantallaInfoTITITITT",infoGuiaN2Frijol[1].contenido)}}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[1].name}  numero={guiaN3InfoFrijol[1].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[1].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN2Frijol[2].name}  numero={infoGuiaN2Frijol[2].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",infoGuiaN2Frijol[2].contenido)}}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[2].name}  numero={guiaN3InfoFrijol[2].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[2].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN2Frijol[3].name}  numero={infoGuiaN2Frijol[3].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT", infoGuiaN2Frijol[3].contenido)}} />
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[3].name}  numero={guiaN3InfoFrijol[3].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[3].contenido)}}/>
+            <View style = {styles.lineStyle}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[4].name}  numero={guiaN3InfoFrijol[4].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[4].contenido)}}/>
+            <View style = {styles.lineStyle}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[5].name}  numero={guiaN3InfoFrijol[5].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[5].contenido)}}/>
+            <View style = {styles.lineStyle}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[6].name}  numero={guiaN3InfoFrijol[6].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[6].contenido)}}/>
+            <View style = {styles.lineStyle}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[7].name}  numero={guiaN3InfoFrijol[7].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[7].contenido)}}/>
+            <View style = {styles.lineStyle}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[8].name}  numero={guiaN3InfoFrijol[8].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[8].contenido)}}/>
+            <View style = {styles.lineStyle}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[9].name}  numero={guiaN3InfoFrijol[9].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[9].contenido)}}/>
+            <View style = {styles.lineStyle}/>
+            <ComponenteListaGuias titulo={guiaN3InfoFrijol[10].name}  numero={guiaN3InfoFrijol[10].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",guiaN3InfoFrijol[10].contenido)}}/>
             <View style = {styles.lineStyle}/>
         </ScrollView>
         </>

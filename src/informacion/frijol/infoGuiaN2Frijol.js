@@ -9,7 +9,7 @@ const guiaN2Frijol = [{
 • La decoloración vascular de las raíces y tejidos del hipocótilo es un síntoma de diagnóstico; el grado de decoloración depende de la variedad y de las condiciones ambientales.`,
         infoSecond:`FIGURA 1 - Amarillamiento y marchitamiento de las hojas`,
         infoThird:`FIGURA 2 - Marchitamiento permanente y muerte de las plantas severamente afectadas`,
-        infoinfoQuarter:`FIGURA 3 - Decoloración vascular de plantas afectadas por Fusarium amarillo`,
+        infoQuarter:`FIGURA 3 - Decoloración vascular de plantas afectadas por Fusarium amarillo`,
         titleTwo:"FACTORES QUE FAVORECEN EL DESARROLLO",
         infofifth:`• Estrés de altas temperaturas (> 30 °C)
 • Condiciones secas del suelo
@@ -38,7 +38,7 @@ const guiaN2Frijol = [{
 • Las semillas de plantas enfermas a menudo se arrugan y se manchan de un color amarillo o naranja`,
         infoSecond:`FIGURA 1 - Marchitamiento y muerte de plantas infectadas`,
         infoThird:`FIGURA 2 - Hojas con lesiones cloróticas intervenales rodeadas por bordes ondulados amarillos`,
-        infoinfoQuarter:`FIGURA 3-Semillas arrugadas y manchadas (abajo) y semillas sanas (arriba) obtenidas de la misma planta infectada.`,
+        infoQuarter:`FIGURA 3-Semillas arrugadas y manchadas (abajo) y semillas sanas (arriba) obtenidas de la misma planta infectada.`,
         titleTwo:"FACTORES QUE FAVORECEN EL DESARROLLO",
         infofifth:`• Temperaturas muy altas (> 32 °C) con condiciones húmedas`,
         titleThree:"HECHOS IMPORTANTES",
@@ -62,7 +62,7 @@ const guiaN2Frijol = [{
 • El crecimiento fungoso blancuzco y los esclerocios negros pueden formarse dentro o encima del tallo`,
         infoSecond:`FIGURA 1 - Hongos pequeños (apotecia) de 6 mm de diámetro emergen de estructuras duras y negras (esclerocios)`,
         infoThird:`FIGURA 2 - Engrandecimiento de las lesiones con un crecimiento de micelio blancuzco`,
-        infoinfoQuarter:`FIGURA 3-Lesión en el tallo con apariencia de tallo seco, micelio blancuzco y esclerocios negros`,
+        infoQuarter:`FIGURA 3-Lesión en el tallo con apariencia de tallo seco, micelio blancuzco y esclerocios negros`,
         titleTwo:"FACTORES QUE FAVORECEN EL DESARROLLO",
         infofifth:`•Suelos húmedos previos a la floración; permite que los esclerocios germinen y liberen las esporas
 • Temperaturas frescas durante el día (16 a 21 °C) durante y después de la floración
@@ -89,7 +89,7 @@ const guiaN2Frijol = [{
 • Los chancros negros se vuelven grises en tallos y vainas`,
         infoSecond:`FIGURA 1- Chancros en tallos`,
         infoThird:`FIGURA 2 - Esclerocios en tallos`,
-        infoinfoQuarter:`FIGURA 3-Síntomas en plantas`,
+        infoQuarter:`FIGURA 3-Síntomas en plantas`,
         titleTwo:"FACTORES QUE FAVORECEN EL DESARROLLO",
         infofifth:`• El desarrollo es favorecido a temperaturas que exceden los 27 °C con condiciones normales de humedad en el suelo
 • Condiciones de sequía`,

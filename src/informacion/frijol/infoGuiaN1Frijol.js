@@ -13,7 +13,7 @@ const guiaN1Frijol = [{
         `,
         infoSecond:`FIGURA 1-Marchitamiento severo de plantas infectadas`,
         infoThird:`FIGURA 2- La formación de micelio blanco alrededor del tallo puede extenderse al suelo circundante, en la materia orgánica, o en vainas en contacto con el suelo`,
-        infoinfoQuarter:`FIGURA 3- Esclerocios esféricos de color marrón se forman sobre el micelio y la base del tallo`,
+        infoQuarter:`FIGURA 3- Esclerocios esféricos de color marrón se forman sobre el micelio y la base del tallo`,
         titleTwo:"",
         infofifth:``,
         titleThree:"HECHOS IMPORTANTES",
@@ -40,7 +40,7 @@ const guiaN1Frijol = [{
 • Clorosis foliar y enanismo por encima de la superficie del suelo`,
         infoSecond:`FIGURA 1 - Variedades de frijol susceptible (Izq.) y moderadamente resistente (Der.) en campo bajo alta presión de Fusarium`,
         infoThird:`FIGURA 2 - Lesiones rojizas-cafés en el hipocótilo y raíces`,
-        infoinfoQuarter:`FIGURA 3 - Tallos cortados con un rango de síntomas de severidad`,
+        infoQuarter:`FIGURA 3 - Tallos cortados con un rango de síntomas de severidad`,
         titleTwo:"FACTORES QUE FAVORECEN EL DESARROLLO",
         infofifth:`• Suelos húmedos y frescos después de la siembra.
 • Suelos compactados y plantas estresadas`,
@@ -66,7 +66,7 @@ const guiaN1Frijol = [{
 • Síntomas en la parte superior de la planta (fase del tizón) pueden ocurrir después de periodos prolongados de lluvia, irrigación, y alta humedad en el suelo y en el ambiente`,
         infoSecond:`FIGURA 1 - Síntomas acuosos en raíces e hipocótilos (Der.) y raíz sana (Izq.)`,
         infoThird:`FIGURA 2 - Marchitamiento y muerte de una plántula`,
-        infoinfoQuarter:`FIGURA 3-Fase del tizón causando necrosis en los tallos y peciolos`,
+        infoQuarter:`FIGURA 3-Fase del tizón causando necrosis en los tallos y peciolos`,
         titleTwo:"FACTORES QUE FAVORECEN EL DESARROLLO",
         infofifth:`• Altos niveles de humedad en el suelo
 • La incidencia de la enfermedad es mayor cuando el agua se acumula en los campos`,
@@ -91,7 +91,7 @@ const guiaN1Frijol = [{
 • Decoloración de color rojizo en la médula del tallo`,
         infoSecond:`FIGURA 1 Enanismo, marchitamiento, y muerte temprana`,
         infoThird:`FIGURA 2-Chancros café-rojizos hundidos`,
-        infoinfoQuarter:`FIGURA 3 - Decoloración de color rojizo en la médula del tallo`,
+        infoQuarter:`FIGURA 3 - Decoloración de color rojizo en la médula del tallo`,
         titleTwo:"FACTORES QUE FAVORECEN EL DESARROLLO",
         infofifth:`• Moderado a alto contenido de humedad en el suelo
 • Temperaturas frescas, compactación del suelo`,
