@@ -2,20 +2,22 @@ import React  from "react"
 import {Text,View,StyleSheet,Image,TouchableOpacity} from "react-native"
 import ComponenteGuia from "../../components/component/ComponenteGuia"
 
-const pantallaCajaHerramientasCafe = ({navigation}) =>{
+const pantallaCajaHerramientasFrijol = ({navigation}) =>{
     return(
         <View style={styles.fondo}>
         <View style={styles.contenedorNavegacion}>
-            <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.navigate("homeTabCafe")}}>
+            <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.navigate("homeTabFrijol")}}>
                     <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
             </TouchableOpacity>
         </View>
 
         <View style={styles.contenedortitulo}>
-            <Text style={styles.titulo}>Caja de herramientas para café</Text>
+            <Text style={styles.titulo}>Caja de herramientas para Frijol</Text>
         </View>
         <View style={styles.row}>
-            <ComponenteGuia titulo="Guia#1: Control de calidad en el beneficiado húmedo del café. "  imagen="1" callback={()=>{navigation.navigate("guiaN1Cafe")}} />
+            <ComponenteGuia titulo="Guia#1: Enfermedades de la raíz. "  imagen="1" callback={()=>{navigation.navigate("guiaN1Frijol")}} />
+            <ComponenteGuia titulo="Guia#2: Enfermedades del tallo y marchitamiento."  imagen="2" callback={()=>{navigation.navigate("guiaN2Frijol")}} />
+            <ComponenteGuia titulo="Guia#3: Enfermedades Foliares"  imagen="3" callback={()=>{navigation.navigate("guiaN3Frijol")}} />
            </View>
         </View>
     )
@@ -62,4 +64,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default pantallaCajaHerramientasCafe
+export default pantallaCajaHerramientasFrijol

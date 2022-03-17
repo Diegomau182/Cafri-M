@@ -1,4 +1,4 @@
-const guiaN1Info =[{
+const guiaN1InfoCafe =[{
     name:"Presentación",
     numero: "01",
     contenido:{
@@ -18,7 +18,7 @@ MAS 2.0 pretende incrementar la productividad mediante asistencia técnica, uso 
                 info:`Es el café que cumple con los mínimos estándares internacionales de calidad y satisface el cliente
                 
 El consumidor es quien paga por un producto de calidad`,
-                import:require('../../../assets/imagenes/guias/guiaN1-cafe-de-calidad.png'),
+                import:require('../../../assets/imagenes/guias/cafe/guiaN1-cafe-de-calidad.png'),
                 titleSecond:"Importancia de la calidad del cafe",
                 infoSecond:`Es importante para poder ser competitivo en el mercado internacional, facilitando la entrada y posicionamiento en los nichos de cafés especiales.`
 }
@@ -28,7 +28,7 @@ El consumidor es quien paga por un producto de calidad`,
     numero:"03",
     contenido:{
                 title:"Flujograma del café",
-                import:require('../../../assets/imagenes/guias/guiaN1-flujograma-del-cafe.png'),
+                import:require('../../../assets/imagenes/guias/cafe/guiaN1-flujograma-del-cafe.png'),
                 info:`Actores de la cadena del café:
                 
 Productor, comerciantes, intermediario, exportador importador, bróker, tostador, cafetería y consumidor final. 
@@ -36,7 +36,7 @@ Productor, comerciantes, intermediario, exportador importador, bróker, tostador
 Etapas o fases del beneficiado húmedo:
 
 Cosecha/corte selectivo, clasificado en sifón o criba, recibo, despulpado, clasificado en criba o zaranda, fermentación, lavado, clasificado en canal de correteo, secado y almacenado.`,
-               importSecond:require('../../../assets/imagenes/guias/guiaN1-flujograma-del-cafe-N2.png')
+               importSecond:require('../../../assets/imagenes/guias/cafe/guiaN1-flujograma-del-cafe-N2.png')
 }
 },
 {
@@ -44,7 +44,7 @@ Cosecha/corte selectivo, clasificado en sifón o criba, recibo, despulpado, clas
     numero: "04",
     contenido:{
             title: "Porcentajes para medir la calidad del caé en el corte",
-            import:require('../../../assets/imagenes/guias/Porcentajes-para-medir-la-calidad-del-cafe-en-el-corte.png')
+            import:require('../../../assets/imagenes/guias/cafe/Porcentajes-para-medir-la-calidad-del-cafe-en-el-corte.png')
 
     }
 
@@ -57,8 +57,8 @@ Cosecha/corte selectivo, clasificado en sifón o criba, recibo, despulpado, clas
         title:"Despulpado de café",
         info: `Consiste en el desprendimiento de la pulpa del fruto de café maduro, através de medios mecánicos por presión y fricción, aprovechando las propiedades lubricantes del mucilago (miel). En este proceso es importante el estado de madurez del fruto y su uniformidad de tamaño`,
         titleSecond:"¿Cómo puede mantener la calidad del café en el despulpado?",
-        import: require('../../../assets/imagenes/guias/Despulpado-del-cafe1.png'),
-        import2: require('../../../assets/imagenes/guias/Despulpado-del-cafe2.png')
+        import: require('../../../assets/imagenes/guias/cafe/Despulpado-del-cafe1.png'),
+        import2: require('../../../assets/imagenes/guias/cafe/Despulpado-del-cafe2.png')
 
     }
 },
@@ -87,9 +87,9 @@ Factores Importantes
         infoQuarter:`• Asegure el drenaje de las pilas.
 • Controle continuamente el punto de fermentación.      
 • Pruebe el punto de fermento en varios sitios.`,
-        import: require('../../../assets/imagenes/guias/Remosión-de-MucilagoFermentado-N1.png'),
-        importSecond: require('../../../assets/imagenes/guias/Remosión-de-MucilagoFermentado-N2.png'),
-        importThird:require('../../../assets/imagenes/guias/Remosión-de-MucilagoFermentado-N3.png')
+        import: require('../../../assets/imagenes/guias/cafe/Remosión-de-MucilagoFermentado-N1.png'),
+        importSecond: require('../../../assets/imagenes/guias/cafe/Remosión-de-MucilagoFermentado-N2.png'),
+        importThird:require('../../../assets/imagenes/guias/cafe/Remosión-de-MucilagoFermentado-N3.png')
     }
 },
 {
@@ -99,8 +99,8 @@ Factores Importantes
         title:"Secado de café",
         info: `Consiste en el proceso de eliminacion de agua(deshidratación) del grano pergamino humedo de 50 a 55% hasta llevarlo al 10-12% de humedad, este se puede hacer a través de medios naturales aporvechandi los rayos solares o por medios mecánicos a través de secadoras rotativas horizontales tipo guardiola. El secado debe ser lento, constante y continuo.`,
         titleSecond:"",
-        import: require('../../../assets/imagenes/guias/Secado-de-café1.png'),
-        import2: require('../../../assets/imagenes/guias/Secado-de-café2.png'),
+        import: require('../../../assets/imagenes/guias/cafe/Secado-de-café1.png'),
+        import2: require('../../../assets/imagenes/guias/cafe/Secado-de-café2.png'),
 
     }
 },
@@ -134,4 +134,4 @@ Factores Importantes
 
 ]
 
-export default guiaN1Info
+export default guiaN1InfoCafe

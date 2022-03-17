@@ -2,11 +2,11 @@ import React,{useState,useEffect} from "react";
 import { StyleSheet,View,ActivityIndicator,Text,ScrollView,ImageBackground,Image,Dimensions,TouchableOpacity} from "react-native";
 import * as Font from "expo-font"
 import ComponenteListaGuias from "../../../components/component/ComponenteListaGuias";
-import guiaN1Info from "../../../informacion/cafe/infoGuiaN1"
+import infoGuiaN2Frijol from "../../../informacion/frijol/infoGuiaN2Frijol"
 const { width, height } = Dimensions.get("window");
 
 
-const guiaN1 = ({navigation}) =>{
+const guiaN2Frijol = ({navigation}) =>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -32,34 +32,27 @@ const guiaN1 = ({navigation}) =>{
         <>
         <View style={styles.contenedorImagen}>
            
-            <ImageBackground style={styles.estiloImagen} source={require('../../../../assets/imagenes/pruebafondoguia.jpg')}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.navigate("cajaHerramientasCafe")}}>
+            <ImageBackground style={styles.estiloImagen} source={require('../../../../assets/imagenes/guiaDosFrijol.png')}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.navigate("cajaHerramientasFrijol")}}>
                   <Image style={styles.tamañoFlecha} source={require('../../../../assets/imagenes/flechaSombra.png')}/>
                 </TouchableOpacity>
               </ImageBackground>
         </View>
         
         <View style={styles.contenedortitulo}>
-          <Text style={styles.titulo}>Guia#1: Control de calidad en el beneficiado húmedo del café.</Text>
+          <Text style={styles.titulo}>Guia#2: Enfermedades del tallo y marchitamiento.</Text>
           <Image style={styles.pdf} source={require('../../../../assets/imagenes/pdf.png')}/>
           
         </View>
         <ScrollView style={styles.row}>            
-            <ComponenteListaGuias titulo={guiaN1Info[0].name}  numero={guiaN1Info[0].numero} callback={()=>{navigation.navigate("pantallaInfoT",guiaN1Info[0].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN2Frijol[0].name}  numero={infoGuiaN2Frijol[0].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",infoGuiaN2Frijol[0].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN1Info[1].name}  numero={guiaN1Info[1].numero}  callback={()=>{navigation.navigate("pantallaInfoTI",guiaN1Info[1].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN2Frijol[1].name}  numero={infoGuiaN2Frijol[1].numero}  callback={()=>{navigation.navigate("pantallaInfoTITITITT",infoGuiaN2Frijol[1].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN1Info[2].name}  numero={guiaN1Info[2].numero} callback={()=>{navigation.navigate("pantallaInfoTITI",guiaN1Info[2].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN2Frijol[2].name}  numero={infoGuiaN2Frijol[2].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",infoGuiaN2Frijol[2].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN1Info[3].name}  numero={guiaN1Info[3].numero} callback={()=>{navigation.navigate("pantallaImg", guiaN1Info[3].contenido)}} />
+            <ComponenteListaGuias titulo={infoGuiaN2Frijol[3].name}  numero={infoGuiaN2Frijol[3].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT", infoGuiaN2Frijol[3].contenido)}} />
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN1Info[4].name}  numero={guiaN1Info[4].numero} callback={()=>{navigation.navigate("pantallaTITImg", guiaN1Info[4].contenido)}} />
-            <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN1Info[5].name}  numero={guiaN1Info[5].numero} callback={()=>{navigation.navigate("pantallaInfoTTITITI",guiaN1Info[5].contenido)}} />
-            <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN1Info[6].name}  numero={guiaN1Info[6].numero} callback={()=>{navigation.navigate("pantallaTITImg", guiaN1Info[6].contenido)}} />
-            <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN1Info[7].name}  numero={guiaN1Info[7].numero} callback={()=>{navigation.navigate("pantallaInfoT",guiaN1Info[7].contenido)}}/>
         </ScrollView>
         </>
     )
@@ -75,6 +68,7 @@ const styles = StyleSheet.create({
         fontFamily:"PublicSans_BoldItalic",
         fontSize: 18,
         textAlign:"left",
+        marginLeft:"7%",
         color:"#9FA617"
     },
     contenedortitulo:{
@@ -118,4 +112,4 @@ const styles = StyleSheet.create({
     }
     })
 
-export default guiaN1
+export default guiaN2Frijol

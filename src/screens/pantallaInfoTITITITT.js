@@ -3,33 +3,42 @@ import {Text,View,StyleSheet,Image,Share,TouchableOpacity,ActivityIndicator, Dim
 import * as Font from "expo-font"
 const { width, height } = Dimensions.get("window");
 
-const pantallaInfoTTITITI = ({navigation:{goBack},route}) => {
+const pantallaInfoTITITITT = ({navigation:{goBack},route}) => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const title = route.params.title
-    const titleTwo = route.params.titleSecond
+    const titleTwo = route.params.titleTwo
+    const titleThree = route.params.titleThree
 
     const info = route.params.info
     const infoSecond = route.params.infoSecond
     const infoThird = route.params.infoThird
     const infoQuarter = route.params.infoQuarter
-    
+    const infofifth = route.params.infofifth
+    const infoSixth = route.params.infoSixth
+
     const recursoUno = route.params.import
     const recursoDos = route.params.importSecond
     const recursoTres = route.params.importThird
 
     const myCustomShare = async() => {
         const shareOptions = {
-            message: `*** ${title} *** 
+            message: `${title} 
             
 ${info}
-
-*** ${titleTwo} ***
 
 ${infoSecond}
 
 ${infoThird}
 
-${infoQuarter}`,
+${infoQuarter}
+
+${titleTwo}
+
+${infofifth}
+
+${titleThree}
+
+${infoSixth}`,
 
         }
         try{
@@ -93,28 +102,40 @@ ${infoQuarter}`,
                 <Text style={styles.info}>
                     {info}
                 </Text>
-                    
-                <Text style={styles.titulo}>
-                    {titleTwo}
-                </Text>
+
+                <Image style={styles.recurso} source={recursoUno}/>
 
                 <Text style={styles.info}>
                     {infoSecond}
                 </Text>
 
-                <Image style={styles.recurso} source={recursoUno}/>
+                <Image style={styles.recurso} source={recursoDos}/>
 
                 <Text style={styles.info}>
                     {infoThird}
                 </Text>
-
-                <Image style={styles.recurso} source={recursoDos}/>
+                
+                <Image style={styles.recurso} source={recursoTres}/>
 
                 <Text style={styles.info}>
                     {infoQuarter}
                 </Text>
+                
+                <Text style={styles.titulo}>
+                    {titleTwo}
+                </Text>
+                
+                <Text style={styles.info}>
+                    {infofifth}
+                </Text>
 
-                <Image style={styles.recurso} source={recursoTres}/>
+                <Text style={styles.titulo}>
+                    {titleThree}
+                </Text>
+                
+                <Text style={styles.info}>
+                    {infoSixth}
+                </Text>
             
             </ScrollView>
         </View>
@@ -200,9 +221,9 @@ const styles = StyleSheet.create({
 
     },
     recurso:{
-        width:width * 0.90,
-        height:height * 0.15,
+        width:width * 0.40,
+        height:height * 0.25,
     },
 })
 
-export default pantallaInfoTTITITI
+export default pantallaInfoTITITITT
