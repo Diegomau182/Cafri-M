@@ -18,9 +18,9 @@ const pantallaInfoTI =({navigation:{goBack},route})=>{
             
 ${info}
 
-*** ${tituloDos} ***
+${tituloDos ? `*** ${tituloDos} *** 
 
-${InfoDos}`,
+${InfoDos}`: "" } `,
 
         }
         try{
@@ -82,8 +82,9 @@ ${InfoDos}`,
                 <Text style={styles.info}>
                     {info}
                 </Text>
-                <Image style={styles.recurso} source={recurso}/>
-
+                <View style={styles.img}>
+                    <Image style={styles.recurso} source={recurso}/>
+                </View>
                 <View style={styles.contenedortitulo}>
                     <Text style={styles.titulo}>
                         {tituloDos}
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
         textAlign:"center"
     },
     info:{
-        textAlign:"center",
+        textAlign:"justify",
         fontSize:16,
         fontFamily:"PublicSans_Light",
         marginBottom:"3%",
@@ -164,7 +165,12 @@ const styles = StyleSheet.create({
     },
     recurso:{
         width:width * 0.90,
-        height:height * 0.10
+        height:height * 0.15
+    },
+    img:{
+       alignItems:"center",
+       width:width * 0.90,
+       height:height * 0.20
     }
 })
 

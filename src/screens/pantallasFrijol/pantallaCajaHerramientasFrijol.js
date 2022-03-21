@@ -18,6 +18,7 @@ const pantallaCajaHerramientasFrijol = ({navigation}) =>{
             <ComponenteGuia titulo="Guia#1: Enfermedades de la raíz. "  imagen="1" callback={()=>{navigation.navigate("guiaN1Frijol")}} />
             <ComponenteGuia titulo="Guia#2: Enfermedades del tallo y marchitamiento."  imagen="2" callback={()=>{navigation.navigate("guiaN2Frijol")}} />
             <ComponenteGuia titulo="Guia#3: Enfermedades Foliares"  imagen="3" callback={()=>{navigation.navigate("guiaN3Frijol")}} />
+            <ComponenteGuia titulo="Guia#4: Agricultura Climaticamente Inteligente"  imagen="4" callback={()=>{navigation.navigate("guiaN4Frijol")}} />
            </View>
         </View>
     )

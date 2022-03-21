@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
     },
     info:{
-        textAlign:"center",
+        textAlign:"justify",
         fontSize:18,
         fontFamily:"PublicSans_Light",
         marginBottom:"3%",

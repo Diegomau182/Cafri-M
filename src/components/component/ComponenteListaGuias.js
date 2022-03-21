@@ -80,8 +80,6 @@ const styles = StyleSheet.create({
     titulo: {
         fontFamily:"PublicSans_BoldItalic",
         fontSize: 15,
-        textAlign:"justify",
-
       },
 
 })

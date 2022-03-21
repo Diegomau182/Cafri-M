@@ -120,18 +120,17 @@ const styles = StyleSheet.create({
     titulo:{
         fontFamily:"PublicSans_BoldItalic",
         fontSize: 20,
-        alignItems:"center",
-        justifyContent:"center"
+        textAlign:"center"
     },
     contenedortitulo:{
         marginLeft:"5%",
         marginTop:"5%",
         width:"90%",
-        height:"5%",
+        height:"10%",
         alignItems:"center"
     },
     info:{
-        textAlign:"center",
+        textAlign:"justify",
         fontSize:18,
         fontFamily:"PublicSans_Light"
     },

@@ -15,7 +15,8 @@ const pantallaCajaHerramientasCafe = ({navigation}) =>{
             <Text style={styles.titulo}>Caja de herramientas para café</Text>
         </View>
         <View style={styles.row}>
-            <ComponenteGuia titulo="Guia#1: Control de calidad en el beneficiado húmedo del café. "  imagen="1" callback={()=>{navigation.navigate("guiaN1Cafe")}} />
+        <ComponenteGuia titulo="Guia#1: Control de Calidad de Café"  imagen="1" callback={()=>{navigation.navigate("guiaN1Cafe")}} />
+            <ComponenteGuia titulo="Guia#2: Control de calidad en el beneficiado húmedo del café. "  imagen="2" callback={()=>{navigation.navigate("guiaN2Cafe")}} />
            </View>
         </View>
     )

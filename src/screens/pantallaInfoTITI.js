@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
         alignItems:"center"
     },
     info:{
-        textAlign:"center",
+        textAlign:"justify",
         fontSize:16,
         fontFamily:"PublicSans_Light",
         marginBottom:"3%",
