@@ -32,18 +32,19 @@ const styles = StyleSheet.create({
         backgroundColor:"#9FA617",
         alignItems:"center",
         flexDirection:"row",
-        height:"15%"
+        height:"20%",
       },
     estiloImagen:{
         marginLeft:"15%",
         width:"70%",
-        height:"100%"
+        height:"100%",
+        marginTop:"7%"
     },
     estiloMenu:{
         marginLeft:"4%",
-        marginTop:"-13%",
-        width:"10%",
-        height:"30%"
+        marginTop:"-15%",
+        width:"7%",
+        height:"15%"
     },
     })
 export default homeTabFrijol

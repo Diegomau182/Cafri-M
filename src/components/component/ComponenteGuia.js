@@ -94,9 +94,8 @@ const styles = StyleSheet.create({
         marginLeft: width*0.05,
     },
     conteinerIcono:{
-        width:width*0.20,
+        width:width*0.19,
         height:height * 0.10,
-        marginLeft:"-2%"
 
     },
     estiloImagen:{
@@ -115,8 +114,9 @@ const styles = StyleSheet.create({
     titulo: {
         fontFamily:"PublicSans_BoldItalic",
         fontSize: 14,
-        textAlign:"justify",
-        width:width*0.70
+        textAlign:"left",
+        width:width*0.70,
+        marginLeft:"4%"
       },
 
 })

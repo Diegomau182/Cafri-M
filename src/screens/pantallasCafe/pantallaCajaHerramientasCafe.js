@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         marginLeft:"20%",
         width:"60%",
         height:"30%",
-        marginTop: "70%"
+        marginTop: "80%"
     },
     flecha:{
         marginLeft:"1%",

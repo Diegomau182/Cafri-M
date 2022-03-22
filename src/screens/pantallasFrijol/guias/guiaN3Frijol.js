@@ -83,11 +83,12 @@ const styles = StyleSheet.create({
         fontSize: 18,
         textAlign:"left",
         marginLeft:"7%",
-        color:"#9FA617"
+        color:"#9FA617",
+        marginTop:"7%"
     },
     contenedortitulo:{
         width:"95%",
-        height:"10%",
+        height:"8%",
         justifyContent:"center",
         alignContent:"center",
         marginLeft: width*0.02,
@@ -107,9 +108,9 @@ const styles = StyleSheet.create({
       height:height * 0.10,
     },
     tamañoFlecha:{
-      marginTop:"5%",
-      width:"20%",
-      height:"14%",
+      marginTop:"9%",
+      width:"17%",
+      height:"9%",
       position:"absolute",
     },
     flecha:{

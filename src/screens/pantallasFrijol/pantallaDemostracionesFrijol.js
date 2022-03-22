@@ -2,11 +2,11 @@ import React,{useState,useEffect} from "react";
 import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacity} from "react-native";
 import * as Font from "expo-font"
 import ComponenteListaGuias from "../../components/component/ComponenteListaGuias";
-import demostracionCafe from "../../informacion/cafe/demostracionCafe";
+import demostracionFrijol from "../../informacion/frijol/demostracionFrijol";
 
 
 
-const pantallaDemostracionesCafe = ({navigation}) =>{
+const pantallaDemostracionesFrijol = ({navigation}) =>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -37,18 +37,16 @@ const pantallaDemostracionesCafe = ({navigation}) =>{
             </View>
 
             <View style={styles.contenedortitulo}>
-                <Text style={styles.titulo}>Demostraciones café</Text>
+                <Text style={styles.titulo}>Demostraciones Frijol</Text>
             </View>
             <ScrollView style={styles.row}>            
-                <ComponenteListaGuias titulo={demostracionCafe[0].name}  numero={demostracionCafe[0].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionCafe[0].contenido)}}/>
+                <ComponenteListaGuias titulo={demostracionFrijol[0].name}  numero={demostracionFrijol[0].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[0].contenido)}}/>
                 <View style = {styles.lineStyle}/>
-                <ComponenteListaGuias titulo={demostracionCafe[2].name}  numero={demostracionCafe[2].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionCafe[2].contenido)}}/>
+                <ComponenteListaGuias titulo={demostracionFrijol[1].name}  numero={demostracionFrijol[1].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[2].contenido)}}/>
                 <View style = {styles.lineStyle}/>
-                <ComponenteListaGuias titulo={demostracionCafe[1].name}  numero={demostracionCafe[1].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionCafe[1].contenido)}}/>
+                <ComponenteListaGuias titulo={demostracionFrijol[2].name}  numero={demostracionFrijol[2].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[1].contenido)}}/>
                 <View style = {styles.lineStyle}/>
-                <ComponenteListaGuias titulo={demostracionCafe[3].name}  numero={demostracionCafe[3].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionCafe[3].contenido)}}/>
-                <View style = {styles.lineStyle}/>
-                <ComponenteListaGuias titulo={demostracionCafe[4].name}  numero={demostracionCafe[4].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionCafe[4].contenido)}}/>
+                <ComponenteListaGuias titulo={demostracionFrijol[3].name}  numero={demostracionFrijol[3].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[3].contenido)}}/>
                 <View style = {styles.lineStyle}/>
             </ScrollView>
         </View>
@@ -105,4 +103,4 @@ const styles = StyleSheet.create({
     }
     })
 
-export default pantallaDemostracionesCafe
+export default pantallaDemostracionesFrijol

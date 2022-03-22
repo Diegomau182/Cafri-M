@@ -87,16 +87,18 @@ const styles = StyleSheet.create({
         fontFamily:"PublicSans_BoldItalic",
         fontSize: 18,
         textAlign:"left",
-        color:"#9FA617"
+        color:"#9FA617",
+        marginTop:"7%"
     },
     contenedortitulo:{
-        width:"95%",
+        width:"90%",
         height:"10%",
         justifyContent:"center",
         alignContent:"center",
         marginLeft: width*0.02,
         flexDirection:"row",
-        marginTop:"2%"
+        marginTop:"2%", 
+        marginLeft:"7%"
     },
     estiloImagen:{
         width:width*1,
@@ -111,9 +113,9 @@ const styles = StyleSheet.create({
       height:height * 0.10,
     },
     tamañoFlecha:{
-      marginTop:"5%",
-      width:"20%",
-      height:"14%",
+      marginTop:"9%",
+      width:"17%",
+      height:"9%",
       position:"absolute",
     },
     flecha:{

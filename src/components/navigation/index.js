@@ -11,6 +11,7 @@ import pantallaCajaHerramientasCafe from "../../screens/pantallasCafe/pantallaCa
 import pantallaCajaHerramientasFrijol from "../../screens/pantallasFrijol/pantallaCajaHerramientasFrijol";
 //pantallas demostraciones
 import pantallaDemostracionesCafe from "../../screens/pantallasCafe/pantallaDemostracionesCafe";
+import pantallaDemostracionesFrijol from "../../screens/pantallasFrijol/pantallaDemostracionesFrijol";
 //pantallas guias Cafe
 import guiaN1Cafe from "../../screens/pantallasCafe/guias/guiaN1Cafe";
 import guiaN2Cafe from "../../screens/pantallasCafe/guias/guiaN2Cafe";
@@ -45,6 +46,7 @@ const Navigation = () =>{
                 <Stack.Screen name="cajaHerramientasFrijol" component={pantallaCajaHerramientasFrijol}/>
 
                 <Stack.Screen name="pantallaDemostracionesCafe" component={pantallaDemostracionesCafe}/>
+                <Stack.Screen name="pantallaDemostracionesFrijol" component={pantallaDemostracionesFrijol}/>
 
                 <Stack.Screen name="guiaN1Cafe" component={guiaN1Cafe}/>
                 <Stack.Screen name="guiaN2Cafe" component={guiaN2Cafe}/>

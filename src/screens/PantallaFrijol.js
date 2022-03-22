@@ -32,7 +32,7 @@ const pantallaFrijol = ({navigation}) =>{
             <ComponenteBoton titulo="Caja de herramientas para Frijol" descripcion="Guía y documentos para el cultivo del Frijol" imagen="icono-caja-de-herramientas-frijol" callback={()=>{navigation.navigate("cajaHerramientasFrijol")}} />
             <ComponenteBoton titulo="Semillas" descripcion="semillas" imagen ="icono-semilla-frijol" callback={()=>{navigation.navigate("cajaHerramientasFrijol")}} />
             <ComponenteBoton titulo="Granos" descripcion="granos" imagen ="icono-grano-frijol" callback={()=>{navigation.navigate("cajaHerramientasFrijol")}} />
-            <ComponenteBoton titulo="Demostraciones" descripcion="Videos sobre el manejo del Frijol" imagen ="Icono-Demostraciones-Frijol" callback={()=>{navigation.navigate("cajaHerramientasFrijol")}} />
+            <ComponenteBoton titulo="Demostraciones" descripcion="Videos sobre el manejo del Frijol" imagen ="Icono-Demostraciones-Frijol" callback={()=>{navigation.navigate("pantallaDemostracionesFrijol")}} />
             <ComponenteBoton titulo="Comercialización " descripcion="comercializacion" imagen ="Icono-Comercializacion-de-frijol" callback={()=>{navigation.navigate("cajaHerramientasFrijol")}} />
         </ScrollView>
         </>
