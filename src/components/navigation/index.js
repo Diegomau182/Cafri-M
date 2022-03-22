@@ -9,6 +9,8 @@ import homeTabFrijol from "../../screens/homeTabFrijol";
 //pantallas herramientas
 import pantallaCajaHerramientasCafe from "../../screens/pantallasCafe/pantallaCajaHerramientasCafe";
 import pantallaCajaHerramientasFrijol from "../../screens/pantallasFrijol/pantallaCajaHerramientasFrijol";
+//pantallas demostraciones
+import pantallaDemostracionesCafe from "../../screens/pantallasCafe/pantallaDemostracionesCafe";
 //pantallas guias Cafe
 import guiaN1Cafe from "../../screens/pantallasCafe/guias/guiaN1Cafe";
 import guiaN2Cafe from "../../screens/pantallasCafe/guias/guiaN2Cafe";
@@ -27,6 +29,7 @@ import pantallaImgImg from "../../screens/pantallaImgImg";
 import pantallaTITImg from "../../screens/pantallaTITImg";
 import pantallaInfoTTITITI from "../../screens/pantallaInfoTTITITI";
 import pantallaInfoTITITITT from "../../screens/pantallaInfoTITITITT";
+import pantallaDemostracion from "../../screens/pantallaDemostracion"
 
 const Stack = createStackNavigator();
 
@@ -41,6 +44,8 @@ const Navigation = () =>{
                 <Stack.Screen name="cajaHerramientasCafe" component={pantallaCajaHerramientasCafe}/>
                 <Stack.Screen name="cajaHerramientasFrijol" component={pantallaCajaHerramientasFrijol}/>
 
+                <Stack.Screen name="pantallaDemostracionesCafe" component={pantallaDemostracionesCafe}/>
+
                 <Stack.Screen name="guiaN1Cafe" component={guiaN1Cafe}/>
                 <Stack.Screen name="guiaN2Cafe" component={guiaN2Cafe}/>
 
@@ -49,6 +54,7 @@ const Navigation = () =>{
                 <Stack.Screen name="guiaN3Frijol" component={guiaN3Frijol}/>
                 <Stack.Screen name="guiaN4Frijol" component={guiaN4Frijol}/>
 
+                <Stack.Screen name="pantallaDemostracion" component={pantallaDemostracion}/>
                 <Stack.Screen name="pantallaInfoT" component={pantallaInfoT}/>
                 <Stack.Screen name="pantallaInfoTI" component={pantallaInfoTI}/>
                 <Stack.Screen name="pantallaInfoTITI" component={pantallaInfoTITI}/>

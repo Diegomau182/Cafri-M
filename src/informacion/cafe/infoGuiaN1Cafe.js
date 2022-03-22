@@ -105,7 +105,7 @@ sustancias tóxicas en cantidades que representen un peligro para la salud human
 }
 },{
     name:"CAFÉ VERDE O CAFÉ ORO",
-    numero:"10",
+    numero:"11",
     contenido:{
                 title:"CAFÉ VERDE O CAFÉ ORO",
                 info:`A este estado del grano de café también se le conoce en ciertos países como “café oro”, “semilla” o “almendra”.  Se obtiene después de la remoción del pergamino como resultado del proceso de trilla. El café verde es el insumo básico para la elaboración del café tostado, el soluble y los extractos de café, y es la forma más común en la que es exportado a otros países`,
@@ -113,7 +113,7 @@ sustancias tóxicas en cantidades que representen un peligro para la salud human
 },
 {
     name:"CAFÉ TOSTADO",
-    numero:"11",
+    numero:"12",
     contenido:{
                 title:"CAFÉ TOSTADO",
                 info:`Se trata del producto que resulta de la transformación de los granos de café verde. Esto mediante un proceso de aplicación de calor que produce cambios físicos y químicos que potencializan el aroma y el sabor de cada grano.`,
@@ -121,14 +121,14 @@ sustancias tóxicas en cantidades que representen un peligro para la salud human
 },
 {
     name:"TUESTE DE CATACION",
-    numero:"12",
+    numero:"13",
     contenido:{
                 title:"TUESTE DE CATACION",
                 info:`El tueste para catación debe ser entre el grado “claro” y “claro-medio”, que aproximadamente equivale entre 55 y 65 en la escala Agtron, en café molido.`,
 }
 },{
     name:"CATACION ",
-    numero:"13",
+    numero:"14",
     contenido:{
                 title:"CATACION",
                 info:`Una catación es el análisis sensorial del café, su objetivo es examinar sus propiedades organolépticas mediante los órganos de los sentidos. Es decir, son un conjunto de técnicas que permiten percibir, identificar y apreciar un cierto número de propiedades y características del café.`,
@@ -136,7 +136,7 @@ sustancias tóxicas en cantidades que representen un peligro para la salud human
 },
 {
     name:"EVALUACION DE LA BEBIDA",
-    numero:"14",
+    numero:"15",
     contenido:{
                 title:"EVALUACION DE LA BEBIDA",
                 info:`En la evaluación sensorial del café son valorados los atributos de Fragancia/Aroma, Sabor, Sabor residual, Acidez, Cuerpo, Balance, Uniformidad, Taza Limpia, Dulzor, Balance, y Puntaje del Catador.`,
