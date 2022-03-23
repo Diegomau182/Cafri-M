@@ -85,10 +85,11 @@ const styles = StyleSheet.create({
       },
     titulo:{
         fontFamily:"PublicSans_BoldItalic",
-        fontSize: 18,
+        fontSize: 16,
         textAlign:"left",
         color:"#9FA617",
-        marginTop:"7%"
+        marginTop:"3%",
+        width:"90%"
     },
     contenedortitulo:{
         width:"90%",

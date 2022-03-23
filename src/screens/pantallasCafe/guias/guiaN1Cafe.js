@@ -90,7 +90,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
         textAlign:"left",
         color:"#9FA617",
-        marginTop:"7%"
+        marginTop:"1%",
+        width:"80%",
+        marginLeft:"2%"
     },
     contenedortitulo:{
         width:"95%",

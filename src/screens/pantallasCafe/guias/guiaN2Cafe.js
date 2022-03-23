@@ -72,12 +72,13 @@ const styles = StyleSheet.create({
         flexDirection: "column",
       },
     titulo:{
-        fontFamily:"PublicSans_BoldItalic",
-        fontSize: 18,
-        textAlign:"left",
-        color:"#9FA617",
-        marginTop:"8%",
-        marginLeft:"7%"
+      fontFamily:"PublicSans_BoldItalic",
+      fontSize: 18,
+      textAlign:"left",
+      color:"#9FA617",
+      marginTop:"1%",
+      width:"80%",
+      marginLeft:"2%"
     },
     contenedortitulo:{
         width:"85%",

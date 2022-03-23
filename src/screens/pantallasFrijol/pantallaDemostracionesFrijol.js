@@ -31,7 +31,7 @@ const pantallaDemostracionesFrijol = ({navigation}) =>{
       return(
         <View style={styles.fondo}>
             <View style={styles.contenedorNavegacion}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.navigate("homeTabCafe")}}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.navigate("homeTabFrijol")}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
                 </TouchableOpacity>
             </View>
@@ -42,9 +42,9 @@ const pantallaDemostracionesFrijol = ({navigation}) =>{
             <ScrollView style={styles.row}>            
                 <ComponenteListaGuias titulo={demostracionFrijol[0].name}  numero={demostracionFrijol[0].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[0].contenido)}}/>
                 <View style = {styles.lineStyle}/>
-                <ComponenteListaGuias titulo={demostracionFrijol[1].name}  numero={demostracionFrijol[1].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[2].contenido)}}/>
+                <ComponenteListaGuias titulo={demostracionFrijol[1].name}  numero={demostracionFrijol[1].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[1].contenido)}}/>
                 <View style = {styles.lineStyle}/>
-                <ComponenteListaGuias titulo={demostracionFrijol[2].name}  numero={demostracionFrijol[2].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[1].contenido)}}/>
+                <ComponenteListaGuias titulo={demostracionFrijol[2].name}  numero={demostracionFrijol[2].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[2].contenido)}}/>
                 <View style = {styles.lineStyle}/>
                 <ComponenteListaGuias titulo={demostracionFrijol[3].name}  numero={demostracionFrijol[3].numero} callback={()=>{navigation.navigate("pantallaDemostracion",demostracionFrijol[3].contenido)}}/>
                 <View style = {styles.lineStyle}/>
