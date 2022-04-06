@@ -32,7 +32,7 @@ const pantallaCafe = ({navigation}) =>{
         </View>
         <View style={styles.row}>
             <ComponenteBoton titulo="Caja de herramientas para Cafe" descripcion="Guía y documentos para el cultivo del cafe" imagen="icono-caja-de-herrameintas-cafe" callback={()=>{navigation.navigate("cajaHerramientasCafe")}} />
-            <ComponenteBoton titulo="Catálogos de variedades" descripcion="Factores que determinan la calidad del café" imagen ="catalogo-variedades-cafe" callback={()=>{navigation.navigate("cajaHerramientasCafe")}} />
+            <ComponenteBoton titulo="Calidad del Café" descripcion="Factores que determinan la calidad del café" imagen ="catalogo-variedades-cafe" callback={()=>{navigation.navigate("cajaHerramientasCafe")}} />
             <ComponenteBoton titulo="Demostraciones" descripcion="Videos sobre el manejo del café" imagen ="Icono-Demostraciones-Cafe" callback={()=>{navigation.navigate("pantallaDemostracionesCafe")}} />
         </View>
         </>

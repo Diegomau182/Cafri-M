@@ -28,7 +28,9 @@ const [fontsLoaded, setFontsLoaded] = useState(false);
             <View style={styles.fondo}>
                 <View style={styles.contenedorImagen}>
                     <Image style={styles.estiloImagen} source={require('../../assets/imagenes/CafriLogo.png')}/>
+                    <Text style={styles.textoServe}>Proyecto Mejoramiento Agricola Sostenible</Text>
                 </View>
+                
                 <View style={styles.contenedorBotones}>
                 <TouchableOpacity style={styles.fondoBotones} onPress={()=>{navigation.navigate("homeTabCafe")}}>
                         <Image style={styles.tamañoIconoCafe} source={require("../../assets/imagenes/icono-cafe.png")}/>
@@ -38,6 +40,7 @@ const [fontsLoaded, setFontsLoaded] = useState(false);
                         <Image style={styles.tamañoIconoFrijol} source={require("../../assets/imagenes/Icono-Frijol.png")}/>
                         <Text style={styles.letra}>Frijol</Text>
                     </TouchableOpacity>
+                    <Image style={styles.estiloImagenServe} source={require('../../assets/technoServe.png')}/>
                 </View>
             </View>
         </>
@@ -48,16 +51,22 @@ const styles = StyleSheet.create({
     contenedorImagen: {
         flex: 1,
         marginBottom:10,
-        alignItems:"center"
+        alignItems:"center",
       },
     contenedorBotones: {
         flex:2,
         alignItems:"center",
-        marginTop:"10%"
     },
     estiloImagen:{
         width:"80%",
-        height:"130%"
+        height:"100%",
+        marginTop:"10%",
+      
+    },
+    estiloImagenServe:{
+        width:"80%",
+        height:"15%",
+        marginTop:"15%"
     },
     fondo:{
        flex:1,
@@ -66,29 +75,34 @@ const styles = StyleSheet.create({
     fondoBotones:{
         alignItems:"center",
         flexDirection:"row",
-        backgroundColor:'#E16837',
+        backgroundColor:"#497838",
         width:"70%",
-        height:"18%",
+        height:"15%",
         borderRadius:30,
-        marginTop:"10%"
+        marginTop:"10%",
     },
     tamañoIconoCafe:{
        width:"20%",
-       height:"80%",
+       height:"60%",
        marginLeft:"5%",
        marginRight:"15%",        
     },
     tamañoIconoFrijol:{
-        width:"18%",
-        height:"75%",
+        width:"16%",
+        height:"54%",
         marginLeft:"5%",
         marginRight:"15%",        
-     },
-     letra:{
-         fontFamily:"PublicSans_BoldItalic",
-         fontSize:25
-     }
+    },
+    letra:{
+        fontFamily:"PublicSans_BoldItalic",
+        fontSize:25,
+    },
+    textoServe:{
+        fontFamily:"PublicSans_BoldItalic",
+        fontSize:18,
+        marginTop:"-20%",
 
+    }
 });
 
 export default Home
