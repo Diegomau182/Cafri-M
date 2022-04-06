@@ -1,8 +1,8 @@
 const demostracionCafe =[{
-    name:"MAS story",
+    name:"MAS Historias",
     numero:"01",
     contenido:{
-        titulo:"MAS story",
+        titulo:"MAS Historias",
         historia:`La primera fase del proyecto MAS benefició a más de 26,000 personas de las cadenas de valor de café y frijol.`,
         idVideo:"ccpbNyD5Tpk"
     }
