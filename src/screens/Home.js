@@ -28,7 +28,6 @@ const [fontsLoaded, setFontsLoaded] = useState(false);
             <View style={styles.fondo}>
                 <View style={styles.contenedorImagen}>
                     <Image style={styles.estiloImagen} source={require('../../assets/imagenes/CafriLogo.png')}/>
-                    <Text style={styles.textoServe}>Proyecto Mejoramiento Agricola Sostenible</Text>
                 </View>
                 
                 <View style={styles.contenedorBotones}>
