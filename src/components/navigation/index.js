@@ -12,6 +12,7 @@ import pantallaCajaHerramientasFrijol from "../../screens/pantallasFrijol/pantal
 //pantallas demostraciones
 import pantallaDemostracionesCafe from "../../screens/pantallasCafe/pantallaDemostracionesCafe";
 import pantallaDemostracionesFrijol from "../../screens/pantallasFrijol/pantallaDemostracionesFrijol";
+import pantallaSemillas from "../../screens/pantallasFrijol/pantallaSemillas"
 //pantallas guias Cafe
 import guiaN1Cafe from "../../screens/pantallasCafe/guias/guiaN1Cafe";
 import guiaN2Cafe from "../../screens/pantallasCafe/guias/guiaN2Cafe";
@@ -31,6 +32,7 @@ import pantallaTITImg from "../../screens/pantallaTITImg";
 import pantallaInfoTTITITI from "../../screens/pantallaInfoTTITITI";
 import pantallaInfoTITITITT from "../../screens/pantallaInfoTITITITT";
 import pantallaDemostracion from "../../screens/pantallaDemostracion"
+import pantallaSemilla from "../../screens/pantallasFrijol/pantallaSemillas";
 
 const Stack = createStackNavigator();
 
@@ -47,6 +49,8 @@ const Navigation = () =>{
 
                 <Stack.Screen name="pantallaDemostracionesCafe" component={pantallaDemostracionesCafe}/>
                 <Stack.Screen name="pantallaDemostracionesFrijol" component={pantallaDemostracionesFrijol}/>
+
+                <Stack.Screen name="pantallaSemillas" component={pantallaSemillas}/>
 
                 <Stack.Screen name="guiaN1Cafe" component={guiaN1Cafe}/>
                 <Stack.Screen name="guiaN2Cafe" component={guiaN2Cafe}/>
