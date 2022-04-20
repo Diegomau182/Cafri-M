@@ -73,12 +73,12 @@ ${InfoDos}`: "" } `,
                     <Text>Compartir</Text>
                 </TouchableOpacity>
             </View>
-            <ScrollView style={styles.contenedorInfo}>
-                <View style={styles.contenedortitulo}>
+            <View style={styles.contenedortitulo}>
                     <Text style={styles.titulo}>
                         {title}
                     </Text>
                 </View>
+            <ScrollView style={styles.contenedorInfo}>
                 <Text style={styles.info}>
                     {info}
                 </Text>
