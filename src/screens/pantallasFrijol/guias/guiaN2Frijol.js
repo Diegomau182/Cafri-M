@@ -45,13 +45,13 @@ const guiaN2Frijol = ({navigation}) =>{
           
         </View>
         <ScrollView style={styles.row}>            
-            <ComponenteListaGuias titulo={infoGuiaN2Frijol[0].name}  numero={infoGuiaN2Frijol[0].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",infoGuiaN2Frijol[0].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN2Frijol[0].name}  numero={infoGuiaN2Frijol[0].numero} callback={()=>{navigation.navigate("pantallaInfoSeis",infoGuiaN2Frijol[0].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN2Frijol[1].name}  numero={infoGuiaN2Frijol[1].numero}  callback={()=>{navigation.navigate("pantallaInfoTITITITT",infoGuiaN2Frijol[1].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN2Frijol[1].name}  numero={infoGuiaN2Frijol[1].numero}  callback={()=>{navigation.navigate("pantallaInfoSeis",infoGuiaN2Frijol[1].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN2Frijol[2].name}  numero={infoGuiaN2Frijol[2].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT",infoGuiaN2Frijol[2].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN2Frijol[2].name}  numero={infoGuiaN2Frijol[2].numero} callback={()=>{navigation.navigate("pantallaInfoSeis",infoGuiaN2Frijol[2].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN2Frijol[3].name}  numero={infoGuiaN2Frijol[3].numero} callback={()=>{navigation.navigate("pantallaInfoTITITITT", infoGuiaN2Frijol[3].contenido)}} />
+            <ComponenteListaGuias titulo={infoGuiaN2Frijol[3].name}  numero={infoGuiaN2Frijol[3].numero} callback={()=>{navigation.navigate("pantallaInfoSeis", infoGuiaN2Frijol[3].contenido)}} />
             <View style = {styles.lineStyle}/>
         </ScrollView>
         </>

@@ -45,21 +45,21 @@ const guiaN2Cafe = ({navigation}) =>{
           
         </View>
         <ScrollView style={styles.row}>            
-            <ComponenteListaGuias titulo={guiaN2InfoCafe[0].name}  numero={guiaN2InfoCafe[0].numero} callback={()=>{navigation.navigate("pantallaInfoT",guiaN2InfoCafe[0].contenido)}}/>
+            <ComponenteListaGuias titulo={guiaN2InfoCafe[0].name}  numero={guiaN2InfoCafe[0].numero} callback={()=>{navigation.navigate("pantallaInfoUno",guiaN2InfoCafe[0].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN2InfoCafe[1].name}  numero={guiaN2InfoCafe[1].numero}  callback={()=>{navigation.navigate("pantallaInfoTI",guiaN2InfoCafe[1].contenido)}}/>
+            <ComponenteListaGuias titulo={guiaN2InfoCafe[1].name}  numero={guiaN2InfoCafe[1].numero}  callback={()=>{navigation.navigate("pantallaInfoDos",guiaN2InfoCafe[1].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN2InfoCafe[2].name}  numero={guiaN2InfoCafe[2].numero} callback={()=>{navigation.navigate("pantallaInfoTITI",guiaN2InfoCafe[2].contenido)}}/>
+            <ComponenteListaGuias titulo={guiaN2InfoCafe[2].name}  numero={guiaN2InfoCafe[2].numero} callback={()=>{navigation.navigate("pantallaInfoTres",guiaN2InfoCafe[2].contenido)}}/>
             <View style = {styles.lineStyle}/>
             <ComponenteListaGuias titulo={guiaN2InfoCafe[3].name}  numero={guiaN2InfoCafe[3].numero} callback={()=>{navigation.navigate("pantallaImgAlargada", guiaN2InfoCafe[3].contenido)}} />
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN2InfoCafe[4].name}  numero={guiaN2InfoCafe[4].numero} callback={()=>{navigation.navigate("pantallaTITImg", guiaN2InfoCafe[4].contenido)}} />
+            <ComponenteListaGuias titulo={guiaN2InfoCafe[4].name}  numero={guiaN2InfoCafe[4].numero} callback={()=>{navigation.navigate("pantallaInfoCuatro", guiaN2InfoCafe[4].contenido)}} />
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN2InfoCafe[5].name}  numero={guiaN2InfoCafe[5].numero} callback={()=>{navigation.navigate("pantallaInfoTTITITI",guiaN2InfoCafe[5].contenido)}} />
+            <ComponenteListaGuias titulo={guiaN2InfoCafe[5].name}  numero={guiaN2InfoCafe[5].numero} callback={()=>{navigation.navigate("pantallaInfoCinco",guiaN2InfoCafe[5].contenido)}} />
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN2InfoCafe[6].name}  numero={guiaN2InfoCafe[6].numero} callback={()=>{navigation.navigate("pantallaTITImg", guiaN2InfoCafe[6].contenido)}} />
+            <ComponenteListaGuias titulo={guiaN2InfoCafe[6].name}  numero={guiaN2InfoCafe[6].numero} callback={()=>{navigation.navigate("pantallaInfoCuatro", guiaN2InfoCafe[6].contenido)}} />
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={guiaN2InfoCafe[7].name}  numero={guiaN2InfoCafe[7].numero} callback={()=>{navigation.navigate("pantallaInfoT",guiaN2InfoCafe[7].contenido)}}/>
+            <ComponenteListaGuias titulo={guiaN2InfoCafe[7].name}  numero={guiaN2InfoCafe[7].numero} callback={()=>{navigation.navigate("pantallaInfoUno",guiaN2InfoCafe[7].contenido)}}/>
         </ScrollView>
         </>
     )

@@ -22,17 +22,17 @@ import guiaN2Frijol from "../../screens/pantallasFrijol/guias/guiaN2Frijol";
 import guiaN3Frijol from "../../screens/pantallasFrijol/guias/guiaN3Frijol";
 import guiaN4Frijol from "../../screens/pantallasFrijol/guias/guiaN4Frijol"
 //pantallas de informacion 
-import pantallaInfoT from "../../screens/pantallaInfoT";
-import pantallaInfoTI from "../../screens/pantallaInfoTI"
-import pantallaInfoTITI from "../../screens/pantallaInfoTITI";
+import pantallaInfoUno from "../../screens/pantallaInfoUno";
+import pantallaInfoDos from "../../screens/pantallaInfoDos"
+import pantallaInfoTres from "../../screens/pantallaInfoTres";
 import pantallaImgAlargada from "../../screens/pantallaImgAlargada";
 import pantallaImgAncha from "../../screens/pantallaImgAncha";
 import pantallaImgImg from "../../screens/pantallaImgImg";
-import pantallaTITImg from "../../screens/pantallaTITImg";
-import pantallaInfoTTITITI from "../../screens/pantallaInfoTTITITI";
-import pantallaInfoTITITITT from "../../screens/pantallaInfoTITITITT";
+import pantallaInfoCuatro from "../../screens/pantallaInfoCuatro";
+import pantallaInfoCinco from "../../screens/pantallaInfoCinco";
+import pantallaInfoSeis from "../../screens/pantallaInfoSeis";
 import pantallaDemostracion from "../../screens/pantallaDemostracion"
-import pantallaSemilla from "../../screens/pantallasFrijol/pantallaSemillas";
+
 
 const Stack = createStackNavigator();
 
@@ -61,15 +61,15 @@ const Navigation = () =>{
                 <Stack.Screen name="guiaN4Frijol" component={guiaN4Frijol}/>
 
                 <Stack.Screen name="pantallaDemostracion" component={pantallaDemostracion}/>
-                <Stack.Screen name="pantallaInfoT" component={pantallaInfoT}/>
-                <Stack.Screen name="pantallaInfoTI" component={pantallaInfoTI}/>
-                <Stack.Screen name="pantallaInfoTITI" component={pantallaInfoTITI}/>
+                <Stack.Screen name="pantallaInfoUno" component={pantallaInfoUno}/>
+                <Stack.Screen name="pantallaInfoDos" component={pantallaInfoDos}/>
+                <Stack.Screen name="pantallaInfoTres" component={pantallaInfoTres}/>
                 <Stack.Screen name="pantallaImgAlargada" component={pantallaImgAlargada}/>
                 <Stack.Screen name="pantallaImgAncha" component={pantallaImgAncha}/>
                 <Stack.Screen name="pantallaImgImg" component={pantallaImgImg}/>
-                <Stack.Screen name="pantallaTITImg" component={pantallaTITImg}/>
-                <Stack.Screen name="pantallaInfoTTITITI" component={pantallaInfoTTITITI}/>
-                <Stack.Screen name="pantallaInfoTITITITT" component={pantallaInfoTITITITT}/>
+                <Stack.Screen name="pantallaInfoCuatro" component={pantallaInfoCuatro}/>
+                <Stack.Screen name="pantallaInfoCinco" component={pantallaInfoCinco}/>
+                <Stack.Screen name="pantallaInfoSeis" component={pantallaInfoSeis}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

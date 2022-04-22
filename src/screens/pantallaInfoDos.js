@@ -1,22 +1,27 @@
 import React,{useState,useEffect} from "react";
-import {Text,View,StyleSheet,Image,Share,TouchableOpacity,ActivityIndicator, Dimensions,ScrollView} from "react-native"
+import {Text,View,StyleSheet,Share,Image,TouchableOpacity,ActivityIndicator, Dimensions,ScrollView} from "react-native"
 import * as Font from "expo-font"
-
 const { width, height } = Dimensions.get("window");
 
-const pantallaTITImg =({navigation:{goBack},route})=>{
+const pantallaInfoDos =({navigation:{goBack},route})=>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const title = route.params.title
-    const recursoUno = route.params.import
     const info = route.params.info
-    const recursoDos = route.params.import2
-    const title2 = route.params.titleSecond
+    const recurso = route.params.import
+    const tituloDos = route.params.titleSecond
+    const InfoDos = route.params.infoSecond
+
     
     const myCustomShare = async() => {
         const shareOptions = {
             message: `*** ${title} *** 
             
-${info}`
+${info}
+
+${tituloDos ? `*** ${tituloDos} *** 
+
+${InfoDos}`: "" } `,
+
         }
         try{
             const shareReponse = await Share.share(shareOptions)
@@ -64,26 +69,31 @@ ${info}`
                     <Image style={styles.tamañoFlecha} source={require('../../assets/imagenes/flecha.png')}/>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.compartir} onPress={myCustomShare}>
-                        <Image style={styles.tamañoCompatir} source={require('../../assets/imagenes/compatir.png')}/>
-                        <Text>Compartir</Text>
+                    <Image style={styles.tamañoCompatir} source={require('../../assets/imagenes/compatir.png')}/>
+                    <Text>Compartir</Text>
                 </TouchableOpacity>
             </View>
-
             <View style={styles.contenedortitulo}>
-                <Text style={styles.titulo}>
-                    {title}
-                </Text>
-            </View>
-
+                    <Text style={styles.titulo}>
+                        {title}
+                    </Text>
+                </View>
             <ScrollView style={styles.contenedorInfo}>
                 <Text style={styles.info}>
                     {info}
                 </Text>
-                <Text Text style={styles.titulo}>
-                    {title2}
+                <View style={styles.img}>
+                    <Image style={styles.recurso} source={recurso}/>
+                </View>
+                <View style={styles.contenedortitulo}>
+                    <Text style={styles.titulo}>
+                        {tituloDos}
+                    </Text>
+                 </View>
+                <Text style={styles.info}>
+                    {InfoDos}
                 </Text>
-                <Image style={styles.rec} source={recursoUno}/>
-                <Image style={styles.rec} source={recursoDos}/>
+
             </ScrollView>
         </View>
         </>
@@ -131,35 +141,38 @@ const styles = StyleSheet.create({
         fontFamily:"PublicSans_BoldItalic",
         fontSize: 20,
         alignItems:"center",
-        justifyContent:"center",
         textAlign:"center"
     },
     contenedortitulo:{
         marginLeft:"5%",
         marginTop:"5%",
         width:"90%",
-        height:"5%",
+        height:"15%",
         alignItems:"center",
-
+        textAlign:"center"
     },
     info:{
         textAlign:"justify",
-        fontSize:18,
+        fontSize:16,
         fontFamily:"PublicSans_Light",
         marginBottom:"3%",
         marginTop:"3%",
-        color:"black"
+       
     },
     contenedorInfo:{
         marginLeft:"5%",
-        marginRight:"5%"
-
+        marginRight:"5%",
     },
-    rec:{
+    recurso:{
         width:width * 0.90,
-        height:height * 0.12,
-        marginTop: "5%"
+        height:height * 0.15
     },
+    img:{
+       alignItems:"center",
+       width:width * 0.90,
+       height:height * 0.20
+    }
 })
 
-export default pantallaTITImg
+
+export default pantallaInfoDos

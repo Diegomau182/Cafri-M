@@ -1,22 +1,16 @@
 import React,{useState,useEffect} from "react";
-import {Text,View,StyleSheet,Image,Share,TouchableOpacity,ActivityIndicator, Dimensions,ScrollView} from "react-native"
+import {Text,View,StyleSheet,Share,Image,TouchableOpacity,ActivityIndicator, ScrollView} from "react-native"
 import * as Font from "expo-font"
-const { width, height } = Dimensions.get("window");
-
-const pantallaInfoTITI =({navigation:{goBack},route})=>{
+const pantallaInfoUno =({navigation:{goBack},route})=>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const title = route.params.title
-    const recursoUno = route.params.import
     const info = route.params.info
-    const recursoDos = route.params.importSecond
 
     const myCustomShare = async() => {
         const shareOptions = {
-            message: `*** ${title} *** 
+            message: `${title}: 
             
-${info}
-`,
-
+${info}`,
         }
         try{
             const shareReponse = await Share.share(shareOptions)
@@ -34,8 +28,7 @@ ${info}
             console.log(error);
         }
     }
-
-
+    
     const loadFontsAsync = async () => {
         await Font.loadAsync({
             PublicSans_BoldItalic: require(`../../assets/fonts/PublicSans-BoldItalic.ttf`),
@@ -57,6 +50,7 @@ ${info}
       )
   }
   else{
+   
     return(
         <>
         <View style={styles.fondo}>
@@ -67,7 +61,7 @@ ${info}
                 <TouchableOpacity style={styles.compartir} onPress={myCustomShare}>
                     <Image style={styles.tamañoCompatir} source={require('../../assets/imagenes/compatir.png')}/>
                     <Text>Compartir</Text>
-                    </TouchableOpacity>
+                </TouchableOpacity>
             </View>
             <View style={styles.contenedortitulo}>
                 <Text style={styles.titulo}>
@@ -75,16 +69,16 @@ ${info}
                 </Text>
             </View>
             <ScrollView style={styles.contenedorInfo}>
-            <Image style={styles.recursoUno} source={recursoUno}/>
                 <Text style={styles.info}>
                     {info}
                 </Text>
-                <Image style={styles.recursoDos} source={recursoDos}/>
             </ScrollView>
+           
         </View>
         </>
-    );
-  }
+        
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -126,38 +120,26 @@ const styles = StyleSheet.create({
     titulo:{
         fontFamily:"PublicSans_BoldItalic",
         fontSize: 20,
-        alignItems:"center",
-        justifyContent:"center"
+        textAlign:"center"
     },
     contenedortitulo:{
         marginLeft:"5%",
         marginTop:"5%",
         width:"90%",
-        height:"5%",
+        height:"10%",
         alignItems:"center"
     },
     info:{
         textAlign:"justify",
-        fontSize:16,
-        fontFamily:"PublicSans_Light",
-        marginBottom:"3%",
-        marginTop:"3%",
-        color:"black"
+        fontSize:18,
+        fontFamily:"PublicSans_Light"
     },
     contenedorInfo:{
         marginLeft:"5%",
-        marginRight:"5%",
-        alignContent:"center"
-
-    },
-    recursoUno:{
-        width:width * 0.90,
-        height:height * 0.12
-    },
-    recursoDos:{
-        width:width * 0.80,
-        height:height * 0.15
+        marginRight:"5%"
     }
 })
 
-export default pantallaInfoTITI
+
+
+export default pantallaInfoUno

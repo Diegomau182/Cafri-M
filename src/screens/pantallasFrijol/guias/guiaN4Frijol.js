@@ -46,17 +46,17 @@ const guiaN4Frijol = ({navigation}) =>{
           
         </View>
         <ScrollView style={styles.row}>            
-            <ComponenteListaGuias titulo={infoGuiaN4Frijol[0].name}  numero={infoGuiaN4Frijol[0].numero} callback={()=>{navigation.navigate("pantallaInfoT",infoGuiaN4Frijol[0].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN4Frijol[0].name}  numero={infoGuiaN4Frijol[0].numero} callback={()=>{navigation.navigate("pantallaInfoUno",infoGuiaN4Frijol[0].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN4Frijol[1].name}  numero={infoGuiaN4Frijol[1].numero} callback={()=>{navigation.navigate("pantallaInfoT",infoGuiaN4Frijol[1].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN4Frijol[1].name}  numero={infoGuiaN4Frijol[1].numero} callback={()=>{navigation.navigate("pantallaInfoUno",infoGuiaN4Frijol[1].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN4Frijol[2].name}  numero={infoGuiaN4Frijol[2].numero} callback={()=>{navigation.navigate("pantallaInfoT",infoGuiaN4Frijol[2].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN4Frijol[2].name}  numero={infoGuiaN4Frijol[2].numero} callback={()=>{navigation.navigate("pantallaInfoUno",infoGuiaN4Frijol[2].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN4Frijol[3].name}  numero={infoGuiaN4Frijol[3].numero} callback={()=>{navigation.navigate("pantallaInfoT",infoGuiaN4Frijol[3].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN4Frijol[3].name}  numero={infoGuiaN4Frijol[3].numero} callback={()=>{navigation.navigate("pantallaInfoUno",infoGuiaN4Frijol[3].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN4Frijol[4].name}  numero={infoGuiaN4Frijol[4].numero} callback={()=>{navigation.navigate("pantallaInfoTI",infoGuiaN4Frijol[4].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN4Frijol[4].name}  numero={infoGuiaN4Frijol[4].numero} callback={()=>{navigation.navigate("pantallaInfoDos",infoGuiaN4Frijol[4].contenido)}}/>
             <View style = {styles.lineStyle}/>
-            <ComponenteListaGuias titulo={infoGuiaN4Frijol[5].name}  numero={infoGuiaN4Frijol[5].numero} callback={()=>{navigation.navigate("pantallaInfoT",infoGuiaN4Frijol[5].contenido)}}/>
+            <ComponenteListaGuias titulo={infoGuiaN4Frijol[5].name}  numero={infoGuiaN4Frijol[5].numero} callback={()=>{navigation.navigate("pantallaInfoUno",infoGuiaN4Frijol[5].contenido)}}/>
             <View style = {styles.lineStyle}/>
             <ComponenteListaGuias titulo={infoGuiaN4Frijol[6].name}  numero={infoGuiaN4Frijol[6].numero} callback={()=>{navigation.navigate("pantallaImgImg",infoGuiaN4Frijol[6].contenido)}}/>
             <View style = {styles.lineStyle}/>

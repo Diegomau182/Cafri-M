@@ -1,26 +1,35 @@
 import React,{useState,useEffect} from "react";
-import {Text,View,StyleSheet,Share,Image,TouchableOpacity,ActivityIndicator, Dimensions,ScrollView} from "react-native"
+import {Text,View,StyleSheet,Image,Share,TouchableOpacity,ActivityIndicator, Dimensions,ScrollView} from "react-native"
 import * as Font from "expo-font"
 const { width, height } = Dimensions.get("window");
 
-const pantallaInfoTI =({navigation:{goBack},route})=>{
+const pantallaInfoCinco = ({navigation:{goBack},route}) => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const title = route.params.title
-    const info = route.params.info
-    const recurso = route.params.import
-    const tituloDos = route.params.titleSecond
-    const InfoDos = route.params.infoSecond
+    const titleTwo = route.params.titleSecond
 
+    const info = route.params.info
+    const infoSecond = route.params.infoSecond
+    const infoThird = route.params.infoThird
+    const infoQuarter = route.params.infoQuarter
     
+    const recursoUno = route.params.import
+    const recursoDos = route.params.importSecond
+    const recursoTres = route.params.importThird
+
     const myCustomShare = async() => {
         const shareOptions = {
             message: `*** ${title} *** 
             
 ${info}
 
-${tituloDos ? `*** ${tituloDos} *** 
+*** ${titleTwo} ***
 
-${InfoDos}`: "" } `,
+${infoSecond}
+
+${infoThird}
+
+${infoQuarter}`,
 
         }
         try{
@@ -40,6 +49,7 @@ ${InfoDos}`: "" } `,
         }
     }
 
+    
     const loadFontsAsync = async () => {
         await Font.loadAsync({
             PublicSans_BoldItalic: require(`../../assets/fonts/PublicSans-BoldItalic.ttf`),
@@ -74,26 +84,38 @@ ${InfoDos}`: "" } `,
                 </TouchableOpacity>
             </View>
             <View style={styles.contenedortitulo}>
-                    <Text style={styles.titulo}>
-                        {title}
-                    </Text>
-                </View>
+                <Text style={styles.titulo}>
+                    {title}
+                </Text>
+            </View>
             <ScrollView style={styles.contenedorInfo}>
+                
                 <Text style={styles.info}>
                     {info}
                 </Text>
-                <View style={styles.img}>
-                    <Image style={styles.recurso} source={recurso}/>
-                </View>
-                <View style={styles.contenedortitulo}>
-                    <Text style={styles.titulo}>
-                        {tituloDos}
-                    </Text>
-                 </View>
-                <Text style={styles.info}>
-                    {InfoDos}
+                    
+                <Text style={styles.titulo}>
+                    {titleTwo}
                 </Text>
 
+                <Text style={styles.info}>
+                    {infoSecond}
+                </Text>
+
+                <Image style={styles.recurso} source={recursoUno}/>
+
+                <Text style={styles.info}>
+                    {infoThird}
+                </Text>
+
+                <Image style={styles.recurso} source={recursoDos}/>
+
+                <Text style={styles.info}>
+                    {infoQuarter}
+                </Text>
+
+                <Image style={styles.recurso} source={recursoTres}/>
+            
             </ScrollView>
         </View>
         </>
@@ -124,10 +146,10 @@ const styles = StyleSheet.create({
         height:"100%",
     },
     tamañoCompatir:{
-        marginLeft:"20%",
+        marginLeft:"10%",
         width:"60%",
         height:"30%",
-        marginTop: "70%"
+        marginTop: "70%",
     },
     compartir:{
         marginLeft:"60%",
@@ -135,44 +157,52 @@ const styles = StyleSheet.create({
         height:"100%",
         alignContent:"flex-end",
         flexDirection:"column",
-        justifyContent:"center"
+        justifyContent:"center",
+    },
+    textoCompartir:{
+        width:"20%",
+        height:"100%",
+        marginLeft:"-15%"
     },
     titulo:{
         fontFamily:"PublicSans_BoldItalic",
         fontSize: 20,
         alignItems:"center",
+        justifyContent:"center",
         textAlign:"center"
     },
     contenedortitulo:{
         marginLeft:"5%",
         marginTop:"5%",
         width:"90%",
-        height:"15%",
+        height:"7%",
         alignItems:"center",
-        textAlign:"center"
+    },
+    contenedortitulo2:{
+        marginLeft:"5%",
+        marginTop:"5%",
+        width:"90%",
+        height:"10%",
+        alignItems:"center",
     },
     info:{
         textAlign:"justify",
-        fontSize:16,
+        fontSize:18,
         fontFamily:"PublicSans_Light",
         marginBottom:"3%",
         marginTop:"3%",
-       
+        color:"black"
     },
     contenedorInfo:{
         marginLeft:"5%",
         marginRight:"5%",
+        marginBottom:"5%"
+
     },
     recurso:{
         width:width * 0.90,
-        height:height * 0.15
+        height:height * 0.15,
     },
-    img:{
-       alignItems:"center",
-       width:width * 0.90,
-       height:height * 0.20
-    }
 })
 
-
-export default pantallaInfoTI
+export default pantallaInfoCinco
