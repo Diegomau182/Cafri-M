@@ -37,6 +37,10 @@ const ComponenteBoton = ({titulo,descripcion,imagen,callback}) =>{
                             name:"Icono-Comercializacion-de-frijol",
                             import: require("../../../assets/imagenes/Icono-Comercializacion-de-frijol.png")
                         },
+                        {
+                            name:"Icono-Bitacora-Cafe",
+                            import: require("../../../assets/imagenes/Icono-Bitacora-cafe.png")
+                        },
                         ]
     const ubi =  arrayiconos.find( index => index.name == imagen);
     const [fontsLoaded, setFontsLoaded] = useState(false);

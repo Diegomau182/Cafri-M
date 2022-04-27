@@ -13,6 +13,11 @@ import pantallaCajaHerramientasFrijol from "../../screens/pantallasFrijol/pantal
 import pantallaDemostracionesCafe from "../../screens/pantallasCafe/pantallaDemostracionesCafe";
 import pantallaDemostracionesFrijol from "../../screens/pantallasFrijol/pantallaDemostracionesFrijol";
 import pantallaSemillas from "../../screens/pantallasFrijol/pantallaSemillas"
+//pantallas bitacoras
+import pantallaBitacoraCafe from "../../screens/pantallasCafe/pantallaBitacoraCafe"
+import manejosTejidoTabla from "../../screens/pantallasCafe/manejoTejidoTabla";
+import manejosTejidoPantallaEditar from "../../screens/pantallasCafe/manejoTejidoPantallaEditar";
+import manejoTejidoPantallaAgregar from "../../screens/pantallasCafe/manejoTejidoPantallaAgregar";
 //pantallas guias Cafe
 import guiaN1Cafe from "../../screens/pantallasCafe/guias/guiaN1Cafe";
 import guiaN2Cafe from "../../screens/pantallasCafe/guias/guiaN2Cafe";
@@ -34,6 +39,8 @@ import pantallaInfoSeis from "../../screens/pantallaInfoSeis";
 import pantallaDemostracion from "../../screens/pantallaDemostracion"
 
 
+
+
 const Stack = createStackNavigator();
 
 const Navigation = () =>{
@@ -50,6 +57,11 @@ const Navigation = () =>{
                 <Stack.Screen name="pantallaDemostracionesCafe" component={pantallaDemostracionesCafe}/>
                 <Stack.Screen name="pantallaDemostracionesFrijol" component={pantallaDemostracionesFrijol}/>
 
+                <Stack.Screen name="pantallaBitacoraCafe" component={pantallaBitacoraCafe}/>
+                <Stack.Screen name="manejosTejidoTabla" component={manejosTejidoTabla}/>
+                <Stack.Screen name="manejoTejidoModificar" component={manejosTejidoPantallaEditar}/>
+                <Stack.Screen name="manejoTejidoPantallaAgregar" component={manejoTejidoPantallaAgregar}/>
+
                 <Stack.Screen name="pantallaSemillas" component={pantallaSemillas}/>
 
                 <Stack.Screen name="guiaN1Cafe" component={guiaN1Cafe}/>
@@ -60,6 +72,7 @@ const Navigation = () =>{
                 <Stack.Screen name="guiaN3Frijol" component={guiaN3Frijol}/>
                 <Stack.Screen name="guiaN4Frijol" component={guiaN4Frijol}/>
 
+                
                 <Stack.Screen name="pantallaDemostracion" component={pantallaDemostracion}/>
                 <Stack.Screen name="pantallaInfoUno" component={pantallaInfoUno}/>
                 <Stack.Screen name="pantallaInfoDos" component={pantallaInfoDos}/>
