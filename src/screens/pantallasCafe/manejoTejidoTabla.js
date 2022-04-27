@@ -66,7 +66,7 @@ const manejosTejidoTabla = ({ navigation }) => {
               </Table>
             </ScrollView>
             <NativeBaseProvider>
-              <Fab renderInPortal={false} shadow={2} size="sm" icon={<Icon color="white" as={AntDesign} onPress={() => {navigation.navigate("manejoTejidoPantallaAgregar")}} name="plus" size="sm" />} />
+              <Fab renderInPortal={false} backgroundColor="#00A5A3" shadow={2} size="sm" icon={<Icon color="white" as={AntDesign} onPress={() => {navigation.navigate("manejoTejidoPantallaAgregar")}} name="plus" size="sm" />} />
               </NativeBaseProvider>
           </View>
         </ScrollView>
@@ -77,13 +77,13 @@ const manejosTejidoTabla = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    header: { height: 80,backgroundColor: '#537791' },
+    header: { height: 80,backgroundColor: '#00A5A3' },
     text: { textAlign: 'center', fontWeight: '100' },
     dataWrapper: { marginTop: -1 },
-    row: { height: 40, backgroundColor: '#E7E6E1' },
+    row: { height: 40, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
     botones:{alignItems:"center",flexDirection:"row"},
-    botonEditar:{marginLeft:10,backgroundColor:"#FFEF4A",borderRadius:10,width:"30%",height:"90%",justifyContent:"center",alignItems:"center"},
-    botonEliminar:{marginLeft:5,backgroundColor:"#C03D29",borderRadius:10,width:"50%",height:"90%",justifyContent:"center",alignItems:"center"}
+    botonEditar:{marginLeft:10,backgroundColor:"#F38F1D",borderRadius:10,width:"30%",height:"90%",justifyContent:"center",alignItems:"center"},
+    botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"50%",height:"90%",justifyContent:"center",alignItems:"center"}
   });
 
 export default manejosTejidoTabla;
