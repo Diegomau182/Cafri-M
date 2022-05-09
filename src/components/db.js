@@ -1,6 +1,5 @@
 import React from "react";
 import * as SQLite from "expo-sqlite";
-
 // https://docs.expo.io/versions/latest/sdk/sqlite/
 // Crea y abre la base de datos
 const db = SQLite.openDatabase("BitacoraCafe.db");
@@ -48,13 +47,13 @@ const getManejoTejido = (setManejoTejidoFunc) => {
   };
 
 // Obtener la Apuntes por el id
-const getApuntesById = (id, setNoteFunc) => {
+const getApuntesById = (id, setManejoTejidoFunc) => {
   db.transaction((tx) => {
     tx.executeSql(
       "select * from apuntes where id = ?",
       [id],
       (_, { rows: { _array } }) => {
-        setNoteFunc(_array);
+        setManejoTejidoFunc(_array);
       },
       (_t, error) => {
         console.log("Error al momento de obtener los Apuntes");

@@ -8,7 +8,7 @@ const useDatabase = () => {
     try {
       await database.setupManejoTejidoTableAsync();
       // Finaliza la carga de la DB
-      //await database.setupManejoTejidoAsync();
+      await database.setupManejoTejidoAsync();
       setIsLoadingComplete(true);
     } catch (error) {
       console.log(error);

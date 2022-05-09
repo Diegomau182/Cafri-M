@@ -1,6 +1,5 @@
 import React, { useEffect, createContext, useState } from "react";
 import { database } from "../components/db";
-
 // Crear el contexto de las notas
 export const ManejoTejidoContext = createContext({});
 
@@ -19,6 +18,7 @@ export const ManejoTejidoContextProvider = (props) => {
   }, []);
 
   const refreshTabla = () => {
+    getManejoTejidoById(1,setManejoTejido)
     return database.getManejoTejido(setManejoTejidos);
   };
 
@@ -42,15 +42,6 @@ export const ManejoTejidoContextProvider = (props) => {
 
   const getManejoTejidoById = (id) => {
     return database.getManejoTejidoById(id, setManejoTejido);
-
-    console.log(response);
-
-    // Obtener el valor de la primera posición del arreglo
-    // const value = note[0];
-    // setNote(value);
-
-    // console.log(value);
-    // console.log(note);
   };
 
   // Crear el objeto de contexto

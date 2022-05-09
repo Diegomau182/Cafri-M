@@ -15,9 +15,9 @@ import pantallaDemostracionesFrijol from "../../screens/pantallasFrijol/pantalla
 import pantallaSemillas from "../../screens/pantallasFrijol/pantallaSemillas"
 //pantallas bitacoras
 import pantallaBitacoraCafe from "../../screens/pantallasCafe/pantallaBitacoraCafe"
-import manejosTejidoTabla from "../../screens/pantallasCafe/manejoTejidoTabla";
-import manejosTejidoPantallaEditar from "../../screens/pantallasCafe/manejoTejidoPantallaEditar";
-import manejoTejidoPantallaAgregar from "../../screens/pantallasCafe/manejoTejidoPantallaAgregar";
+import manejosTejidoTabla from "../../screens/bitacoras/manejoTejidoTabla";
+import manejosTejidoPantallaEditar from "../../screens/bitacoras/manejoTejidoPantallaEditar";
+import manejoTejidoPantallaAgregar from "../../screens/bitacoras/manejoTejidoPantallaAgregar";
 //pantallas guias Cafe
 import guiaN1Cafe from "../../screens/pantallasCafe/guias/guiaN1Cafe";
 import guiaN2Cafe from "../../screens/pantallasCafe/guias/guiaN2Cafe";

@@ -14,6 +14,8 @@ const manejosTejidoTabla = ({ navigation }) => {
   const tableDivision = [" "," ","Escula de Campo","Parcela Testigo"]
   const tableHead = ['N°', 'Actividad', 'Cantidad', 'Unidad',"costo Unitario L.","Costo Total L.",'Cantidad', 'Unidad',"costo Unitario L.","Costo Total L.","Accion"]
   const tableData = []
+  let costoTotalC = 0
+  let costoTotalT = 0
 
   const handlerDeleteManejoTejido = async (id) => {
     // Validar que la nota tiene valor
@@ -35,8 +37,15 @@ const manejosTejidoTabla = ({ navigation }) => {
         const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {navigation.navigate("manejoTejidoModificar",{id:id});}}><Text>Editar</Text></TouchableOpacity>{ id < 9 ? null:<TouchableOpacity style={styles.botonEliminar} onPress={()=>{handlerDeleteManejoTejido(id)}}><Text>Eliminar</Text></TouchableOpacity>}</View>
         const arreglo = [id,actividad,cantidadCampo,unidadCampo,costeUnitarioCampo,costoTotalCampo,cantidadTestigo,unidadTestigo,costeUnitarioTestigo,costoTotalTestigo,editar]
         
+        costoTotalC = costoTotalC + costoTotalCampo
+        costoTotalT = costoTotalT + costoTotalTestigo
         tableData.push(arreglo)
+
     }
+
+    const arregloSuma = [" ","Total"," "," "," ",costoTotalC," "," "," ",costoTotalT," "]
+        
+        tableData.push(arregloSuma)
 
   return (
     <View style={styles.container}>

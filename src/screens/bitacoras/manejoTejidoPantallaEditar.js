@@ -1,8 +1,10 @@
 import React,{useContext,useState,useEffect} from "react"
-import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacity} from "react-native";
+import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacity,AsyncStorage} from "react-native";
 import * as Font from "expo-font"
 import { ManejoTejidoContext } from "../../context/ManejoTejidoContext"
 import {NativeBaseProvider,Input,Button} from "native-base"
+
+const datos = '@editar_manejoTejido:value'
 
 const manejoTejidoPantallaEditar = ({navigation,route}) =>{
   const {id} = route.params
@@ -10,7 +12,7 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
   const datosContext =  useContext(ManejoTejidoContext)
   const {manejoTejido,getManejoTejidoById ,updateManejoTejido,refreshTabla} = datosContext;
 
-  const [actividad, setActividad] = useState(null)
+  const [actividad, setActividad] = useState(0)
   //datos escuela
   const [cantidadC, setCantidadC] = useState(0)
   const [unidadC, setUnidadC] = useState(0)
@@ -21,29 +23,15 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
   const [consteT, setCosteT] = useState(0)
 
   useEffect(() => {
-    const getManejoTejido = () => {
+    const getManejoTejido = async() => {
       getManejoTejidoById(id);
     };
-
-    getManejoTejido();
-
+    getManejoTejido()
+    setActividad()
+    console.log(actividad);
     // Verificar si la nota tiene valor previo a extraer sus valores
-    if (manejoTejido.length) {
-      setActividad(manejoTejido[0].actividad);
-
-      setCantidadC(manejoTejido[0].cantidadCampo);
-      setUnidadC(manejoTejido[0].unidadCampo)
-      setCosteC(manejoTejido[0].costeUnitarioCampo)  
-
-      setCantidadT(manejoTejido[0].cantidadTestigo);
-      setUnidadT(manejoTejido[0].unidadTestigo)
-      setCosteT(manejoTejido[0].costeUnitarioTestigo)  
-    
-      console.log("-------------------");
-      console.log(manejoTejido);
-    }
-  }, [id, actividad]);
-
+  }, [id]);
+   
    // Cargar la fuente de manera asíncrona
   useEffect(() => {
     const loadFontsAsync = async () => {
@@ -59,7 +47,7 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
 
   const handlerModifyManejoTejido = async () => {
     // Validar que la nota tiene valor
-    if (actividad) {
+    if (cantidadC) {
       const costoC = cantidadC * consteC
       const costoT = cantidadT * consteT
 
@@ -89,7 +77,7 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
             </View>
 
             <View style={styles.contenedortitulo}>
-                <Text style={styles.titulo}>Esta editando la actividad de: {actividad}</Text>
+                <Text style={styles.titulo}>Esta editando la actividad de: {manejoTejido[0].actividad}</Text>
             </View>
             <ScrollView style={styles.row}>
               <NativeBaseProvider>
@@ -97,7 +85,6 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
 
                   <Text style={styles.titulosImput}>Cantidad: </Text>
                   <Input
-                    value={`${cantidadC}`}
                     onChangeText={setCantidadC}
                     keyboardType="numeric"
                     marginLeft={"5%"}
@@ -106,7 +93,6 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
 
                   <Text style={styles.titulosImput}>Unidad: </Text>
                   <Input
-                    value={`${unidadC}`}
                     onChangeText={setUnidadC}
                     keyboardType="numeric"
                     marginLeft={"5%"}
@@ -115,7 +101,6 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
 
                   <Text style={styles.titulosImput}>Costo Unitario L. : </Text>
                   <Input 
-                    value={`${consteC}`}
                     onChangeText={setCosteC}
                     keyboardType="numeric"
                     marginLeft={"5%"}
@@ -126,7 +111,6 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
 
                   <Text style={styles.titulosImput}>Cantidad: </Text>
                   <Input
-                    value={`${cantidadT}`}
                     onChangeText={setCantidadT}
                     keyboardType="numeric"
                     marginLeft={"5%"}
@@ -135,7 +119,6 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
 
                   <Text style={styles.titulosImput}>Unidad: </Text>
                   <Input
-                    value={`${unidadT}`}
                     onChangeText={setUnidadT}
                     keyboardType="numeric"
                     marginLeft={"5%"}
@@ -144,7 +127,6 @@ const manejoTejidoPantallaEditar = ({navigation,route}) =>{
 
                   <Text style={styles.titulosImput}>Costo Unitario L. : </Text>
                   <Input 
-                    value={`${consteT}`}
                     onChangeText={setCosteT}
                     keyboardType="numeric"
                     marginLeft={"5%"}
