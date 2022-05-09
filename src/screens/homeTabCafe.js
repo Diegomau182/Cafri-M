@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import { StyleSheet,Image,View,TouchableOpacity} from "react-native";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
-import pantallaCafe from "./pantallaCafe"
-import pantallaApps from "./pantallaApps"
+import pantallaCafe from "./PantallaCafe"
+import pantallaApps from "./PantallaApps"
 
 
 const Tab = createMaterialTopTabNavigator()

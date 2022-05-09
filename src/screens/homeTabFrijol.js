@@ -3,7 +3,7 @@ import { StyleSheet,Image,View,TouchableOpacity} from "react-native";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import pantallaFrijol from "./PantallaFrijol"
-import pantallaApps from "./pantallaApps"
+import pantallaApps from "./PantallaApps"
 
 
 const Tab = createMaterialTopTabNavigator()

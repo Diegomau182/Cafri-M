@@ -4,39 +4,39 @@ import {createStackNavigator} from "@react-navigation/stack"
 import 'react-native-gesture-handler';
 //pantallas homes
 import Home from '../../screens/Home'
-import homeTabCafe from "../../screens/homeTabCafe";
-import homeTabFrijol from "../../screens/homeTabFrijol";
+import homeTabCafe from "../../screens/HomeTabCafe";
+import homeTabFrijol from "../../screens/HomeTabFrijol";
 //pantallas herramientas
-import pantallaCajaHerramientasCafe from "../../screens/pantallasCafe/pantallaCajaHerramientasCafe";
-import pantallaCajaHerramientasFrijol from "../../screens/pantallasFrijol/pantallaCajaHerramientasFrijol";
+import pantallaCajaHerramientasCafe from "../../screens/pantallasCafe/PantallaCajaHerramientasCafe";
+import pantallaCajaHerramientasFrijol from "../../screens/pantallasFrijol/PantallaCajaHerramientasFrijol";
 //pantallas demostraciones
-import pantallaDemostracionesCafe from "../../screens/pantallasCafe/pantallaDemostracionesCafe";
-import pantallaDemostracionesFrijol from "../../screens/pantallasFrijol/pantallaDemostracionesFrijol";
-import pantallaSemillas from "../../screens/pantallasFrijol/pantallaSemillas"
+import pantallaDemostracionesCafe from "../../screens/pantallasCafe/PantallaDemostracionesCafe";
+import pantallaDemostracionesFrijol from "../../screens/pantallasFrijol/PantallaDemostracionesFrijol";
+import pantallaSemillas from "../../screens/pantallasFrijol/PantallaSemillas"
 //pantallas bitacoras
-import pantallaBitacoraCafe from "../../screens/pantallasCafe/pantallaBitacoraCafe"
-import manejosTejidoTabla from "../../screens/bitacoras/manejoTejidoTabla";
-import manejosTejidoPantallaEditar from "../../screens/bitacoras/manejoTejidoPantallaEditar";
-import manejoTejidoPantallaAgregar from "../../screens/bitacoras/manejoTejidoPantallaAgregar";
+import pantallaBitacoraCafe from "../../screens/pantallasCafe/PantallaBitacoraCafe"
+import manejosTejidoTabla from "../../screens/bitacoras/ManejoTejidoTabla";
+import manejosTejidoPantallaEditar from "../../screens/bitacoras/ManejoTejidoPantallaEditar";
+import manejoTejidoPantallaAgregar from "../../screens/bitacoras/ManejoTejidoPantallaAgregar";
 //pantallas guias Cafe
-import guiaN1Cafe from "../../screens/pantallasCafe/guias/guiaN1Cafe";
-import guiaN2Cafe from "../../screens/pantallasCafe/guias/guiaN2Cafe";
+import guiaN1Cafe from "../../screens/pantallasCafe/guias/GuiaN1Cafe";
+import guiaN2Cafe from "../../screens/pantallasCafe/guias/GuiaN2Cafe";
 //pantallas guias Frijol
-import guiaN1Frijol from "../../screens/pantallasFrijol/guias/guiaN1Frijol"
-import guiaN2Frijol from "../../screens/pantallasFrijol/guias/guiaN2Frijol";
-import guiaN3Frijol from "../../screens/pantallasFrijol/guias/guiaN3Frijol";
-import guiaN4Frijol from "../../screens/pantallasFrijol/guias/guiaN4Frijol"
+import guiaN1Frijol from "../../screens/pantallasFrijol/guias/GuiaN1Frijol"
+import guiaN2Frijol from "../../screens/pantallasFrijol/guias/GuiaN2Frijol";
+import guiaN3Frijol from "../../screens/pantallasFrijol/guias/GuiaN3Frijol";
+import guiaN4Frijol from "../../screens/pantallasFrijol/guias/GuiaN4Frijol"
 //pantallas de informacion 
-import pantallaInfoUno from "../../screens/pantallaInfoUno";
-import pantallaInfoDos from "../../screens/pantallaInfoDos"
-import pantallaInfoTres from "../../screens/pantallaInfoTres";
-import pantallaImgAlargada from "../../screens/pantallaImgAlargada";
-import pantallaImgAncha from "../../screens/pantallaImgAncha";
-import pantallaImgImg from "../../screens/pantallaImgImg";
-import pantallaInfoCuatro from "../../screens/pantallaInfoCuatro";
-import pantallaInfoCinco from "../../screens/pantallaInfoCinco";
-import pantallaInfoSeis from "../../screens/pantallaInfoSeis";
-import pantallaDemostracion from "../../screens/pantallaDemostracion"
+import pantallaInfoUno from "../../screens/PantallaInfoUno";
+import pantallaInfoDos from "../../screens/PantallaInfoDos"
+import pantallaInfoTres from "../../screens/PantallaInfoTres";
+import pantallaImgAlargada from "../../screens/PantallaImgAlargada";
+import pantallaImgAncha from "../../screens/PantallaImgAncha";
+import pantallaImgImg from "../../screens/PantallaImgImg";
+import pantallaInfoCuatro from "../../screens/PantallaInfoCuatro";
+import pantallaInfoCinco from "../../screens/PantallaInfoCinco";
+import pantallaInfoSeis from "../../screens/PantallaInfoSeis";
+import pantallaDemostracion from "../../screens/PantallaDemostracion"
 
 
 
