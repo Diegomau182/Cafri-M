@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import { StyleSheet, View,ScrollView,Text,TouchableOpacity } from 'react-native';
+import { StyleSheet, View,ScrollView,Text,TouchableOpacity,Alert } from 'react-native';
 import { Table, TableWrapper, Row,Cell } from 'react-native-table-component';
-import { Fab,NativeBaseProvider,Icon,Alert} from "native-base";
+import { Fab,NativeBaseProvider,Icon} from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 
 // Utilizar el contexto de notas
 import {ManejoTejidoContext} from "../../context/ManejoTejidoContext"
 
-const manejosTejidoTabla = ({ navigation }) => {
+const ManejosTejidoTabla = ({ navigation }) => {
   const { manejoTejidos,DeleteManejoTejido,refreshTabla } = useContext(ManejoTejidoContext);
   const widthArr = [40, 200, 80, 80, 120, 120, 80, 80, 120, 120,160]
   const widthArrDivision = [40, 200, 400, 400,160]
@@ -16,6 +16,10 @@ const manejosTejidoTabla = ({ navigation }) => {
   const tableData = []
   let costoTotalC = 0
   let costoTotalT = 0
+
+  //alert
+    
+
 
   const handlerDeleteManejoTejido = async (id) => {
     // Validar que la nota tiene valor
@@ -34,7 +38,18 @@ const manejosTejidoTabla = ({ navigation }) => {
         const unidadTestigo = manejoTejidos[i]["unidadTestigo"] 
         const costeUnitarioTestigo = manejoTejidos[i]["costeUnitarioTestigo"] 
         const costoTotalTestigo = manejoTejidos[i]["costoTotalTestigo"] 
-        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {navigation.navigate("manejoTejidoModificar",{id:id});}}><Text>Editar</Text></TouchableOpacity>{ id < 9 ? null:<TouchableOpacity style={styles.botonEliminar} onPress={()=>{handlerDeleteManejoTejido(id)}}><Text>Eliminar</Text></TouchableOpacity>}</View>
+        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {navigation.navigate("manejoTejidoModificar",{id:id});}}><Text>Editar</Text></TouchableOpacity>{ id < 9 ? null:<TouchableOpacity style={styles.botonEliminar} onPress={()=>{Alert.alert(
+          "Eliminar",
+          "¿Esta seguro que desea eliminar esta actividad?",
+          [
+            {
+              text: "Cancel",
+              onPress: () => console.log("Cancel Pressed"),
+              style: "cancel"
+            },
+            { text: "OK", onPress: ()=> {handlerDeleteManejoTejido(id)}}
+          ]
+        )}}><Text>Eliminar</Text></TouchableOpacity>}</View>
         const arreglo = [id,actividad,cantidadCampo,unidadCampo,costeUnitarioCampo,costoTotalCampo,cantidadTestigo,unidadTestigo,costeUnitarioTestigo,costoTotalTestigo,editar]
         
         costoTotalC = costoTotalC + costoTotalCampo
@@ -52,10 +67,10 @@ const manejosTejidoTabla = ({ navigation }) => {
         <ScrollView horizontal={true}>
           <View>
           <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-            <Row data={tableDivision} widthArr={widthArrDivision} style={styles.header} textStyle={styles.text}/>
+            <Row data={tableDivision} widthArr={widthArrDivision} style={styles.header}/>
             </Table>
             <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-            <Row data={tableHead} widthArr={widthArr} style={styles.header} textStyle={styles.text}/>
+            <Row data={tableHead} widthArr={widthArr} style={styles.header}/>
             </Table>
             <ScrollView style={styles.dataWrapper}>
               <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
@@ -95,4 +110,4 @@ const styles = StyleSheet.create({
     botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"50%",height:"90%",justifyContent:"center",alignItems:"center"}
   });
 
-export default manejosTejidoTabla;
+export default ManejosTejidoTabla;

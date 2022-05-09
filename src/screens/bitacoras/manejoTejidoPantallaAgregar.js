@@ -4,7 +4,7 @@ import * as Font from "expo-font"
 import { ManejoTejidoContext } from "../../context/ManejoTejidoContext"
 import {NativeBaseProvider,Input,Button} from "native-base"
 
-const manejoTejidoPantallaAgregar = ({navigation}) =>{
+const ManejoTejidoPantallaAgregar = ({navigation}) =>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const datosContext =  useContext(ManejoTejidoContext)
     const {addNewManejoTejido,refreshTabla} = datosContext;
@@ -198,4 +198,4 @@ const styles = StyleSheet.create({
   },
   })
 
-export default manejoTejidoPantallaAgregar
+export default ManejoTejidoPantallaAgregar

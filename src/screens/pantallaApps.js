@@ -3,7 +3,7 @@ import { StyleSheet,ActivityIndicator,View,Text} from "react-native";
 import ComponentePrecio from "../components/component/ComponentePrecio";
 import * as Font from "expo-font"
 
-const pantallaApps = ({navigation}) =>{
+const PantallaApps = ({navigation}) =>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -44,4 +44,4 @@ const pantallaApps = ({navigation}) =>{
      }
  })
 
-export default pantallaApps
+export default PantallaApps

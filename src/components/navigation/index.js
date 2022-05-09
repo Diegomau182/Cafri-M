@@ -4,39 +4,39 @@ import {createStackNavigator} from "@react-navigation/stack"
 import 'react-native-gesture-handler';
 //pantallas homes
 import Home from '../../screens/Home'
-import homeTabCafe from "../../screens/HomeTabCafe";
-import homeTabFrijol from "../../screens/HomeTabFrijol";
+import HomeTabCafe from "../../screens/HomeTabCafe";
+import HomeTabFrijol from "../../screens/HomeTabFrijol";
 //pantallas herramientas
-import pantallaCajaHerramientasCafe from "../../screens/pantallasCafe/PantallaCajaHerramientasCafe";
-import pantallaCajaHerramientasFrijol from "../../screens/pantallasFrijol/PantallaCajaHerramientasFrijol";
+import PantallaCajaHerramientasCafe from "../../screens/pantallasCafe/PantallaCajaHerramientasCafe";
+import PantallaCajaHerramientasFrijol from "../../screens/pantallasFrijol/PantallaCajaHerramientasFrijol";
 //pantallas demostraciones
-import pantallaDemostracionesCafe from "../../screens/pantallasCafe/PantallaDemostracionesCafe";
-import pantallaDemostracionesFrijol from "../../screens/pantallasFrijol/PantallaDemostracionesFrijol";
-import pantallaSemillas from "../../screens/pantallasFrijol/PantallaSemillas"
+import PantallaDemostracionesCafe from "../../screens/pantallasCafe/PantallaDemostracionesCafe";
+import PantallaDemostracionesFrijol from "../../screens/pantallasFrijol/PantallaDemostracionesFrijol";
+import PantallaSemillas from "../../screens/pantallasFrijol/PantallaSemillas"
 //pantallas bitacoras
-import pantallaBitacoraCafe from "../../screens/pantallasCafe/PantallaBitacoraCafe"
-import manejosTejidoTabla from "../../screens/bitacoras/ManejoTejidoTabla";
-import manejosTejidoPantallaEditar from "../../screens/bitacoras/ManejoTejidoPantallaEditar";
-import manejoTejidoPantallaAgregar from "../../screens/bitacoras/ManejoTejidoPantallaAgregar";
+import PantallaBitacoraCafe from "../../screens/pantallasCafe/PantallaBitacoraCafe"
+import ManejosTejidoTabla from "../../screens/bitacoras/ManejoTejidoTabla";
+import ManejosTejidoPantallaEditar from "../../screens/bitacoras/ManejoTejidoPantallaEditar";
+import ManejoTejidoPantallaAgregar from "../../screens/bitacoras/ManejoTejidoPantallaAgregar";
 //pantallas guias Cafe
-import guiaN1Cafe from "../../screens/pantallasCafe/guias/GuiaN1Cafe";
-import guiaN2Cafe from "../../screens/pantallasCafe/guias/GuiaN2Cafe";
+import GuiaN1Cafe from "../../screens/pantallasCafe/guias/GuiaN1Cafe";
+import GuiaN2Cafe from "../../screens/pantallasCafe/guias/GuiaN2Cafe";
 //pantallas guias Frijol
-import guiaN1Frijol from "../../screens/pantallasFrijol/guias/GuiaN1Frijol"
-import guiaN2Frijol from "../../screens/pantallasFrijol/guias/GuiaN2Frijol";
-import guiaN3Frijol from "../../screens/pantallasFrijol/guias/GuiaN3Frijol";
-import guiaN4Frijol from "../../screens/pantallasFrijol/guias/GuiaN4Frijol"
+import GuiaN1Frijol from "../../screens/pantallasFrijol/guias/GuiaN1Frijol"
+import GuiaN2Frijol from "../../screens/pantallasFrijol/guias/GuiaN2Frijol";
+import GuiaN3Frijol from "../../screens/pantallasFrijol/guias/GuiaN3Frijol";
+import GuiaN4Frijol from "../../screens/pantallasFrijol/guias/GuiaN4Frijol"
 //pantallas de informacion 
-import pantallaInfoUno from "../../screens/PantallaInfoUno";
-import pantallaInfoDos from "../../screens/PantallaInfoDos"
-import pantallaInfoTres from "../../screens/PantallaInfoTres";
-import pantallaImgAlargada from "../../screens/PantallaImgAlargada";
-import pantallaImgAncha from "../../screens/PantallaImgAncha";
-import pantallaImgImg from "../../screens/PantallaImgImg";
-import pantallaInfoCuatro from "../../screens/PantallaInfoCuatro";
-import pantallaInfoCinco from "../../screens/PantallaInfoCinco";
-import pantallaInfoSeis from "../../screens/PantallaInfoSeis";
-import pantallaDemostracion from "../../screens/PantallaDemostracion"
+import PantallaInfoUno from "../../screens/PantallaInfoUno";
+import PantallaInfoDos from "../../screens/PantallaInfoDos"
+import PantallaInfoTres from "../../screens/PantallaInfoTres";
+import PantallaImgAlargada from "../../screens/PantallaImgAlargada";
+import PantallaImgAncha from "../../screens/PantallaImgAncha";
+import PantallaImgImg from "../../screens/PantallaImgImg";
+import PantallaInfoCuatro from "../../screens/PantallaInfoCuatro";
+import PantallaInfoCinco from "../../screens/PantallaInfoCinco";
+import PantallaInfoSeis from "../../screens/PantallaInfoSeis";
+import PantallaDemostracion from "../../screens/PantallaDemostracion"
 
 
 
@@ -48,41 +48,41 @@ const Navigation = () =>{
         <NavigationContainer>
             <Stack.Navigator headerMode="none">
                 <Stack.Screen name="Home" component={Home}/> 
-                <Stack.Screen name="homeTabCafe" component={homeTabCafe}/>
-                <Stack.Screen name="homeTabFrijol" component={homeTabFrijol}/>
+                <Stack.Screen name="homeTabCafe" component={HomeTabCafe}/>
+                <Stack.Screen name="homeTabFrijol" component={HomeTabFrijol}/>
                 
-                <Stack.Screen name="cajaHerramientasCafe" component={pantallaCajaHerramientasCafe}/>
-                <Stack.Screen name="cajaHerramientasFrijol" component={pantallaCajaHerramientasFrijol}/>
+                <Stack.Screen name="cajaHerramientasCafe" component={PantallaCajaHerramientasCafe}/>
+                <Stack.Screen name="cajaHerramientasFrijol" component={PantallaCajaHerramientasFrijol}/>
 
-                <Stack.Screen name="pantallaDemostracionesCafe" component={pantallaDemostracionesCafe}/>
-                <Stack.Screen name="pantallaDemostracionesFrijol" component={pantallaDemostracionesFrijol}/>
+                <Stack.Screen name="pantallaDemostracionesCafe" component={PantallaDemostracionesCafe}/>
+                <Stack.Screen name="pantallaDemostracionesFrijol" component={PantallaDemostracionesFrijol}/>
 
-                <Stack.Screen name="pantallaBitacoraCafe" component={pantallaBitacoraCafe}/>
-                <Stack.Screen name="manejosTejidoTabla" component={manejosTejidoTabla}/>
-                <Stack.Screen name="manejoTejidoModificar" component={manejosTejidoPantallaEditar}/>
-                <Stack.Screen name="manejoTejidoPantallaAgregar" component={manejoTejidoPantallaAgregar}/>
+                <Stack.Screen name="pantallaBitacoraCafe" component={PantallaBitacoraCafe}/>
+                <Stack.Screen name="manejosTejidoTabla" component={ManejosTejidoTabla}/>
+                <Stack.Screen name="manejoTejidoModificar" component={ManejosTejidoPantallaEditar}/>
+                <Stack.Screen name="manejoTejidoPantallaAgregar" component={ManejoTejidoPantallaAgregar}/>
 
-                <Stack.Screen name="pantallaSemillas" component={pantallaSemillas}/>
+                <Stack.Screen name="pantallaSemillas" component={PantallaSemillas}/>
 
-                <Stack.Screen name="guiaN1Cafe" component={guiaN1Cafe}/>
-                <Stack.Screen name="guiaN2Cafe" component={guiaN2Cafe}/>
+                <Stack.Screen name="guiaN1Cafe" component={GuiaN1Cafe}/>
+                <Stack.Screen name="guiaN2Cafe" component={GuiaN2Cafe}/>
 
-                <Stack.Screen name="guiaN1Frijol" component={guiaN1Frijol}/>
-                <Stack.Screen name="guiaN2Frijol" component={guiaN2Frijol}/>
-                <Stack.Screen name="guiaN3Frijol" component={guiaN3Frijol}/>
-                <Stack.Screen name="guiaN4Frijol" component={guiaN4Frijol}/>
+                <Stack.Screen name="guiaN1Frijol" component={GuiaN1Frijol}/>
+                <Stack.Screen name="guiaN2Frijol" component={GuiaN2Frijol}/>
+                <Stack.Screen name="guiaN3Frijol" component={GuiaN3Frijol}/>
+                <Stack.Screen name="guiaN4Frijol" component={GuiaN4Frijol}/>
 
                 
-                <Stack.Screen name="pantallaDemostracion" component={pantallaDemostracion}/>
-                <Stack.Screen name="pantallaInfoUno" component={pantallaInfoUno}/>
-                <Stack.Screen name="pantallaInfoDos" component={pantallaInfoDos}/>
-                <Stack.Screen name="pantallaInfoTres" component={pantallaInfoTres}/>
-                <Stack.Screen name="pantallaImgAlargada" component={pantallaImgAlargada}/>
-                <Stack.Screen name="pantallaImgAncha" component={pantallaImgAncha}/>
-                <Stack.Screen name="pantallaImgImg" component={pantallaImgImg}/>
-                <Stack.Screen name="pantallaInfoCuatro" component={pantallaInfoCuatro}/>
-                <Stack.Screen name="pantallaInfoCinco" component={pantallaInfoCinco}/>
-                <Stack.Screen name="pantallaInfoSeis" component={pantallaInfoSeis}/>
+                <Stack.Screen name="pantallaDemostracion" component={PantallaDemostracion}/>
+                <Stack.Screen name="pantallaInfoUno" component={PantallaInfoUno}/>
+                <Stack.Screen name="pantallaInfoDos" component={PantallaInfoDos}/>
+                <Stack.Screen name="pantallaInfoTres" component={PantallaInfoTres}/>
+                <Stack.Screen name="pantallaImgAlargada" component={PantallaImgAlargada}/>
+                <Stack.Screen name="pantallaImgAncha" component={PantallaImgAncha}/>
+                <Stack.Screen name="pantallaImgImg" component={PantallaImgImg}/>
+                <Stack.Screen name="pantallaInfoCuatro" component={PantallaInfoCuatro}/>
+                <Stack.Screen name="pantallaInfoCinco" component={PantallaInfoCinco}/>
+                <Stack.Screen name="pantallaInfoSeis" component={PantallaInfoSeis}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

@@ -3,7 +3,7 @@ import {Text,View,StyleSheet,Share,Image,TouchableOpacity,ActivityIndicator, Dim
 import * as Font from "expo-font"
 const { width, height } = Dimensions.get("window");
 
-const pantallaInfoDos =({navigation:{goBack},route})=>{
+const PantallaInfoDos =({navigation:{goBack},route})=>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const title = route.params.title
     const info = route.params.info
@@ -175,4 +175,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default pantallaInfoDos
+export default PantallaInfoDos

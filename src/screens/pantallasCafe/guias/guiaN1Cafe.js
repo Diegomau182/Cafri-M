@@ -6,7 +6,7 @@ import guiaN1InfoCafe from "../../../informacion/cafe/infoGuiaN1Cafe"
 const { width, height } = Dimensions.get("window");
 
 
-const guiaN1Cafe = ({navigation}) =>{
+const GuiaN1Cafe = ({navigation}) =>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -135,4 +135,4 @@ const styles = StyleSheet.create({
     }
     })
 
-export default guiaN1Cafe
+export default GuiaN1Cafe

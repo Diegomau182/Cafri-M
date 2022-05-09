@@ -6,7 +6,7 @@ import demostracionFrijol from "../../informacion/frijol/demostracionFrijol";
 
 
 
-const pantallaDemostracionesFrijol = ({navigation}) =>{
+const PantallaDemostracionesFrijol = ({navigation}) =>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -103,4 +103,4 @@ const styles = StyleSheet.create({
     }
     })
 
-export default pantallaDemostracionesFrijol
+export default PantallaDemostracionesFrijol

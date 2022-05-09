@@ -6,7 +6,7 @@ import infoGuiaN2Frijol from "../../../informacion/frijol/infoGuiaN2Frijol"
 const { width, height } = Dimensions.get("window");
 
 
-const guiaN2Frijol = ({navigation}) =>{
+const GuiaN2Frijol = ({navigation}) =>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -113,4 +113,4 @@ const styles = StyleSheet.create({
     }
     })
 
-export default guiaN2Frijol
+export default GuiaN2Frijol

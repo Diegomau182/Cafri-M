@@ -2,7 +2,7 @@ import React  from "react"
 import {Text,View,StyleSheet,Image,TouchableOpacity,ScrollView} from "react-native"
 import ComponenteGuia from "../../components/component/ComponenteGuia"
 
-const pantallaBitacoraCafe = ({navigation}) =>{
+const PantallaBitacoraCafe = ({navigation}) =>{
     return(
         <View style={styles.fondo}>
             <View style={styles.contenedorNavegacion}>
@@ -71,4 +71,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default pantallaBitacoraCafe
+export default PantallaBitacoraCafe

@@ -3,7 +3,7 @@ import YoutubePlayer from "react-native-youtube-iframe"
 import {View,Text,StyleSheet,Image,TouchableOpacity,ScrollView,ActivityIndicator} from "react-native"
 import * as Font from "expo-font"
 
-const pantallaDemostracion=({navigation:{goBack},route})=>{
+const PantallaDemostracion=({navigation:{goBack},route})=>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const video = route.params.idVideo
     const historia = route.params.historia
@@ -98,4 +98,4 @@ const styles = StyleSheet.create({
         fontFamily:"PublicSans_Light",
     },
 })
-export default pantallaDemostracion
+export default PantallaDemostracion

@@ -6,7 +6,7 @@ import demostracionCafe from "../../informacion/cafe/demostracionCafe";
 
 
 
-const pantallaDemostracionesCafe = ({navigation}) =>{
+const PantallaDemostracionesCafe = ({navigation}) =>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -105,4 +105,4 @@ const styles = StyleSheet.create({
     }
     })
 
-export default pantallaDemostracionesCafe
+export default PantallaDemostracionesCafe

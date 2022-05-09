@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {Text,View,StyleSheet,Share,Image,TouchableOpacity,ActivityIndicator, ScrollView} from "react-native"
 import * as Font from "expo-font"
-const pantallaInfoUno =({navigation:{goBack},route})=>{
+const PantallaInfoUno =({navigation:{goBack},route})=>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const title = route.params.title
     const info = route.params.info
@@ -142,4 +142,4 @@ const styles = StyleSheet.create({
 
 
 
-export default pantallaInfoUno
+export default PantallaInfoUno

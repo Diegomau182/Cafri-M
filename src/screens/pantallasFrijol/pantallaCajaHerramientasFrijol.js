@@ -2,7 +2,7 @@ import React  from "react"
 import {Text,View,StyleSheet,Image,TouchableOpacity} from "react-native"
 import ComponenteGuia from "../../components/component/ComponenteGuia"
 
-const pantallaCajaHerramientasFrijol = ({navigation}) =>{
+const PantallaCajaHerramientasFrijol = ({navigation}) =>{
     return(
         <View style={styles.fondo}>
         <View style={styles.contenedorNavegacion}>
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default pantallaCajaHerramientasFrijol
+export default PantallaCajaHerramientasFrijol

@@ -5,7 +5,7 @@ import * as Font from "expo-font"
 const { width, height } = Dimensions.get("window");
 
 
-const pantallaImgAlargada =({navigation:{goBack},route})=>{
+const PantallaImgAlargada =({navigation:{goBack},route})=>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const title = route.params.title
     const recurso = route.params.import
@@ -124,4 +124,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default pantallaImgAlargada
+export default PantallaImgAlargada

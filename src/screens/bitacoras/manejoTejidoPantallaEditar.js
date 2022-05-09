@@ -6,7 +6,7 @@ import {NativeBaseProvider,Input,Button} from "native-base"
 
 const datos = '@editar_manejoTejido:value'
 
-const manejoTejidoPantallaEditar = ({navigation,route}) =>{
+const ManejoTejidoPantallaEditar = ({navigation,route}) =>{
   const {id} = route.params
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const datosContext =  useContext(ManejoTejidoContext)
@@ -206,4 +206,4 @@ const styles = StyleSheet.create({
   },
   })
 
-export default manejoTejidoPantallaEditar
+export default ManejoTejidoPantallaEditar

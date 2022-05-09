@@ -2,7 +2,7 @@ import React from "react"
 import MapView,{Marker}from "react-native-maps"
 import {View} from "react-native"
 
-const pantallaSemilla = () => {
+const PantallaSemilla = () => {
  return(
     
     <MapView style={{width:"100%",height:"40%"}}
@@ -17,4 +17,4 @@ const pantallaSemilla = () => {
  ) ;  
 }
 
-export default pantallaSemilla
+export default PantallaSemilla

@@ -4,7 +4,7 @@ import * as Font from "expo-font"
 
 const { width, height } = Dimensions.get("window");
 
-const pantallaInfoCuatro =({navigation:{goBack},route})=>{
+const PantallaInfoCuatro =({navigation:{goBack},route})=>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const title = route.params.title
     const recursoUno = route.params.import
@@ -162,4 +162,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default pantallaInfoCuatro
+export default PantallaInfoCuatro

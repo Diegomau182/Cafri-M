@@ -8,7 +8,7 @@ import pantallaApps from "./PantallaApps"
 
 const Tab = createMaterialTopTabNavigator()
 
-const homeTabCafe =({navigation})=>{
+const HomeTabCafe =({navigation})=>{
     const menu = useRef();
 
   const hideMenu = () => menu.current.hide();
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
         height:"15%"
     },
     })
-export default homeTabCafe
+export default HomeTabCafe

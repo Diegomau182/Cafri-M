@@ -3,7 +3,7 @@ import { StyleSheet,View,ActivityIndicator,Text,ScrollView} from "react-native";
 import ComponenteBoton from "../components/component/ComponenteBoton"
 import * as Font from "expo-font"
 
-const pantallaFrijol = ({navigation}) =>{
+const PantallaFrijol = ({navigation}) =>{
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const loadFontsAsync = async () => {
         await Font.loadAsync({
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
     }
     })
 
-export default pantallaFrijol
+export default PantallaFrijol
