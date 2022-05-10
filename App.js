@@ -3,6 +3,7 @@ import * as SplashScreen from "expo-splash-screen";
 import Navigation from "./src/components/navigation/index";
 import useDatabase from "./src/hooks/useDatabase";
 import {ManejoTejidoContextProvider} from "./src/context/ManejoTejidoContext"
+import { FertilizacionCafeContextProvider } from "./src/context/FertilizacionCafeContext";
 
 
 export default function App() {
@@ -12,7 +13,9 @@ export default function App() {
   if (isLoadingComplete) SplashScreen.hideAsync();
   return (
     <ManejoTejidoContextProvider>
+      <FertilizacionCafeContextProvider>
       <Navigation />
+      </FertilizacionCafeContextProvider>
    </ManejoTejidoContextProvider>
   );
 }

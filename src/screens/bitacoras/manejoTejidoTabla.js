@@ -17,8 +17,6 @@ const ManejosTejidoTabla = ({ navigation }) => {
   let costoTotalC = 0
   let costoTotalT = 0
 
-  //alert
-    
 
 
   const handlerDeleteManejoTejido = async (id) => {
@@ -47,7 +45,7 @@ const ManejosTejidoTabla = ({ navigation }) => {
               onPress: () => console.log("Cancel Pressed"),
               style: "cancel"
             },
-            { text: "OK", onPress: ()=> {handlerDeleteManejoTejido(id)}}
+            { text: "OK", onPress: () => {handlerDeleteManejoTejido(id)}}
           ]
         )}}><Text>Eliminar</Text></TouchableOpacity>}</View>
         const arreglo = [id,actividad,cantidadCampo,unidadCampo,costeUnitarioCampo,costoTotalCampo,cantidadTestigo,unidadTestigo,costeUnitarioTestigo,costoTotalTestigo,editar]
@@ -67,10 +65,10 @@ const ManejosTejidoTabla = ({ navigation }) => {
         <ScrollView horizontal={true}>
           <View>
           <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-            <Row data={tableDivision} widthArr={widthArrDivision} style={styles.header}/>
+            <Row data={tableDivision} widthArr={widthArrDivision} style={styles.header} textStyle={styles.text}/>
             </Table>
             <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-            <Row data={tableHead} widthArr={widthArr} style={styles.header}/>
+            <Row data={tableHead} widthArr={widthArr} style={styles.header} textStyle={styles.text}/>
             </Table>
             <ScrollView style={styles.dataWrapper}>
               <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
@@ -81,7 +79,7 @@ const ManejosTejidoTabla = ({ navigation }) => {
                       key={index}
                       data={rowData}
                       widthArr={widthArr}
-                      style={[styles.row, index%2 && {backgroundColor: '#F7F6E7'}]}
+                      style={[styles.row, index %2 && {backgroundColor: '#F7F6E7'}]}
                       textStyle={styles.text}
                     />
                     </>

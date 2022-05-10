@@ -263,6 +263,133 @@ const setupManejoTejidoAsync = async () => {
     });
   };
 
+//-------------------------------------------------------------------------------------------------
+// Creación de la tabla de ManejoTejido
+const setupFertilizacionCafeTableAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(
+          `create table if not exists FertilizacionCafe(id integer primary key autoincrement, 
+                                                   actividad text not null,
+                                                   cantidadCampo integer null,
+                                                   unidadCampo integer null,
+                                                   productoCampo text null,
+                                                   dosisCampo integer null,
+                                                   costeUnitarioCampo real null,
+                                                   costoTotalCampo real null,
+                                                   cantidadTestigo integer null,
+                                                   unidadTestigo integer null,
+                                                   productoTestigo text null,
+                                                   dosisTestigo integer null,
+                                                   costeUnitarioTestigo real null,
+                                                   costoTotalTestigo real null,
+                                                   UNIQUE(actividad)
+                                                   );`
+        );
+      },
+      (_t, error) => {
+        console.log("Error al momento de crear la tabla fertilizacion Cafe");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        console.log("Tabla creada!");
+        resolve(success);
+      }
+    );
+  });
+};
+
+// Agrega datos ManejoTejido por defecto
+const setupFertilizacionCafeAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(`insert into FertilizacionCafe(actividad) 
+                                         values
+                                              ('Cal'),
+                                              ('Fertilizantes'),
+                                              ('Foliares'),
+                                              ('Análisis químico de suelo'),
+                                              ('Extracción de muestras suelo'),
+                                              ('Aplicaciónde cal'),
+                                              ('Primera fertilización'),
+                                              ('Segunda fertilización'),
+                                              ('Tercera fertilización'),
+                                              ('Cuarta fertilización'),
+                                              ('Primera aplicación foliar'),
+                                              ('Segunda aplicación foliar'),
+                                              ('Preparación y aplicación de abonos orgánicos')
+                                              `);
+      },
+      (_t, error) => {
+        console.log("Error al momento de insertar los valores por defecto de fertilizacion cafe");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        resolve(success);
+      }
+    );
+  });
+};
+
+const UpdateFertilizacionCafe = async (cantidadC,unidadC,productoC,dosisC,costeC,costoC,cantidadT,unidadT,productoT,dosisT,costeT,costoT,id, successFunc) => {
+  db.transaction(
+    (tx) => {
+      tx.executeSql(`UPDATE FertilizacionCafe SET cantidadCampo = ${cantidadC}, unidadCampo = ${unidadC},productoCampo = '${productoC}', dosisCampo = ${dosisC}, costeUnitarioCampo = ${costeC}, costoTotalCampo = ${costoC}, cantidadTestigo = ${cantidadT}, unidadTestigo = ${unidadT}, productoTestigo='${productoT}',dosisTestigo = ${dosisT},costeUnitarioTestigo = ${costeT}, costoTotalTestigo = ${costoT} WHERE id = ${id}`);
+    },
+    (_t, error) => {
+      console.log("Error al actualizar manejo de tejido");
+      console.log(_t);
+    },
+    (_t, _success) => {
+      successFunc;
+    }
+  );
+};
+
+// Obtener la ManejoTejido por el id
+const getFertilizacionCafeById = (id, setNoteFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from FertilizacionCafe where id = ?",
+      [id],
+      (_, { rows: { _array } }) => {
+        setNoteFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el Manejo Tejido");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Manejo Tejido obtenidas");
+      }
+    );
+  });
+};
+
+const getFertilizacionCafe = (setFertilizacionCafeFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from FertilizacionCafe",
+      [],
+      (_, { rows: { _array } }) => {
+        setFertilizacionCafeFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el FertilizacionCafe");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Manejo Tejido obtenido");
+      }
+    );
+  });
+};
+
+
 
 export const database = {
   getApuntes,
@@ -280,7 +407,14 @@ export const database = {
 
   setupManejoTejidoAsync,
   setupManejoTejidoTableAsync,
-
+  
   getApuntesById,
   getManejoTejidoById,
+
+  setupFertilizacionCafeAsync,
+  getFertilizacionCafe,
+  setupFertilizacionCafeTableAsync,
+  getFertilizacionCafeById,
+  UpdateFertilizacionCafe,
+  
 };

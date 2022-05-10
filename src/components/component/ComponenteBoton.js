@@ -44,7 +44,6 @@ const ComponenteBoton = ({titulo,descripcion,imagen,callback}) =>{
                         ]
     const ubi =  arrayiconos.find( index => index.name == imagen);
     const [fontsLoaded, setFontsLoaded] = useState(false);
-    console.log(ubi.name);
     const loadFontsAsync = async () => {
         await Font.loadAsync({
             PublicSans_BoldItalic: require(`../../../assets/fonts/PublicSans-BoldItalic.ttf`),

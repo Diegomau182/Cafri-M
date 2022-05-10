@@ -18,7 +18,7 @@ const PantallaBitacoraCafe = ({navigation}) =>{
             <View style={styles.row}>
                 <ComponenteGuia titulo="PROGRAMA DE MANEJO DE FINCA DE CAFÉ"  imagen="1" callback={()=>{navigation.navigate("guiaN1Cafe")}} />
                 <ComponenteGuia titulo="MANEJO DE TEJIDO"  imagen="2" callback={()=>{navigation.navigate("manejosTejidoTabla")}} />
-                <ComponenteGuia titulo="CONTROL Y COSTOS DE FERTILIZACIÓN DE CAFÉ"  imagen="3" callback={()=>{navigation.navigate("guiaN2Cafe")}} />
+                <ComponenteGuia titulo="CONTROL Y COSTOS DE FERTILIZACIÓN DE CAFÉ"  imagen="3" callback={()=>{navigation.navigate("FertilizacionCafeTable")}} />
                 <ComponenteGuia titulo="CONTROL Y COSTOS SOBRE MANEJO INTEGRADO DE PLAGAS Y ENFERMEDADES"  imagen="4" callback={()=>{navigation.navigate("guiaN2Cafe")}} />
                 <ComponenteGuia titulo="CONTROL Y COSTOS DE COSECHA Y BENEFICIADO DE CAFÉ"  imagen="5" callback={()=>{navigation.navigate("guiaN2Cafe")}} />
                 <ComponenteGuia titulo="COSECHA Y VENTAS DE CAFÉ"  imagen="6" callback={()=>{navigation.navigate("guiaN2Cafe")}} />

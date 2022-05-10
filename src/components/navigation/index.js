@@ -18,6 +18,9 @@ import PantallaBitacoraCafe from "../../screens/pantallasCafe/PantallaBitacoraCa
 import ManejosTejidoTabla from "../../screens/bitacoras/ManejoTejidoTabla";
 import ManejosTejidoPantallaEditar from "../../screens/bitacoras/ManejoTejidoPantallaEditar";
 import ManejoTejidoPantallaAgregar from "../../screens/bitacoras/ManejoTejidoPantallaAgregar";
+
+import FertilizacionCafeTable from "../../screens/bitacoras/FertilizacionCafeTable";
+import FertilizacionCafePantallaEditar from "../../screens/bitacoras/FertilizacionCafePantallaEditar";
 //pantallas guias Cafe
 import GuiaN1Cafe from "../../screens/pantallasCafe/guias/GuiaN1Cafe";
 import GuiaN2Cafe from "../../screens/pantallasCafe/guias/GuiaN2Cafe";
@@ -37,6 +40,7 @@ import PantallaInfoCuatro from "../../screens/PantallaInfoCuatro";
 import PantallaInfoCinco from "../../screens/PantallaInfoCinco";
 import PantallaInfoSeis from "../../screens/PantallaInfoSeis";
 import PantallaDemostracion from "../../screens/PantallaDemostracion"
+
 
 
 
@@ -61,6 +65,9 @@ const Navigation = () =>{
                 <Stack.Screen name="manejosTejidoTabla" component={ManejosTejidoTabla}/>
                 <Stack.Screen name="manejoTejidoModificar" component={ManejosTejidoPantallaEditar}/>
                 <Stack.Screen name="manejoTejidoPantallaAgregar" component={ManejoTejidoPantallaAgregar}/>
+
+                <Stack.Screen name="FertilizacionCafeTable" component={FertilizacionCafeTable}/>
+                <Stack.Screen name="FertilizacionCafePantallaEditar" component={FertilizacionCafePantallaEditar}/>
 
                 <Stack.Screen name="pantallaSemillas" component={PantallaSemillas}/>
 
