@@ -263,8 +263,6 @@ const setupManejoTejidoAsync = async () => {
     });
   };
 
-//-------------------------------------------------------------------------------------------------
-// Creación de la tabla de ManejoTejido
 const setupFertilizacionCafeTableAsync = async () => {
   return new Promise((resolve, reject) => {
     db.transaction(
@@ -389,8 +387,134 @@ const getFertilizacionCafe = (setFertilizacionCafeFunc) => {
   });
 };
 
+//-------------------------------------------------------------------------------------------------
+// Creación de la tabla de fertilizacion Cafe
+const setupManejoPlagasYEnfermedadesTableAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(
+          `create table if not exists ManejoPlaYEnfer(id integer primary key autoincrement, 
+                                                   actividad text not null,
+                                                   cantidadCampo integer null,
+                                                   unidadCampo integer null,
+                                                   productoCampo text null,
+                                                   dosisCampo integer null,
+                                                   costeUnitarioCampo real null,
+                                                   costoTotalCampo real null,
+                                                   cantidadTestigo integer null,
+                                                   unidadTestigo integer null,
+                                                   productoTestigo text null,
+                                                   dosisTestigo integer null,
+                                                   costeUnitarioTestigo real null,
+                                                   costoTotalTestigo real null,
+                                                   UNIQUE(actividad)
+                                                   );`
+        );
+      },
+      (_t, error) => {
+        console.log("Error al momento de crear la tabla fertilizacion Cafe");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        console.log("Tabla creada!");
+        resolve(success);
+      }
+    );
+  });
+};
 
+// Agrega datos ManejoTejido por defecto
+const setupManejoPlaYEnferAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(`insert into ManejoPlaYEnfer(actividad) 
+                                         values
+                                              ('Atrayentes'),
+                                              ('Parasitoides'),
+                                              ('Fungicida'),
+                                              ('Insecticida'),
+                                              ('Muestreos de plagas'),
+                                              ('Elaboración y colocación de trampas para broca del café'),
+                                              ('Recolección de frutos después de la cosecha (Repela)'),
+                                              ('Recolección de los primeros frutos maduros'),
+                                              ('Aplicación de Beauberia bassiana'),
+                                              ('Aplicación de químicos para broca'),
+                                              ('Primera aplicación de químicos para Roya'),
+                                              ('Segunda aplicación dequímicos para Roya'),
+                                              ('Tercera aplicación de químicos para Roya'),
+                                              ('Aplicación de químico para Ojo de Gallo'),
+                                              ('Primer control de malezas'),
+                                              ('Segundo control de malezas')
+                                              `);
+      },
+      (_t, error) => {
+        console.log("Error al momento de insertar los valores por defecto de fertilizacion cafe");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        resolve(success);
+      }
+    );
+  });
+};
 
+const UpdateManejoPlaYEnfer = async (cantidadC,unidadC,productoC,dosisC,costeC,costoC,cantidadT,unidadT,productoT,dosisT,costeT,costoT,id, successFunc) => {
+  db.transaction(
+    (tx) => {
+      tx.executeSql(`UPDATE ManejoPlaYEnfer SET cantidadCampo = ${cantidadC}, unidadCampo = ${unidadC},productoCampo = '${productoC}', dosisCampo = ${dosisC}, costeUnitarioCampo = ${costeC}, costoTotalCampo = ${costoC}, cantidadTestigo = ${cantidadT}, unidadTestigo = ${unidadT}, productoTestigo='${productoT}',dosisTestigo = ${dosisT},costeUnitarioTestigo = ${costeT}, costoTotalTestigo = ${costoT} WHERE id = ${id}`);
+    },
+    (_t, error) => {
+      console.log("Error al actualizar manejo de tejido");
+      console.log(_t);
+    },
+    (_t, _success) => {
+      successFunc;
+    }
+  );
+};
+
+// Obtener la ManejoTejido por el id
+const getManejoPlaYEnferById = (id, setNoteFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from ManejoPlaYEnfer where id = ?",
+      [id],
+      (_, { rows: { _array } }) => {
+        setNoteFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el Manejo Tejido");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Manejo Tejido obtenidas");
+      }
+    );
+  });
+};
+
+const getManejoPlaYEnfer= (setManejoPlaYEnferFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from ManejoPlaYEnfer",
+      [],
+      (_, { rows: { _array } }) => {
+        setManejoPlaYEnferFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el ManejoPlaYEnfer");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Manejo Tejido obtenido");
+      }
+    );
+  });
+};
 export const database = {
   getApuntes,
   getManejoTejido,
@@ -416,5 +540,11 @@ export const database = {
   setupFertilizacionCafeTableAsync,
   getFertilizacionCafeById,
   UpdateFertilizacionCafe,
+
+  setupManejoPlaYEnferAsync,
+  getManejoPlaYEnfer,
+  getManejoPlaYEnferById,
+  setupManejoPlagasYEnfermedadesTableAsync,
+  UpdateManejoPlaYEnfer,
   
 };

@@ -4,6 +4,7 @@ import Navigation from "./src/components/navigation/index";
 import useDatabase from "./src/hooks/useDatabase";
 import {ManejoTejidoContextProvider} from "./src/context/ManejoTejidoContext"
 import { FertilizacionCafeContextProvider } from "./src/context/FertilizacionCafeContext";
+import { ManejoPlaYEnferContextProvider } from "./src/context/ManejoPlaYEnferContext";
 
 
 export default function App() {
@@ -14,7 +15,9 @@ export default function App() {
   return (
     <ManejoTejidoContextProvider>
       <FertilizacionCafeContextProvider>
-      <Navigation />
+        <ManejoPlaYEnferContextProvider>
+          <Navigation />
+        </ManejoPlaYEnferContextProvider>
       </FertilizacionCafeContextProvider>
    </ManejoTejidoContextProvider>
   );

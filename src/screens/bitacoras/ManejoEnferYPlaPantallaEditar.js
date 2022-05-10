@@ -1,24 +1,24 @@
 import React,{useContext,useState,useEffect} from "react"
-import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacity,AsyncStorage} from "react-native";
+import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacity} from "react-native";
 import * as Font from "expo-font"
-import { FertilizacionCafeContext } from "../../context/FertilizacionCafeContext"
+import { ManejoPlaYEnferContext } from "../../context/ManejoPlaYEnferContext";
 import {NativeBaseProvider,Input,Button} from "native-base"
 
 
-const FertilizacionCafePantallaEditar = ({navigation,route}) =>{
+const ManejoEnferYPlaPantallaEditar = ({navigation,route}) =>{
 
   const {id} = route.params
   const [fontsLoaded, setFontsLoaded] = useState(false);
-  const datosContext =  useContext(FertilizacionCafeContext)
-  const {fertilizacionCafe,getFertilizacionCafeById ,updateFertilizacionCafe,refreshTabla} = datosContext;
-
-  const [actividad, setActividad] = useState(0)
+  const datosContext =  useContext(ManejoPlaYEnferContext)
+  const { manejoPlaYEnfer, getManejoPlaYEnferById , UpdateManejoPlaYEnfer, refreshTabla} = datosContext;
+  
   //datos escuela
   const [cantidadC, setCantidadC] = useState(0)
   const [unidadC, setUnidadC] = useState(0)
   const [productoC, setProductoC] = useState(null)
   const [dosisC, setDosisC] = useState(0)
   const [consteC, setCosteC] = useState(0)
+
   //datos parcela testigo
   const [cantidadT, setCantidadT] = useState(0)
   const [unidadT, setUnidadT] = useState(0)
@@ -26,13 +26,12 @@ const FertilizacionCafePantallaEditar = ({navigation,route}) =>{
   const [dosisT, setDosisT] = useState(0)
   const [consteT, setCosteT] = useState(0)
 
+
   useEffect(() => {
-    const getFertilizacionCafe = async() => {
-      getFertilizacionCafeById(id);
+    const getManejoPlaYEnfer = async() => {
+      getManejoPlaYEnferById(id);
     };
-    getFertilizacionCafe()
-    setActividad()
-    console.log(actividad);
+    getManejoPlaYEnfer()
     // Verificar si la nota tiene valor previo a extraer sus valores
   }, [id]);
    
@@ -49,13 +48,15 @@ const FertilizacionCafePantallaEditar = ({navigation,route}) =>{
     loadFontsAsync();
   }, []);
 
-  const handlerModifyFertilizacionCafe = async () => {
+  console.log("ManejoEnferYPlaPantallaEditar");
+
+  const handlerModifyManejoPlaYEnfer = async () => {
     // Validar que la nota tiene valor
     if (cantidadC) {
       const costoC = cantidadC * consteC
       const costoT = cantidadT * consteT
 
-      await updateFertilizacionCafe(cantidadC,unidadC,productoC,dosisC,consteC,costoC,cantidadT,unidadT,productoT,dosisT,consteT,costoT,id, refreshTabla);
+      await UpdateManejoPlaYEnfer(cantidadC,unidadC,productoC,dosisC,consteC,costoC,cantidadT,unidadT,productoT,dosisT,consteT,costoT,id, refreshTabla);
       // Regresar a la pantalla anterior
       navigation.goBack();
     } else {
@@ -75,13 +76,13 @@ const FertilizacionCafePantallaEditar = ({navigation,route}) =>{
       return(
         <View style={styles.fondo}>
             <View style={styles.contenedorNavegacion}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.goBack()}}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.navigate("ManejoEnferYPlaTable")}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
                 </TouchableOpacity>
             </View>
 
             <View style={styles.contenedortitulo}>
-                <Text style={styles.titulo}>Esta editando la actividad de: {fertilizacionCafe[0].actividad}</Text>
+                <Text style={styles.titulo}>Esta editandola actividad de: {manejoPlaYEnfer[0].actividad}</Text>
             </View>
             <ScrollView style={styles.row}>
               <NativeBaseProvider>
@@ -167,7 +168,7 @@ const FertilizacionCafePantallaEditar = ({navigation,route}) =>{
                     maxW="90%"
                   />
 
-                  <Button style={styles.guardar} onPress={handlerModifyFertilizacionCafe}>
+                  <Button style={styles.guardar} onPress={handlerModifyManejoPlaYEnfer}>
                   <Text>Guardar</Text>
                   </Button>
               </NativeBaseProvider>
@@ -240,4 +241,4 @@ const styles = StyleSheet.create({
   },
   })
 
-export default FertilizacionCafePantallaEditar
+export default ManejoEnferYPlaPantallaEditar

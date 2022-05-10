@@ -21,6 +21,10 @@ import ManejoTejidoPantallaAgregar from "../../screens/bitacoras/ManejoTejidoPan
 
 import FertilizacionCafeTable from "../../screens/bitacoras/FertilizacionCafeTable";
 import FertilizacionCafePantallaEditar from "../../screens/bitacoras/FertilizacionCafePantallaEditar";
+
+import ManejoEnferYPlaTable from "../../screens/bitacoras/ManejoEnferYPlaTable";
+import ManejoEnferYPlaPantallaEditar from "../../screens/bitacoras/ManejoEnferYPlaPantallaEditar";
+
 //pantallas guias Cafe
 import GuiaN1Cafe from "../../screens/pantallasCafe/guias/GuiaN1Cafe";
 import GuiaN2Cafe from "../../screens/pantallasCafe/guias/GuiaN2Cafe";
@@ -68,7 +72,10 @@ const Navigation = () =>{
 
                 <Stack.Screen name="FertilizacionCafeTable" component={FertilizacionCafeTable}/>
                 <Stack.Screen name="FertilizacionCafePantallaEditar" component={FertilizacionCafePantallaEditar}/>
-
+                
+                <Stack.Screen name="ManejoEnferYPlaTable" component={ManejoEnferYPlaTable}/>
+                <Stack.Screen name="ManejoEnferYPlaPantallaEditar" component={ManejoEnferYPlaPantallaEditar}/>
+                
                 <Stack.Screen name="pantallaSemillas" component={PantallaSemillas}/>
 
                 <Stack.Screen name="guiaN1Cafe" component={GuiaN1Cafe}/>
