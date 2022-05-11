@@ -515,6 +515,138 @@ const getManejoPlaYEnfer= (setManejoPlaYEnferFunc) => {
     );
   });
 };
+
+//-------------------------------------------------------------------------------------------------
+// Creación de la tabla de fertilizacion Cafe
+const setupControlCostoYBeneficiadoTableAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(
+          `create table if not exists ControlCostoYBeneficiado(id integer primary key autoincrement, 
+                                                   actividad text not null,
+                                                   cantidadCampo integer null,
+                                                   unidadCampo integer null,
+                                                   costeUnitarioCampo real null,
+                                                   costoTotalCampo real null,
+                                                   cantidadTestigo integer null,
+                                                   unidadTestigo integer null,
+                                                   costeUnitarioTestigo real null,
+                                                   costoTotalTestigo real null,
+                                                   UNIQUE(actividad)
+                                                   );`
+        );
+      },
+      (_t, error) => {
+        console.log("Error al momento de crear la tabla ControlCostoYBeneficiado");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        console.log("Tabla creada!");
+        resolve(success);
+      }
+    );
+  });
+};
+
+// Agrega datos ManejoTejido por defecto
+const setupControlCostoYBeneficiadoAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(`insert into ControlCostoYBeneficiado(actividad) 
+                                         values
+                                              (' Materiales y otros'),
+                                              ('Repuestos'),
+                                              ('Equipo o maquinaria'),
+                                              ('Combustible y aceite'),
+                                              ('Muestreos de plagas'),
+                                              ('Reparación y mantenimiento de equipo y maquinas'),
+                                              ('Reparación y mantenimiento de infraestructura'),
+                                              ('Construcción secadora'),
+                                              ('Construcción patio'),
+                                              ('Primer corte'),
+                                              ('Segundo corte'),
+                                              ('Tercer corte'),
+                                              ('Cuarto corte'),
+                                              ('Quinto corte'),
+                                              ('Transporte de café al beneficio'),
+                                              ('Recibo y despulpado'),
+                                              ('Lavado y clasificado'),
+                                              ('Secado'),
+                                              ('Transporte'),
+                                              ('Almacenamiento')
+                                              `);
+      },
+      (_t, error) => {
+        console.log("Error al momento de insertar los valores por defecto de ControlCostoYBeneficiado");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        resolve(success);
+      }
+    );
+  });
+};
+
+const UpdateControlCostoYBeneficiado = async (cantidadC,unidadC,costeC,costoC,cantidadT,unidadT,costeT,costoT,id, successFunc) => {
+  db.transaction(
+    (tx) => {
+      tx.executeSql(`UPDATE ControlCostoYBeneficiado SET cantidadCampo = ${cantidadC}, unidadCampo = ${unidadC}, costeUnitarioCampo = ${costeC}, costoTotalCampo = ${costoC}, cantidadTestigo = ${cantidadT}, unidadTestigo = ${unidadT}, costeUnitarioTestigo = ${costeT}, costoTotalTestigo = ${costoT} WHERE id = ${id}`);
+    },
+    (_t, error) => {
+      console.log("Error al actualizar ControlCostoYBeneficiado");
+      console.log(_t);
+    },
+    (_t, _success) => {
+      successFunc;
+    }
+  );
+};
+
+
+// Obtener la ManejoTejido por el id
+const getControlCostoYBeneficiadoById = (id, setNoteFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from ControlCostoYBeneficiado where id = ?",
+      [id],
+      (_, { rows: { _array } }) => {
+        setNoteFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el Manejo Tejido");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Manejo Tejido obtenidas");
+      }
+    );
+  });
+};
+
+const getControlCostoYBeneficiado= (setControlCostoYBeneficiadoFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from ControlCostoYBeneficiado",
+      [],
+      (_, { rows: { _array } }) => {
+        setControlCostoYBeneficiadoFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el ControlCostoYBeneficiado");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("ControlCostoYBeneficiado obtenido");
+      }
+    );
+  });
+};
+
+
 export const database = {
   getApuntes,
   getManejoTejido,
@@ -546,5 +678,11 @@ export const database = {
   getManejoPlaYEnferById,
   setupManejoPlagasYEnfermedadesTableAsync,
   UpdateManejoPlaYEnfer,
+
+  setupControlCostoYBeneficiadoTableAsync,
+  setupControlCostoYBeneficiadoAsync,
+  getControlCostoYBeneficiado,
+  getControlCostoYBeneficiadoById,
+  UpdateControlCostoYBeneficiado,
   
 };

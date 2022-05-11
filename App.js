@@ -5,6 +5,7 @@ import useDatabase from "./src/hooks/useDatabase";
 import {ManejoTejidoContextProvider} from "./src/context/ManejoTejidoContext"
 import { FertilizacionCafeContextProvider } from "./src/context/FertilizacionCafeContext";
 import { ManejoPlaYEnferContextProvider } from "./src/context/ManejoPlaYEnferContext";
+import { ControlCostoYBeneficiadoContextProvider } from "./src/context/ControlCostoYBeneficiadoContext";
 
 
 export default function App() {
@@ -16,7 +17,9 @@ export default function App() {
     <ManejoTejidoContextProvider>
       <FertilizacionCafeContextProvider>
         <ManejoPlaYEnferContextProvider>
-          <Navigation />
+          <ControlCostoYBeneficiadoContextProvider>
+            <Navigation />
+          </ControlCostoYBeneficiadoContextProvider>
         </ManejoPlaYEnferContextProvider>
       </FertilizacionCafeContextProvider>
    </ManejoTejidoContextProvider>
