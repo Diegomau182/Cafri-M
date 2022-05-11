@@ -27,6 +27,12 @@ import ManejoEnferYPlaPantallaEditar from "../../screens/bitacoras/ManejoEnferYP
 
 import ControlCostoYBeneficiadoTabla from "../../screens/bitacoras/ControlCostoYBeneficiadoTabla";
 import ControlCostoYBeneficiadoPantallaEditar from "../../screens/bitacoras/ControlCostoYBeneficiadoPantallaEditar";
+
+import CosechaYVentasCafeCampoTabla from "../../screens/bitacoras/CosechaYVentasCafeCampoTabla";
+import CosechaYVentasCafeTestigoTabla from "../../screens/bitacoras/CosechaYVentasCafeTestigoTabla";
+
+import CosechaYVentaCafeCampoPantallaEditar from "../../screens/bitacoras/CosechaYVentaCafeCampoPantallaEditar";
+import CosechaYVentaCafeTestigoPantallaEditar from "../../screens/bitacoras/CosechaYVentaCafeTestigoPantallaEditar";
 //pantallas guias Cafe
 import GuiaN1Cafe from "../../screens/pantallasCafe/guias/GuiaN1Cafe";
 import GuiaN2Cafe from "../../screens/pantallasCafe/guias/GuiaN2Cafe";
@@ -84,6 +90,12 @@ const Navigation = () =>{
                 <Stack.Screen name="ControlCostoYBeneficiadoTabla" component={ControlCostoYBeneficiadoTabla}/>
                 <Stack.Screen name="ControlCostoYBeneficiadoPantallaEditar" component={ControlCostoYBeneficiadoPantallaEditar}/>
 
+                <Stack.Screen name="CosechaYVentasCafeCampoTabla" component={CosechaYVentasCafeCampoTabla}/>
+                <Stack.Screen name="CosechaYVentasCafeTestigoTabla" component={CosechaYVentasCafeTestigoTabla}/>
+
+                <Stack.Screen name="CosechaYVentaCafeCampoPantallaEditar" component={CosechaYVentaCafeCampoPantallaEditar}/>
+                <Stack.Screen name="CosechaYVentaCafeTestigoPantallaEditar" component={CosechaYVentaCafeTestigoPantallaEditar}/>
+                
                 <Stack.Screen name="pantallaSemillas" component={PantallaSemillas}/>
 
                 <Stack.Screen name="guiaN1Cafe" component={GuiaN1Cafe}/>

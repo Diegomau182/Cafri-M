@@ -646,6 +646,237 @@ const getControlCostoYBeneficiado= (setControlCostoYBeneficiadoFunc) => {
   });
 };
 
+//-------------------------------------------------------------------------------------------------
+// Creación de la tabla de fertilizacion Cafe
+const setupCosechaYVentaCafeCampoTableAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(
+          `create table if not exists CosechaYVentaCafeCampo(id integer primary key autoincrement, 
+                                                   detalleCosecha text not null,
+                                                   cantidad integer null,
+                                                   unidad integer null,
+                                                   tipoCafe text null,
+                                                   entidadCompra text null,
+                                                   cantidadVendida integer null,
+                                                   unidadVendida integer null,
+                                                   tipoCafeVendido text null,
+                                                   precioQQ real null,
+                                                   premioCalidad real null,
+                                                   ingresoTotal real null,
+                                                   UNIQUE(detalleCosecha)
+                                                   );`
+        );
+      },
+      (_t, error) => {
+        console.log("Error al momento de crear la tabla CosechaYVentaCafeCampo");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        console.log("Tabla creada!");
+        resolve(success);
+      }
+    );
+  });
+};
+
+const setupCosechaYVentaCafeTestigoTableAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(
+          `create table if not exists CosechaYVentaCafeTestigo(id integer primary key autoincrement, 
+                                                   detalleCosecha text not null,
+                                                   cantidad integer null,
+                                                   unidad integer null,
+                                                   tipoCafe text null,
+                                                   entidadCompra text null,
+                                                   cantidadVendida integer null,
+                                                   unidadVendida integer null,
+                                                   tipoCafeVendido text null,
+                                                   precioQQ real null,
+                                                   premioCalidad real null,
+                                                   ingresoTotal real null,
+                                                   UNIQUE(detalleCosecha)
+                                                   );`
+        );
+      },
+      (_t, error) => {
+        console.log("Error al momento de crear la tabla CosechaYVentaCafeTestigo");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        console.log("Tabla creada!");
+        resolve(success);
+      }
+    );
+  });
+};
+
+// Agrega datos ManejoTejido por defecto
+const setupCosechaYVentaCafeCampoAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(`insert into CosechaYVentaCafeCampo(detalleCosecha) 
+                                         values
+                                              ('Primer corte'),
+                                              ('Segundo corte'),
+                                              ('Tercer corte'),
+                                              ('Cuarto corte'),
+                                              ('Quinto corte'),
+                                              ('Sexto corte')
+                                              `);
+      },
+      (_t, error) => {
+        console.log("Error al momento de insertar los valores por defecto de CosechaYVentaCafeCampo");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        resolve(success);
+      }
+    );
+  });
+};
+
+const setupCosechaYVentaCafeTestigoAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(`insert into CosechaYVentaCafeTestigo(detalleCosecha) 
+                                         values
+                                              ('Primer corte'),
+                                              ('Segundo corte'),
+                                              ('Tercer corte'),
+                                              ('Cuarto corte'),
+                                              ('Quinto corte'),
+                                              ('Sexto corte')
+                                              `);
+      },
+      (_t, error) => {
+        console.log("Error al momento de insertar los valores por defecto de CosechaYVentaCafeTestigo");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        resolve(success);
+      }
+    );
+  });
+};
+
+const UpdateCosechaYVentaCafeCampo = async (cantidad,unidad,tipoCafe,entidadCompra,cantidadV,unidadV,tipoCafeV,precioQQ,premioCalidad,ingresoTotal,id, successFunc) => {
+  db.transaction(
+    (tx) => {
+      tx.executeSql(`UPDATE CosechaYVentaCafeCampo SET cantidad = ${cantidad}, unidad = ${unidad}, tipoCafe = '${tipoCafe}', entidadCompra='${entidadCompra}', cantidadVendida=${cantidadV}, unidadVendida=${unidadV}, tipoCafeVendido='${tipoCafeV}', precioQQ=${precioQQ},premioCalidad=${premioCalidad},ingresoTotal=${ingresoTotal}  WHERE id = ${id}`);
+    },
+    (_t, error) => {
+      console.log("Error al actualizar CosechaYVentaCafeCampo");
+      console.log(_t);
+    },
+    (_t, _success) => {
+      successFunc;
+    }
+  );
+};
+
+const UpdateCosechaYVentaCafeTestigo = async (cantidad,unidad,tipoCafe,entidadCompra,cantidadV,unidadV,tipoCafeV,precioQQ,premioCalidad,ingresoTotal,id, successFunc) => {
+  db.transaction(
+    (tx) => {
+      tx.executeSql(`UPDATE CosechaYVentaCafeTestigo SET cantidad = ${cantidad}, unidad = ${unidad}, tipoCafe = '${tipoCafe}', entidadCompra='${entidadCompra}', cantidadVendida=${cantidadV}, unidadVendida=${unidadV}, tipoCafeVendido='${tipoCafeV}', precioQQ=${precioQQ},premioCalidad=${premioCalidad},ingresoTotal=${ingresoTotal}  WHERE id = ${id}`);
+    },
+    (_t, error) => {
+      console.log("Error al actualizar CosechaYVentaCafeTestigo");
+      console.log(_t);
+    },
+    (_t, _success) => {
+      successFunc;
+    }
+  );
+};
+
+
+// Obtener la ManejoTejido por el id
+const getCosechaYVentaCafeCampoById = (id, setNoteFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from CosechaYVentaCafeCampo where id = ?",
+      [id],
+      (_, { rows: { _array } }) => {
+        setNoteFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el CosechaYVentaCafeCampo");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Manejo Tejido obtenidas");
+      }
+    );
+  });
+};
+
+const getCosechaYVentaCafeTestigoById = (id, setNoteFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from CosechaYVentaCafeTestigo where id = ?",
+      [id],
+      (_, { rows: { _array } }) => {
+        setNoteFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el CosechaYVentaCafeTestigo");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Manejo Tejido obtenidas");
+      }
+    );
+  });
+};
+
+const getCosechaYVentaCafeCampo= (setCosechaYVentaCafeCampoFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from CosechaYVentaCafeCampo",
+      [],
+      (_, { rows: { _array } }) => {
+        setCosechaYVentaCafeCampoFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el CosechaYVentaCafeCampo");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("CosechaYVentaCafeCampo obtenido");
+      }
+    );
+  });
+};
+
+
+const getCosechaYVentaCafeTestigo= (setCosechaYVentaCafeTestigoFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from CosechaYVentaCafeTestigo",
+      [],
+      (_, { rows: { _array } }) => {
+        setCosechaYVentaCafeTestigoFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el CosechaYVentaCafeTestigo");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("CosechaYVentaCafeTestigo obtenido");
+      }
+    );
+  });
+};
 
 export const database = {
   getApuntes,
@@ -685,4 +916,19 @@ export const database = {
   getControlCostoYBeneficiadoById,
   UpdateControlCostoYBeneficiado,
   
+  setupCosechaYVentaCafeCampoTableAsync,
+  setupCosechaYVentaCafeTestigoTableAsync,
+  
+  setupCosechaYVentaCafeTestigoAsync,
+  setupCosechaYVentaCafeCampoAsync,
+  
+  getCosechaYVentaCafeTestigoById,
+  getCosechaYVentaCafeCampoById,
+
+  getCosechaYVentaCafeCampo,
+  getCosechaYVentaCafeTestigo,
+
+  UpdateCosechaYVentaCafeCampo,
+  UpdateCosechaYVentaCafeTestigo,
+
 };

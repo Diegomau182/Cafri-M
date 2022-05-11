@@ -21,9 +21,10 @@ const PantallaBitacoraCafe = ({navigation}) =>{
                 <ComponenteGuia titulo="CONTROL Y COSTOS DE FERTILIZACIÓN DE CAFÉ"  imagen="3" callback={()=>{navigation.navigate("FertilizacionCafeTable")}} />
                 <ComponenteGuia titulo="CONTROL Y COSTOS SOBRE MANEJO INTEGRADO DE PLAGAS Y ENFERMEDADES"  imagen="4" callback={()=>{navigation.navigate("ManejoEnferYPlaTable")}} />
                 <ComponenteGuia titulo="CONTROL Y COSTOS DE COSECHA Y BENEFICIADO DE CAFÉ"  imagen="5" callback={()=>{navigation.navigate("ControlCostoYBeneficiadoTabla")}} />
-                <ComponenteGuia titulo="COSECHA Y VENTAS DE CAFÉ"  imagen="6" callback={()=>{navigation.navigate("guiaN2Cafe")}} />
-                <ComponenteGuia titulo="RESUMEN DE PÉRDIDAS O GANANCIAS"  imagen="7" callback={()=>{navigation.navigate("guiaN2Cafe")}} />
-                <ComponenteGuia titulo="APUNTES"  imagen="8" callback={()=>{navigation.navigate("guiaN2Cafe")}} />
+                <ComponenteGuia titulo="COSECHA Y VENTAS DE CAFÉ CAMPO"  imagen="6" callback={()=>{navigation.navigate("CosechaYVentasCafeCampoTabla")}} />
+                <ComponenteGuia titulo="COSECHA Y VENTAS DE CAFÉ TESTIGO"  imagen="7" callback={()=>{navigation.navigate("CosechaYVentasCafeTestigoTabla")}} />
+                <ComponenteGuia titulo="RESUMEN DE PÉRDIDAS O GANANCIAS"  imagen="8" callback={()=>{navigation.navigate("guiaN2Cafe")}} />
+                <ComponenteGuia titulo="APUNTES"  imagen="9" callback={()=>{navigation.navigate("guiaN2Cafe")}} />
             </View>
             </ScrollView>
         </View>

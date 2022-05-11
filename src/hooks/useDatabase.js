@@ -10,12 +10,17 @@ const useDatabase = () => {
       await database.setupFertilizacionCafeTableAsync();
       await database.setupManejoPlagasYEnfermedadesTableAsync();
       await database.setupControlCostoYBeneficiadoTableAsync();
+      await database.setupCosechaYVentaCafeCampoTableAsync();
+      await database.setupCosechaYVentaCafeTestigoTableAsync();
+
       // Finaliza la carga de la DB
 
       // await database.setupManejoTejidoAsync();
       // await database.setupFertilizacionCafeAsync();
       // await database.setupManejoPlaYEnferAsync();
       // await database.setupControlCostoYBeneficiadoAsync();
+      // await database.setupCosechaYVentaCafeTestigoAsync()
+      // await database.setupCosechaYVentaCafeCampoAsync()
 
       setIsLoadingComplete(true);
     } catch (error) {

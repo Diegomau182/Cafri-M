@@ -6,6 +6,8 @@ import {ManejoTejidoContextProvider} from "./src/context/ManejoTejidoContext"
 import { FertilizacionCafeContextProvider } from "./src/context/FertilizacionCafeContext";
 import { ManejoPlaYEnferContextProvider } from "./src/context/ManejoPlaYEnferContext";
 import { ControlCostoYBeneficiadoContextProvider } from "./src/context/ControlCostoYBeneficiadoContext";
+import { CosechaYVentaCafeCampoContextProvider } from "./src/context/CosechaYVentaCafeCampoContext";
+import { CosechaYVentaCafeTestigoContextProvider } from "./src/context/CosechaYVentaCafeTestigoContext";
 
 
 export default function App() {
@@ -18,7 +20,11 @@ export default function App() {
       <FertilizacionCafeContextProvider>
         <ManejoPlaYEnferContextProvider>
           <ControlCostoYBeneficiadoContextProvider>
-            <Navigation />
+            <CosechaYVentaCafeCampoContextProvider>
+              <CosechaYVentaCafeTestigoContextProvider>
+                <Navigation />
+              </CosechaYVentaCafeTestigoContextProvider>
+            </CosechaYVentaCafeCampoContextProvider>
           </ControlCostoYBeneficiadoContextProvider>
         </ManejoPlaYEnferContextProvider>
       </FertilizacionCafeContextProvider>
