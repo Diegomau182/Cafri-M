@@ -149,7 +149,7 @@ const CosechaYVentaCafeTestigoPantallaEditar = ({navigation,route}) =>{
                   />
 
                   <Button style={styles.guardar} onPress={handlerModifyCosechaYVentaCafeCampo}>
-                  <Text>Guardar</Text>
+                  <Text style={styles.textoGuardar}>Guardar</Text>
                   </Button>
               </NativeBaseProvider>
 
@@ -210,7 +210,13 @@ const styles = StyleSheet.create({
   },
   guardar:{
     marginTop:"5%",
-    marginBottom:"5%"
+    marginBottom:"5%",
+    marginHorizontal:"10%",
+    backgroundColor:"#9FA617",
+    
+  },
+  textoGuardar:{
+    fontSize:18
   },
   contenedortitulo:{
       marginLeft:"5%",
