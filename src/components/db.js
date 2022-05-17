@@ -26,6 +26,50 @@ const getApuntes = (setApuntesFunc) => {
   });
 };
 
+// Obtener la Apuntes por el id
+const getApuntesById = (id, setApuntesFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select * from apuntes where id = ?",
+      [id],
+      (_, { rows: { _array } }) => {
+        setApuntesFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener los Apuntes");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Apuntes obtenidos");
+      }
+    );
+  });
+};
+
+// Creación de la tabla de Apuntes
+const setupApuntesTableAsync = async () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(
+          `create table if not exists apuntes (id integer primary key autoincrement, 
+                                                  informacion text not null,
+                                                  status text not null);`
+        );
+      },
+      (_t, error) => {
+        console.log("Error al momento de crear la tabla");
+        console.log(error);
+        reject(error);
+      },
+      (_t, success) => {
+        console.log("Tabla creada!");
+        resolve(success);
+      }
+    );
+  });
+};
+
 // Obtener los ManejosTejido
 const getManejoTejido = (setManejoTejidoFunc) => {
     db.transaction((tx) => {
@@ -46,25 +90,7 @@ const getManejoTejido = (setManejoTejidoFunc) => {
     });
   };
 
-// Obtener la Apuntes por el id
-const getApuntesById = (id, setManejoTejidoFunc) => {
-  db.transaction((tx) => {
-    tx.executeSql(
-      "select * from apuntes where id = ?",
-      [id],
-      (_, { rows: { _array } }) => {
-        setManejoTejidoFunc(_array);
-      },
-      (_t, error) => {
-        console.log("Error al momento de obtener los Apuntes");
-        console.log(error);
-      },
-      (_t, _success) => {
-        console.log("Apuntes obtenidos");
-      }
-    );
-  });
-};
+
 
 // Obtener la ManejoTejido por el id
 const getManejoTejidoById = (id, setNoteFunc) => {
@@ -90,8 +116,9 @@ const getManejoTejidoById = (id, setNoteFunc) => {
 const insertApunte = async (apunte, successFunc) => {
   db.transaction(
     (tx) => {
-      tx.executeSql("insert into Apuntes (informacion) values (?)", [
-        apunte
+      tx.executeSql("insert into Apuntes (informacion, status) values (?,?)", [
+        apunte,
+        "NUEVA",
       ]);
     },
     (_t, error) => {
@@ -103,6 +130,37 @@ const insertApunte = async (apunte, successFunc) => {
     }
   );
 };
+const UpdateApuntes = async (informacion,id, successFunc) => {
+  db.transaction(
+    (tx) => {
+      tx.executeSql(`UPDATE Apuntes SET informacion = '${informacion}',status ="EDITADO" WHERE id = ${id}`);
+    },
+    (_t, error) => {
+      console.log("Error al actualizar apuntes");
+      console.log(_t);
+    },
+    (_t, _success) => {
+      successFunc;
+    }
+  );
+};
+
+const EliminarApuntes = async (id, successFunc) => {
+  db.transaction(
+    (tx) => {
+      tx.executeSql(`DELETE FROM Apuntes WHERE id = ${id}`);
+    },
+    (_t, error) => {
+      console.log("Error al eliminar en la tabla de apuntes");
+      console.log(_t);
+    },
+    (_t, _success) => {
+      successFunc;
+      console.log("lo logre");
+    }
+  );
+};
+
 const insertManejoTejido = async (actividad,cantidadC,unidadC,costeC,costoC,cantidadT,unidadT,costeT,costoT, successFunc) => {
     db.transaction(
       (tx) => {
@@ -179,27 +237,7 @@ const dropDatabaseTableAsync = async () => {
   });
 };
 
-// Creación de la tabla de Apuntes
-const setupApuntesTableAsync = async () => {
-  return new Promise((resolve, reject) => {
-    db.transaction(
-      (tx) => {
-        tx.executeSql(
-          "create table if not exists apuntes (id integer primary key autoincrement, informacion text not null);"
-        );
-      },
-      (_t, error) => {
-        console.log("Error al momento de crear la tabla");
-        console.log(error);
-        reject(error);
-      },
-      (_t, success) => {
-        console.log("Tabla creada!");
-        resolve(success);
-      }
-    );
-  });
-};
+
 
 // Creación de la tabla de ManejoTejido
 const setupManejoTejidoTableAsync = async () => {
@@ -1007,7 +1045,9 @@ export const database = {
   dropDatabaseTableAsync,
   
   setupApuntesTableAsync,
-
+  UpdateApuntes,
+  EliminarApuntes,
+  
   setupManejoTejidoAsync,
   setupManejoTejidoTableAsync,
   
@@ -1053,6 +1093,4 @@ export const database = {
   getControlCostoYBeneficiadoSum,
   getCosechaYVentaCafeCampoSum,
   getCosechaYVentaCafeTestigoSum,
-
-
 };

@@ -6,6 +6,7 @@ const useDatabase = () => {
 
   const loadDatabase = async () => {
     try {
+      await database.setupApuntesTableAsync()
       await database.setupManejoTejidoTableAsync();
       await database.setupFertilizacionCafeTableAsync();
       await database.setupManejoPlagasYEnfermedadesTableAsync();
@@ -14,7 +15,7 @@ const useDatabase = () => {
       await database.setupCosechaYVentaCafeTestigoTableAsync();
 
       // Finaliza la carga de la DB
-
+      
       //await database.setupManejoTejidoAsync();
       //await database.setupFertilizacionCafeAsync();
       //await database.setupManejoPlaYEnferAsync();

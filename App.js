@@ -8,6 +8,7 @@ import { ManejoPlaYEnferContextProvider } from "./src/context/ManejoPlaYEnferCon
 import { ControlCostoYBeneficiadoContextProvider } from "./src/context/ControlCostoYBeneficiadoContext";
 import { CosechaYVentaCafeCampoContextProvider } from "./src/context/CosechaYVentaCafeCampoContext";
 import { CosechaYVentaCafeTestigoContextProvider } from "./src/context/CosechaYVentaCafeTestigoContext";
+import { NotesContextProvider } from "./src/context/NotesContext";
 
 
 export default function App() {
@@ -22,7 +23,9 @@ export default function App() {
           <ControlCostoYBeneficiadoContextProvider>
             <CosechaYVentaCafeCampoContextProvider>
               <CosechaYVentaCafeTestigoContextProvider>
-                <Navigation />
+                <NotesContextProvider>
+                  <Navigation />
+                </NotesContextProvider>
               </CosechaYVentaCafeTestigoContextProvider>
             </CosechaYVentaCafeCampoContextProvider>
           </ControlCostoYBeneficiadoContextProvider>
