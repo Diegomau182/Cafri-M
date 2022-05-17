@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   contenedorNavegacion: {
-    backgroundColor:"#9FA617",
+    backgroundColor:"#717073",
     alignItems:"flex-start",
     flexDirection:"row",
     height:"15%"

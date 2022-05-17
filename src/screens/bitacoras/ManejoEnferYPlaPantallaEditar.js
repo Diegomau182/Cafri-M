@@ -171,8 +171,8 @@ const ManejoEnferYPlaPantallaEditar = ({navigation,route}) =>{
                   <Button style={styles.guardar} onPress={handlerModifyManejoPlaYEnfer}>
                   <Text style={styles.textoGuardar}>Guardar</Text>
                   </Button>
+                  
               </NativeBaseProvider>
-
             </ScrollView>
         </View>
     )
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
       backgroundColor:'#F1F1F5',
    },
    contenedorNavegacion: {
-      backgroundColor:"#9FA617",
+      backgroundColor:"#717073",
       alignItems:"flex-start",
       flexDirection:"row",
       height:"15%"

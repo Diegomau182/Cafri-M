@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StyleSheet,View,TouchableOpacity,Image } from "react-native";
+import { StyleSheet,View,TouchableOpacity,Image, ScrollView } from "react-native";
 import {
   Button,
-  Container,
   Text,
   TextArea,
   Spinner,
@@ -13,13 +12,15 @@ import * as Font from "expo-font";
 // Importar el contexto de las notas
 import { NotesContext } from "../../context/NotesContext";
 
-const PantallaCrearApunte = ({ navigation }) => {
-  const [note, setNote] = useState("");
-  const [fontsLoaded, setFontsLoaded] = useState(false);
-  const [enableSave, setEnableSave] = useState(true);
-  const [errorNote, setErrorNote] = useState(false);
-  const notesContext = useContext(NotesContext);
-  const { addNewNote, refreshNotes } = notesContext;
+
+const PantallaVistaApuntes = ({route, navigation }) => {
+    const { id } = route.params;
+    const [theNote, setTheNote] = useState(null);
+    const [status, setStatus] = useState(false);
+    const [errorNote, setErrorNote] = useState(false);
+    const [fontsLoaded, setFontsLoaded] = useState(false);
+    const notesContext = useContext(NotesContext);
+    const { note, getNoteById } = notesContext;
 
   // Cargar la fuente de manera asíncrona
   useEffect(() => {
@@ -36,21 +37,21 @@ const PantallaCrearApunte = ({ navigation }) => {
 
   // Ejecutar el efecto cuando el valor de la nota cambie
   useEffect(() => {
-    if (note) setEnableSave(false);
-    else setEnableSave(true);
-  }, [note]);
+    const getNote = () => {
+      getNoteById(id);
+    };
 
-  const handlerNewNote = async () => {
-    // Validar que la nota tiene valor
-    if (note) {
-      await addNewNote(note, refreshNotes);
+    getNote();
 
-      // Regresar a la pantalla anterior
-      navigation.goBack();
-    } else {
-      setErrorNote(true);
+    setTheNote(note[0].informacion);
+
+    // Verificar si la nota tiene valor previo a extraer sus valores
+    if (note.length) {
+      setStatus(note[0].status);
+      console.log(theNote);
     }
-  };
+  }, [id]);
+
 
   if (!fontsLoaded)
     return (
@@ -68,21 +69,12 @@ const PantallaCrearApunte = ({ navigation }) => {
                 <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
             </TouchableOpacity>
         </View>
-        <Text style={styles.titulo} >Ingresa tu nota</Text>
-        <TextArea
-          rowSpan={5}
-          bordered
-          placeholder="Escribe algo..."
-          value={note}
-          onChangeText={setNote}
-          style={errorNote ? styles.inputError : styles.note}
-        />
-        {errorNote ? (
-          <Text style={styles.error}>¡Debes ingresar una nota!</Text>
-        ) : null}
-        <Button style={styles.guardar} onPress={handlerNewNote}>
-                  <Text style={styles.textoGuardar}>Guardar</Text>
-                  </Button>
+        <View style={styles.contenedortitulo}>
+                <Text style={styles.titulo}>Contenido de Apunte</Text>
+            </View>
+        <ScrollView>
+        <Text style={styles.informacion}>{note[0].informacion!=undefined?null:note[0].informacion}</Text>
+        </ScrollView>
       </View>
     </NativeBaseProvider>
   );
@@ -128,14 +120,17 @@ flecha:{
     height:"100%",
 },
 titulo:{
-  fontFamily:"PublicSans_Regular",
-  fontSize: 18,
-  textAlign:"center",
-  color:"#000",
-  marginTop:"5%",
-  width:"80%",
-  marginLeft:"5%",
-  marginBottom:"5%"
+    fontFamily:"PublicSans_BoldItalic",
+    fontSize: 20,
+    alignItems:"center",
+    justifyContent:"center"
+},
+contenedortitulo:{
+    marginLeft:"5%",
+    marginTop:"5%",
+    width:"90%",
+    height:"5%",
+    alignItems:"center"
 },
 guardar:{
     marginTop:"5%",
@@ -147,6 +142,10 @@ guardar:{
   textoGuardar:{
     fontSize:18
   },
+  informacion:{
+      margin:"5%",
+      fontSize:20,
+  }
 });
 
-export default PantallaCrearApunte;
+export default PantallaVistaApuntes;

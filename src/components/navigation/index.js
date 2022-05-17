@@ -40,6 +40,8 @@ import PantallaListaApuntes from "../../screens/bitacoras/PantallaListaApuntes";
 import PantallaCrearApunte from "../../screens/bitacoras/PantallaCrearApunte";
 import PantallaModificarApunte from "../../screens/bitacoras/PantallaModificarApunte";
 
+import PantallaVistaApuntes from "../../screens/bitacoras/PantallaVistaApuntes";
+
 //pantallas guias Cafe
 import GuiaN1Cafe from "../../screens/pantallasCafe/guias/GuiaN1Cafe";
 import GuiaN2Cafe from "../../screens/pantallasCafe/guias/GuiaN2Cafe";
@@ -108,6 +110,7 @@ const Navigation = () =>{
                 <Stack.Screen name="PantallaListaApuntes" component={PantallaListaApuntes}/>
                 <Stack.Screen name="PantallaCrearApunte" component={PantallaCrearApunte}/>
                 <Stack.Screen name="PantallaModificarAPunte" component={PantallaModificarApunte}/>
+                <Stack.Screen name="PantallaVistaApuntes" component={PantallaVistaApuntes}/>
 
                 <Stack.Screen name="pantallaSemillas" component={PantallaSemillas}/>
 

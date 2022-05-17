@@ -16,9 +16,12 @@ export const NotesContextProvider = (props) => {
   // Cargar u obtener las notas
   useEffect(() => {
     refreshNotes();
+    setNote(notes[0]["id"]);
   }, []);
 
+
   const refreshNotes = () => {
+    
     return database.getApuntes(setNotes);
   };
 

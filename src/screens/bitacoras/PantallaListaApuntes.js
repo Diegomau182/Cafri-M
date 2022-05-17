@@ -8,6 +8,7 @@ import {
   Text,
   NativeBaseProvider,
   Box,
+  Divider
 } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 // Utilizar el contexto de notas
@@ -28,20 +29,21 @@ const PantallaListaApuntes = ({ navigation }) => {
         </View>
     <NativeBaseProvider>
         <Container style={{alignSelf:"center",marginTop:"4%"}}>
-                <List>
+                <List style={{shadowColor:"#00A5A3",shadowOffset:{width: 9,height: 4},shadowOpacity:0.50,shadowRadius:5.65,elevation:3}}>
                     {notes
                         ? notes.map((note) => (
                         <List.Item
                             key={note.id.toString()}
                             onPress={() => {
-                            navigation.navigate("noteModify", { id: note.id });
+                            navigation.navigate("PantallaVistaApuntes", { id: note.id });
                             }}
                             >
                             <Box style={{width:"100%",height:"100%",flexDirection:"row"}}>
                                 <Box style={{width:"85%",justifyContent:"center"}}>  
-                                    <Text numberOfLines={2}>{note.informacion}</Text>
+                                    <Text style={{fontSize:18}} numberOfLines={2}>{note.informacion}</Text>
                                 </Box>
-                                <Box>
+                            <Box>
+
                                     <Icon color="#F38F1D" as={AntDesign} name="edit" size="5" onPress={() => { navigation.navigate("PantallaModificarAPunte", { id: note.id }); }}/>
                                     <Text></Text>
                                     <Icon color="#C60651" as={AntDesign} name="delete" size="5" onPress={() => {Alert.alert(
@@ -59,6 +61,7 @@ const PantallaListaApuntes = ({ navigation }) => {
                                 </Box>
                             </Box>
                         </List.Item>
+
                     ))
                     : null}
               </List>
@@ -75,7 +78,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff' },
     
     contenedorNavegacion: {
-        backgroundColor:"#9FA617",
+        backgroundColor:"#717073",
         alignItems:"flex-start",
         flexDirection:"row",
         height:"15%"

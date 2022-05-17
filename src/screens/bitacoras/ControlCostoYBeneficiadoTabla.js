@@ -87,11 +87,11 @@ const styles = StyleSheet.create({
     dataWrapper: { marginTop: -1 },
     row: { height: 40, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
     botones:{alignItems:"center",flexDirection:"row"},
-    botonEditar:{marginLeft:10,backgroundColor:"#F38F1D",borderRadius:10,width:"30%",height:"90%",justifyContent:"center",alignItems:"center"},
+    botonEditar:{marginLeft:10,backgroundColor:"#9FA617",borderRadius:10,width:"30%",height:"90%",justifyContent:"center",alignItems:"center"},
     botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"50%",height:"90%",justifyContent:"center",alignItems:"center"},
       
     contenedorNavegacion: {
-      backgroundColor:"#9FA617",
+      backgroundColor:"#717073",
       alignItems:"flex-start",
       flexDirection:"row",
       height:"15%"
