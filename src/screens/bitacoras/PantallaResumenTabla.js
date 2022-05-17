@@ -75,7 +75,7 @@ const PantallaResumenTabla = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    header: { height: 80,backgroundColor: '#00A5A3' },
+    header: { height: 80,backgroundColor: '#7B3D1A' },
     text: { textAlign: 'center', fontWeight: '100' },
     dataWrapper: { marginTop: -1 },
     row: { height: 40, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"50%",height:"90%",justifyContent:"center",alignItems:"center"},
   
     contenedorNavegacion: {
-      backgroundColor:"#9FA617",
+      backgroundColor:"#717073",
       alignItems:"flex-start",
       flexDirection:"row",
       height:"15%"
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   titulo:{
     fontFamily:"PublicSans_BoldItalic",
-    fontSize: 20,
+    fontSize: 14,
     alignItems:"center",
     justifyContent:"center",
     height:"100%"
