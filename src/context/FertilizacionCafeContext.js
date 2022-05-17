@@ -11,6 +11,7 @@ export const FertilizacionCafeContextProvider = (props) => {
   // Almacenar los valores en el estado
   const [fertilizacionCafes, setfertilizacionCafes] = useState(initialFertilizacionCafe);
   const [fertilizacionCafe, setFertilizacionCafe] = useState("");
+  const [fertilizacionCafeSum, setFertilizacionCafeSum] = useState("")
 
   // Cargar u obtener las notas
   useEffect(() => {
@@ -19,6 +20,7 @@ export const FertilizacionCafeContextProvider = (props) => {
 
   const refreshTabla = () => {
       getFertilizacionCafeById(1)
+      getFertilizacionCafeSum()
     return database.getFertilizacionCafe(setfertilizacionCafes);
   };
 
@@ -31,10 +33,14 @@ export const FertilizacionCafeContextProvider = (props) => {
     return database.getFertilizacionCafeById(id, setFertilizacionCafe);
   };
 
+  const getFertilizacionCafeSum = () => {
+    return database.getFertilizacionCafeSum(setFertilizacionCafeSum);
+  };
   // Crear el objeto de contexto
   const fertilizacionCafeContext = {
     fertilizacionCafes,
     fertilizacionCafe,
+    fertilizacionCafeSum,
     updateFertilizacionCafe,
     getFertilizacionCafeById,
   };

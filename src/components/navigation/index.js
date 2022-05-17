@@ -33,6 +33,9 @@ import CosechaYVentasCafeTestigoTabla from "../../screens/bitacoras/CosechaYVent
 
 import CosechaYVentaCafeCampoPantallaEditar from "../../screens/bitacoras/CosechaYVentaCafeCampoPantallaEditar";
 import CosechaYVentaCafeTestigoPantallaEditar from "../../screens/bitacoras/CosechaYVentaCafeTestigoPantallaEditar";
+
+import PantallaResumenTabla from "../../screens/bitacoras/PantallaResumenTabla";
+
 //pantallas guias Cafe
 import GuiaN1Cafe from "../../screens/pantallasCafe/guias/GuiaN1Cafe";
 import GuiaN2Cafe from "../../screens/pantallasCafe/guias/GuiaN2Cafe";
@@ -96,6 +99,8 @@ const Navigation = () =>{
                 <Stack.Screen name="CosechaYVentaCafeCampoPantallaEditar" component={CosechaYVentaCafeCampoPantallaEditar}/>
                 <Stack.Screen name="CosechaYVentaCafeTestigoPantallaEditar" component={CosechaYVentaCafeTestigoPantallaEditar}/>
                 
+                <Stack.Screen name="PantallaResumenTabla" component={PantallaResumenTabla}/>
+
                 <Stack.Screen name="pantallaSemillas" component={PantallaSemillas}/>
 
                 <Stack.Screen name="guiaN1Cafe" component={GuiaN1Cafe}/>

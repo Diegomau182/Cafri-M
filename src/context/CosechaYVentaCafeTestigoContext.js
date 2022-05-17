@@ -11,6 +11,7 @@ export const CosechaYVentaCafeTestigoContextProvider = (props) => {
   // Almacenar los valores en el estado
   const [cosechaYVentaCafeTestigos, setCosechaYVentaCafeTestigos] = useState(initialCosechaYVentaCafeTestigo);
   const [cosechaYVentaCafeTestigo, setCosechaYVentaCafeTestigo] = useState("");
+  const [cosechaYVentaCafeTestigoSum, setCosechaYVentaCafeTestigoSum] = useState("");
 
   // Cargar u obtener las notas
   useEffect(() => {
@@ -19,6 +20,7 @@ export const CosechaYVentaCafeTestigoContextProvider = (props) => {
 
   const refreshTabla = () => {
       getCosechaYVentaCafeTestigoById(1)
+      getCosechaYVentaCafeTestigoSum()
     return database.getCosechaYVentaCafeTestigo(setCosechaYVentaCafeTestigos);
   };
 
@@ -31,10 +33,17 @@ export const CosechaYVentaCafeTestigoContextProvider = (props) => {
     return database.getCosechaYVentaCafeTestigoById(id, setCosechaYVentaCafeTestigo);
   };
 
+  
+  const getCosechaYVentaCafeTestigoSum = () => {
+    return database.getCosechaYVentaCafeTestigoSum(setCosechaYVentaCafeTestigoSum);
+  };
+
+
   // Crear el objeto de contexto
   const  cosechaYVentaCafeTestigoContext = {
     cosechaYVentaCafeTestigo,
     cosechaYVentaCafeTestigos,
+    cosechaYVentaCafeTestigoSum,
     updateCosechaYVentaCafeTestigo,
     getCosechaYVentaCafeTestigoById,
   };

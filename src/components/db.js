@@ -878,6 +878,122 @@ const getCosechaYVentaCafeTestigo= (setCosechaYVentaCafeTestigoFunc) => {
   });
 };
 
+// Obtener los ManejosTejido Suma 
+const getManejoTejidoSum = (setManejoTejidoFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select SUM(costoTotalCampo), SUM(costoTotalTestigo) from ManejoTejido",
+      [],
+      (_, { rows: { _array } }) => {
+        setManejoTejidoFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el ManejoTejido suma ");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Suma Manejo Tejido traido");
+      }
+    );
+  });
+};
+
+const getFertilizacionCafeSum = (setFertilizacionCafeFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select SUM(costoTotalCampo), SUM(costoTotalTestigo) from FertilizacionCafe",
+      [],
+      (_, { rows: { _array } }) => {
+        setFertilizacionCafeFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el FertilizacionCafe suma ");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Suma FertilizacionCafe traido");
+      }
+    );
+  });
+};
+
+const getManejoPlayEnferSum = (setManejoPlayEnferFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select SUM(costoTotalCampo), SUM(costoTotalTestigo) from ManejoPlaYEnfer",
+      [],
+      (_, { rows: { _array } }) => {
+        setManejoPlayEnferFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el ManejoPlaYEnfersuma ");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Suma ManejoPlaYEnfer traido");
+      }
+    );
+  });
+};
+
+const getControlCostoYBeneficiadoSum = (setControlCostoYBeneficiadoFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select SUM(costoTotalCampo), SUM(costoTotalTestigo) from ControlCostoYBeneficiado",
+      [],
+      (_, { rows: { _array } }) => {
+        setControlCostoYBeneficiadoFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el ControlCostoYBeneficiado ");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Suma ControlCostoYBeneficiado traido");
+      }
+    );
+  });
+};
+
+const getCosechaYVentaCafeCampoSum = (setCosechaYVentaCafeCampoFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select SUM(ingresoTotal) from CosechaYVentaCafeCampo",
+      [],
+      (_, { rows: { _array } }) => {
+        setCosechaYVentaCafeCampoFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el CosechaYVentaCafeCampo ");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Suma CosechaYVentaCafeCampo traido");
+      }
+    );
+  });
+};
+
+const getCosechaYVentaCafeTestigoSum = (setCosechaYVentaCafeTestigoFunc) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "select SUM(ingresoTotal) from CosechaYVentaCafeTestigo",
+      [],
+      (_, { rows: { _array } }) => {
+        setCosechaYVentaCafeTestigoFunc(_array);
+      },
+      (_t, error) => {
+        console.log("Error al momento de obtener el CosechaYVentaCafeTestigo");
+        console.log(error);
+      },
+      (_t, _success) => {
+        console.log("Suma CosechaYVentaCafeTestigo traido");
+      }
+    );
+  });
+};
+
+
 export const database = {
   getApuntes,
   getManejoTejido,
@@ -930,5 +1046,13 @@ export const database = {
 
   UpdateCosechaYVentaCafeCampo,
   UpdateCosechaYVentaCafeTestigo,
+
+  getManejoTejidoSum,
+  getFertilizacionCafeSum,
+  getManejoPlayEnferSum,
+  getControlCostoYBeneficiadoSum,
+  getCosechaYVentaCafeCampoSum,
+  getCosechaYVentaCafeTestigoSum,
+
 
 };

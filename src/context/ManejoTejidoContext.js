@@ -11,6 +11,7 @@ export const ManejoTejidoContextProvider = (props) => {
   // Almacenar los valores en el estado
   const [manejoTejidos, setManejoTejidos] = useState(initialManejoTejido);
   const [manejoTejido, setManejoTejido] = useState("");
+  const [manejoTejidoSum, setManejoTejidoSum] = useState("")
 
   // Cargar u obtener las notas
   useEffect(() => {
@@ -18,7 +19,8 @@ export const ManejoTejidoContextProvider = (props) => {
   }, []);
 
   const refreshTabla = () => {
-    getManejoTejidoById(1,setManejoTejido)
+    getManejoTejidoById(1)
+    getManejoTejidoSum()
     return database.getManejoTejido(setManejoTejidos);
   };
 
@@ -38,7 +40,9 @@ export const ManejoTejidoContextProvider = (props) => {
     return refreshTabla();
   };
 
-
+  const getManejoTejidoSum = () => {
+    return database.getManejoTejidoSum(setManejoTejidoSum);
+  };
 
   const getManejoTejidoById = (id) => {
     return database.getManejoTejidoById(id, setManejoTejido);
@@ -48,10 +52,12 @@ export const ManejoTejidoContextProvider = (props) => {
   const manejoTejidoContext = {
     manejoTejidos,
     manejoTejido,
+    manejoTejidoSum,
     addNewManejoTejido,
     getManejoTejidoById,
     updateManejoTejido,
-    DeleteManejoTejido
+    DeleteManejoTejido,
+    getManejoTejidoSum
   };
 
   // Pasar los valores al proveedor y retornarlo

@@ -11,6 +11,7 @@ export const CosechaYVentaCafeCampoContextProvider = (props) => {
   // Almacenar los valores en el estado
   const [cosechaYVentaCafeCampos, setCosechaYVentaCafeCampos] = useState(initialCosechaYVentaCafeCampo);
   const [cosechaYVentaCafeC, setCosechaYVentaCafeC] = useState("");
+  const [cosechaYVentaCafeCSum, setCosechaYVentaCafeCSum] = useState("");
 
   // Cargar u obtener las notas
   useEffect(() => {
@@ -19,6 +20,7 @@ export const CosechaYVentaCafeCampoContextProvider = (props) => {
 
   const refreshTabla = () => {
       getCosechaYVentaCafeCampoById(1)
+      getCosechaYVentaCafeCampoSum()
     return database.getCosechaYVentaCafeCampo(setCosechaYVentaCafeCampos);
   };
 
@@ -32,10 +34,16 @@ export const CosechaYVentaCafeCampoContextProvider = (props) => {
     return database.getCosechaYVentaCafeCampoById(id, setCosechaYVentaCafeC);
   };
 
+  const getCosechaYVentaCafeCampoSum = () => {
+    console.log("entro 2");
+    return database.getCosechaYVentaCafeCampoSum(setCosechaYVentaCafeCSum);
+  };
+
   // Crear el objeto de contexto
   const  cosechaYVentaCafeCampoContext = {
     cosechaYVentaCafeC,
     cosechaYVentaCafeCampos,
+    cosechaYVentaCafeCSum,
     getCosechaYVentaCafeCampoById,
     updateCosechaYVentaCafeCampo,
   };

@@ -1,0 +1,119 @@
+import React, { useContext } from "react";
+import { StyleSheet, View,ScrollView,Text,TouchableOpacity,Alert,Image } from 'react-native';
+import { Table, TableWrapper, Row,Cell } from 'react-native-table-component';
+
+// Utilizar el contexto de notas
+import {ManejoTejidoContext} from "../../context/ManejoTejidoContext"
+import { FertilizacionCafeContext } from "../../context/FertilizacionCafeContext";
+import { ManejoPlaYEnferContext } from "../../context/ManejoPlaYEnferContext";
+import { ControlCostoYBeneficiadoContext } from "../../context/ControlCostoYBeneficiadoContext";
+import { CosechaYVentaCafeCampoContext } from "../../context/CosechaYVentaCafeCampoContext";
+import { CosechaYVentaCafeTestigoContext } from "../../context/CosechaYVentaCafeTestigoContext"; 
+
+const PantallaResumenTabla = ({ navigation }) => {
+  const { manejoTejidoSum,refreshTabla} = useContext(ManejoTejidoContext);
+  const{fertilizacionCafeSum}=useContext(FertilizacionCafeContext)
+  const{manejoPlaYEnferSum} = useContext(ManejoPlaYEnferContext)
+  const{controlCostoYBeneficiadoSum} = useContext(ControlCostoYBeneficiadoContext)
+  const{cosechaYVentaCafeCSum} = useContext(CosechaYVentaCafeCampoContext)
+  const{cosechaYVentaCafeTestigoSum} = useContext(CosechaYVentaCafeTestigoContext)
+
+  const widthArr = [300, 200, 200]
+  const tableHead = ['Descripcion', 'Valor en Lempiras Escuela de campo', 'Valor en Lempiras Parecela Testigo']
+  const tableData = []
+  
+  const costoManejofincaCampo = manejoTejidoSum[0]["SUM(costoTotalCampo)"] + fertilizacionCafeSum[0]["SUM(costoTotalCampo)"] + manejoPlaYEnferSum[0]["SUM(costoTotalCampo)"] 
+  const costoManejofincaTestigo = manejoTejidoSum[0]["SUM(costoTotalTestigo)"] + fertilizacionCafeSum[0]["SUM(costoTotalTestigo)"] + manejoPlaYEnferSum[0]["SUM(costoTotalTestigo)"]
+  let costoTotalC = cosechaYVentaCafeCSum[0]["SUM(ingresoTotal)"] - (costoManejofincaCampo + controlCostoYBeneficiadoSum[0]["SUM(costoTotalCampo)"])
+  let costoTotalT = cosechaYVentaCafeTestigoSum[0]["SUM(ingresoTotal)"] - (costoManejofincaTestigo + controlCostoYBeneficiadoSum[0]["SUM(costoTotalTestigo)"])
+      
+        tableData.push([" ","Ingresos"," "])
+        tableData.push(["Ingreso total venta de café",cosechaYVentaCafeCSum[0]["SUM(ingresoTotal)"],cosechaYVentaCafeTestigoSum[0]["SUM(ingresoTotal)"]])
+        tableData.push([" ","Engresos"," "])
+        tableData.push(["Costos manejo de finca",costoManejofincaCampo,costoManejofincaTestigo])
+        tableData.push(["Costos de beneficiado de café",controlCostoYBeneficiadoSum[0]["SUM(costoTotalCampo)"],controlCostoYBeneficiadoSum[0]["SUM(costoTotalTestigo)"]])
+        tableData.push(["Ganancia o perdida",costoTotalC,costoTotalT])
+  
+        return (
+    <View style={styles.container}>
+                  <View style={styles.contenedorNavegacion}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.goBack()}}>
+                        <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.contenedortitulo}>
+                <Text style={styles.titulo}>RESUMEN DE PÉRDIDAS O GANANCIAS</Text>
+            </View>
+        <ScrollView style={{marginTop:"3%"}} horizontal={true}>
+          <View>
+            <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
+            <Row data={tableHead} widthArr={widthArr} style={styles.header} textStyle={styles.text}/>
+            </Table>
+            <ScrollView style={styles.dataWrapper}> 
+              <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
+              {
+                  tableData.map((rowData, index) => (
+                    <>
+                    <Row
+                      key={index}
+                      data={rowData}
+                      widthArr={widthArr}
+                      style={[styles.row, index %2 && {backgroundColor: '#F7F6E7'}]}
+                      textStyle={styles.text}
+                    />
+                    </>
+                  )) 
+                }
+              </Table>
+            </ScrollView>
+          </View>
+        </ScrollView>
+      </View>
+
+  );
+};
+
+const styles = StyleSheet.create({
+    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+    header: { height: 80,backgroundColor: '#00A5A3' },
+    text: { textAlign: 'center', fontWeight: '100' },
+    dataWrapper: { marginTop: -1 },
+    row: { height: 40, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
+    botones:{alignItems:"center",flexDirection:"row"},
+    botonEditar:{marginLeft:10,backgroundColor:"#F38F1D",borderRadius:10,width:"30%",height:"90%",justifyContent:"center",alignItems:"center"},
+    botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"50%",height:"90%",justifyContent:"center",alignItems:"center"},
+  
+    contenedorNavegacion: {
+      backgroundColor:"#9FA617",
+      alignItems:"flex-start",
+      flexDirection:"row",
+      height:"15%"
+    },
+  tamañoFlecha:{
+      marginLeft:"20%",
+      width:"60%",
+      height:"30%",
+      marginTop: "80%"
+  },
+  flecha:{
+      marginLeft:"1%",
+      width:"20%",
+      height:"100%",
+  },
+  titulo:{
+    fontFamily:"PublicSans_BoldItalic",
+    fontSize: 20,
+    alignItems:"center",
+    justifyContent:"center",
+    height:"100%"
+},
+contenedortitulo:{
+    marginLeft:"5%",
+    marginTop:"5%",
+    width:"90%",
+    height:"5%",
+    alignItems:"center"
+},
+  });
+
+export default PantallaResumenTabla;

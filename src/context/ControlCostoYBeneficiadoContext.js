@@ -11,6 +11,7 @@ export const ControlCostoYBeneficiadoContextProvider = (props) => {
   // Almacenar los valores en el estado
   const [controlCostoYBeneficiados, setControlCostoYBeneficiados] = useState(initialControlCostoYBeneficiado);
   const [controlCostoYBeneficiado, setControlCostoYBeneficiado] = useState("");
+  const [controlCostoYBeneficiadoSum, setControlCostoYBeneficiadoSum] = useState("");
 
   // Cargar u obtener las notas
   useEffect(() => {
@@ -19,6 +20,7 @@ export const ControlCostoYBeneficiadoContextProvider = (props) => {
 
   const refreshTabla = () => {
     getControlCostoYBeneficiadoById(1)
+    getControlCostoYBeneficiadoSum()
     return database.getControlCostoYBeneficiado(setControlCostoYBeneficiados);
   };
 
@@ -31,10 +33,15 @@ export const ControlCostoYBeneficiadoContextProvider = (props) => {
     return database.getControlCostoYBeneficiadoById(id, setControlCostoYBeneficiado);
   };
 
+  const getControlCostoYBeneficiadoSum = () => {
+    return database.getControlCostoYBeneficiadoSum(setControlCostoYBeneficiadoSum);
+  };
+
   // Crear el objeto de contexto
   const controlCostoYBeneficiadoContext = {
     controlCostoYBeneficiado,
     controlCostoYBeneficiados,
+    controlCostoYBeneficiadoSum,
     updateControlCostoYBeneficiado,
     getControlCostoYBeneficiadoById,
   };

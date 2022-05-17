@@ -11,6 +11,7 @@ export const ManejoPlaYEnferContextProvider = (props) => {
   // Almacenar los valores en el estado
   const [manejoPlaYEnfers, setManejoPlaYEnfers] = useState(initialManejoPlaYEnfer);
   const [manejoPlaYEnfer, setManejoPlaYEnfer] = useState("");
+  const [manejoPlaYEnferSum, setManejoPlaYEnferSum] = useState("");
 
   // Cargar u obtener las notas
   useEffect(() => {
@@ -19,6 +20,7 @@ export const ManejoPlaYEnferContextProvider = (props) => {
 
   const refreshTabla = () => {
     getManejoPlaYEnferById(1)
+    getManejoPlaYEnferSum()
     return database.getManejoPlaYEnfer(setManejoPlaYEnfers);
   };
 
@@ -31,10 +33,15 @@ export const ManejoPlaYEnferContextProvider = (props) => {
     return database.getManejoPlaYEnferById(id, setManejoPlaYEnfer);
   };
 
+  const getManejoPlaYEnferSum = () => {
+    return database.getManejoPlayEnferSum(setManejoPlaYEnferSum);
+  };
+
   // Crear el objeto de contexto
   const manejoPlaYEnferContext = {
     manejoPlaYEnfer,
     manejoPlaYEnfers,
+    manejoPlaYEnferSum,
     UpdateManejoPlaYEnfer,
     getManejoPlaYEnferById,
   };
