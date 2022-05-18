@@ -16,7 +16,6 @@ import { NotesContext } from "../../context/NotesContext";
 
 const PantallaListaApuntes = ({ navigation }) => {
   const { notes,deleteNote } = useContext(NotesContext);
-  console.log(notes);
   const handlerDeleteApunte = async (id) => {
       await deleteNote(id);
   };

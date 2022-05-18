@@ -3,7 +3,12 @@ import { database } from "../components/db";
 
 // Crear el contexto de las notas
 export const NotesContext = createContext({});
-
+const muestra = [
+  {
+    "id": 1,
+    "informacion": "Cargando...",
+    "status": "Nuevo",
+  },]
 export const NotesContextProvider = (props) => {
   // Obtener los valores iniciales para el contexto
   // se obtienen desde los props
@@ -16,12 +21,12 @@ export const NotesContextProvider = (props) => {
   // Cargar u obtener las notas
   useEffect(() => {
     refreshNotes();
-    setNote(notes[0]["id"]);
   }, []);
 
 
   const refreshNotes = () => {
-    
+    console.log(muestra);
+    setNote(muestra)
     return database.getApuntes(setNotes);
   };
 

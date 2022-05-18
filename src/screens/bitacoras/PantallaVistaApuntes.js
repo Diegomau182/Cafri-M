@@ -73,7 +73,7 @@ const PantallaVistaApuntes = ({route, navigation }) => {
                 <Text style={styles.titulo}>Contenido de Apunte</Text>
             </View>
         <ScrollView>
-        <Text style={styles.informacion}>{note[0].informacion!=undefined?null:note[0].informacion}</Text>
+        <Text style={styles.informacion}>{note[0].informacion}</Text>
         </ScrollView>
       </View>
     </NativeBaseProvider>
