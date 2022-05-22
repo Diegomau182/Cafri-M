@@ -96,7 +96,7 @@ const ManejosTejidoTabla = ({ navigation }) => {
               </Table>
             </ScrollView>
             <NativeBaseProvider>
-              <Fab renderInPortal={false} backgroundColor="#00A5A3" shadow={2} size="sm" icon={<Icon color="white" as={AntDesign} onPress={() => {navigation.navigate("manejoTejidoPantallaAgregar")}} name="plus" size="sm" />} />
+              <Fab renderInPortal={false} backgroundColor="#00A5A3" shadow={2} size="sm" icon={<Icon color="white" as={AntDesign} onPress={() => {navigation.navigate("manejoTejidoPantallaAgregar")}} name="plus" size="25" />} />
               </NativeBaseProvider>
           </View>
         </ScrollView>

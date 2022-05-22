@@ -39,7 +39,8 @@ const PantallaListaApuntes = ({ navigation }) => {
                             >
                             <Box style={{width:"100%",height:"100%",flexDirection:"row"}}>
                                 <Box style={{width:"85%",justifyContent:"center"}}>  
-                                    <Text style={{fontSize:18}} numberOfLines={2}>{note.informacion}</Text>
+                                    <Text style={{marginBottom:"2%"}}>{"Nota #"+note.id}</Text>
+                                    <Text style={{fontSize:18,marginTop:"2%"}} numberOfLines={2}>{note.informacion}</Text>
                                 </Box>
                             <Box>
 

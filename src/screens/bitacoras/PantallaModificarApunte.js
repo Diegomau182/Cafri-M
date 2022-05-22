@@ -77,9 +77,9 @@ const PantallaModificarApunte = ({route, navigation }) => {
                 <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
             </TouchableOpacity>
         </View>
-        <Text style={styles.titulo} >Ingresa tu nota</Text>
+        <Text style={styles.titulo} >Esta editando la nota # {id}</Text>
         <TextArea
-          rowSpan={5}
+          rowSpan={5}  
           bordered
           placeholder="Escriba la nueva nota..."
           onChangeText={setTheNote}
