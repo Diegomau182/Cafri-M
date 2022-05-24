@@ -3,6 +3,7 @@ import { StyleSheet, View,ScrollView,Text,TouchableOpacity,Alert,Image } from 'r
 import { Table, TableWrapper, Row,Cell } from 'react-native-table-component';
 import { Fab,NativeBaseProvider,Icon} from "native-base";
 import { AntDesign } from "@expo/vector-icons";
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 // Utilizar el contexto de notas
 import {ManejoTejidoContext} from "../../context/ManejoTejidoContext"
@@ -16,7 +17,7 @@ const ManejosTejidoTabla = ({ navigation }) => {
   const tableData = []
   let costoTotalC = 0
   let costoTotalT = 0
-
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
 
 
   const handlerDeleteManejoTejido = async (id) => {
@@ -24,7 +25,15 @@ const ManejosTejidoTabla = ({ navigation }) => {
       await DeleteManejoTejido(id, refreshTabla);
       // Regresar a la pantalla anterior
   };
-  
+  const Regresar =() =>{
+    navigation.goBack()
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+  }
+
+  const Crear =() =>{
+    navigation.navigate("manejoTejidoPantallaAgregar")
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+  }
     for (let i = 0; i < manejoTejidos.length; i++) {
         const id = manejoTejidos[i]["id"] 
         const actividad = manejoTejidos[i]["actividad"]
@@ -61,16 +70,16 @@ const ManejosTejidoTabla = ({ navigation }) => {
         tableData.push(arregloSuma)
 
   return (
-    <View style={styles.container}>
-                  <View style={styles.contenedorNavegacion}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.goBack()}}>
+    <View style={{marginBottom:"13%"}}>
+              <View style={styles.contenedorNavegacion}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
                 </TouchableOpacity>
             </View>
             <View style={styles.contenedortitulo}>
                 <Text style={styles.titulo}>Manejo de Tejido</Text>
             </View>
-        <ScrollView horizontal={true}>
+            <ScrollView horizontal={true}>
           <View>
           <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
             <Row data={tableDivision} widthArr={widthArrDivision} style={styles.header} textStyle={styles.text}/>
@@ -96,10 +105,10 @@ const ManejosTejidoTabla = ({ navigation }) => {
               </Table>
             </ScrollView>
             <NativeBaseProvider>
-              <Fab renderInPortal={false} backgroundColor="#00A5A3" shadow={2} size="sm" icon={<Icon color="white" as={AntDesign} onPress={() => {navigation.navigate("manejoTejidoPantallaAgregar")}} name="plus" size="25" />} />
+              <Fab renderInPortal={false} backgroundColor="#00A5A3" shadow={2} size="sm" icon={<Icon color="white" as={AntDesign} onPress={() => {Crear()}} name="plus" size="25" />} />
               </NativeBaseProvider>
           </View>
-        </ScrollView>
+          </ScrollView>
       </View>
 
   );
@@ -107,7 +116,7 @@ const ManejosTejidoTabla = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    header: { height: 80,backgroundColor: '#00A5A3' },
+    header: { height: 50,backgroundColor: '#00A5A3' },
     text: { textAlign: 'center', fontWeight: '100' },
     dataWrapper: { marginTop: -1 },
     row: { height: 40, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
@@ -122,14 +131,13 @@ const styles = StyleSheet.create({
       height:"15%"
     },
   tamañoFlecha:{
-      marginLeft:"20%",
-      width:"60%",
+      marginLeft:"2%",
+      width:"20%",
       height:"30%",
-      marginTop: "80%"
+      marginTop: "15%"
   },
   flecha:{
-      marginLeft:"1%",
-      width:"20%",
+      width:"40%",
       height:"100%",
   },
   titulo:{

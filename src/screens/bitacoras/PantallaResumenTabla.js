@@ -9,6 +9,7 @@ import { ManejoPlaYEnferContext } from "../../context/ManejoPlaYEnferContext";
 import { ControlCostoYBeneficiadoContext } from "../../context/ControlCostoYBeneficiadoContext";
 import { CosechaYVentaCafeCampoContext } from "../../context/CosechaYVentaCafeCampoContext";
 import { CosechaYVentaCafeTestigoContext } from "../../context/CosechaYVentaCafeTestigoContext"; 
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const PantallaResumenTabla = ({ navigation }) => {
   const { manejoTejidoSum,refreshTabla} = useContext(ManejoTejidoContext);
@@ -17,7 +18,13 @@ const PantallaResumenTabla = ({ navigation }) => {
   const{controlCostoYBeneficiadoSum} = useContext(ControlCostoYBeneficiadoContext)
   const{cosechaYVentaCafeCSum} = useContext(CosechaYVentaCafeCampoContext)
   const{cosechaYVentaCafeTestigoSum} = useContext(CosechaYVentaCafeTestigoContext)
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
 
+  const Regresar =() =>{
+    navigation.goBack()
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+  }
+  
   const widthArr = [300, 200, 200]
   const tableHead = ['Descripcion', 'Valor en Lempiras Escuela de campo', 'Valor en Lempiras Parecela Testigo']
   const tableData = []
@@ -37,7 +44,7 @@ const PantallaResumenTabla = ({ navigation }) => {
         return (
     <View style={styles.container}>
                   <View style={styles.contenedorNavegacion}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.goBack()}}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
                 </TouchableOpacity>
             </View>

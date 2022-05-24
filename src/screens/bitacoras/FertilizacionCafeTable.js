@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { StyleSheet, View,ScrollView,Text,TouchableOpacity,Alert,Image } from 'react-native';
 import { Table, TableWrapper, Row,Cell } from 'react-native-table-component';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 // Utilizar el contexto de notas
 import { FertilizacionCafeContext } from "../../context/FertilizacionCafeContext";
@@ -14,7 +15,11 @@ const FertilizacionCafeTable = ({ navigation }) => {
   const tableData = []
   let costoTotalC = 0
   let costoTotalT = 0
-
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
+  const Regresar =() =>{
+    navigation.goBack()
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+  }
   
     for (let i = 0; i < fertilizacionCafes.length; i++) {
         const id = fertilizacionCafes[i]["id"] 
@@ -46,7 +51,7 @@ const FertilizacionCafeTable = ({ navigation }) => {
   return (
     <View style={styles.container}>
             <View style={styles.contenedorNavegacion}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.goBack()}}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
                 </TouchableOpacity>
             </View>

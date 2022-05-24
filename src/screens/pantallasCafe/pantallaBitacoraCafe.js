@@ -1,8 +1,11 @@
 import React  from "react"
 import {Text,View,StyleSheet,Image,TouchableOpacity,ScrollView} from "react-native"
 import ComponenteGuia from "../../components/component/ComponenteGuia"
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const PantallaBitacoraCafe = ({navigation}) =>{
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+    
     return(
         <View style={styles.fondo}>
             <View style={styles.contenedorNavegacion}>

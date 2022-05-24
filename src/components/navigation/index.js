@@ -61,6 +61,7 @@ import PantallaInfoCuatro from "../../screens/PantallaInfoCuatro";
 import PantallaInfoCinco from "../../screens/PantallaInfoCinco";
 import PantallaInfoSeis from "../../screens/PantallaInfoSeis";
 import PantallaDemostracion from "../../screens/PantallaDemostracion"
+import { Screen } from "react-native-screens";
 
 
 
@@ -74,7 +75,7 @@ const Stack = createStackNavigator();
 const Navigation = () =>{
     return(
         <NavigationContainer>
-            <Stack.Navigator headerMode="none">
+            <Stack.Navigator headerMode="none" >
                 <Stack.Screen name="Home" component={Home}/> 
                 <Stack.Screen name="homeTabCafe" component={HomeTabCafe}/>
                 <Stack.Screen name="homeTabFrijol" component={HomeTabFrijol}/>

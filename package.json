@@ -37,7 +37,8 @@
     "react-native-web": "0.17.1",
     "react-native-web-webview": "^1.0.2",
     "react-native-webview": "^11.18.1",
-    "react-native-youtube-iframe": "^2.2.2"
+    "react-native-youtube-iframe": "^2.2.2",
+    "expo-screen-orientation": "~4.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
