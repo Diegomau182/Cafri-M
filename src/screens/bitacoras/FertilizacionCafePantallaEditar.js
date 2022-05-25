@@ -3,10 +3,10 @@ import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacit
 import * as Font from "expo-font"
 import { FertilizacionCafeContext } from "../../context/FertilizacionCafeContext"
 import {NativeBaseProvider,Input,Button} from "native-base"
-
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const FertilizacionCafePantallaEditar = ({navigation,route}) =>{
-
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
   const {id} = route.params
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const datosContext =  useContext(FertilizacionCafeContext)

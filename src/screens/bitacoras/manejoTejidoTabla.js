@@ -77,7 +77,6 @@ const ManejosTejidoTabla = ({ navigation }) => {
   return (
     <NativeBaseProvider>
       <View style={{marginBottom:"16%"}}>
-        
           <View style={styles.contenedorNavegacion}>
               <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                 <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
