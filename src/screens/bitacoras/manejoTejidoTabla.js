@@ -10,8 +10,8 @@ import {ManejoTejidoContext} from "../../context/ManejoTejidoContext"
 
 const ManejosTejidoTabla = ({ navigation }) => {
   const { manejoTejidos,DeleteManejoTejido,refreshTabla } = useContext(ManejoTejidoContext);
-  const widthArr = [40, 200, 80, 80, 120, 120, 80, 80, 120, 120,160]
-  const widthArrDivision = [40, 200, 400, 400,160]
+  const widthArr = [20, 190, 65, 52, 72, 70,65, 52, 72, 70,160]
+  const widthArrDivision = [20, 190, 259, 259,160]
   const tableDivision = [" "," ","Escula de Campo","Parcela Testigo"]
   const tableHead = ['N°', 'Actividad', 'Cantidad', 'Unidad',"costo Unitario L.","Costo Total L.",'Cantidad', 'Unidad',"costo Unitario L.","Costo Total L.","Accion"]
   const tableData = []
@@ -34,6 +34,11 @@ const ManejosTejidoTabla = ({ navigation }) => {
     navigation.navigate("manejoTejidoPantallaAgregar")
     ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
   }
+
+  const Editar = (id) => {
+    navigation.navigate("manejoTejidoModificar",{id:id})
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+  }
     for (let i = 0; i < manejoTejidos.length; i++) {
         const id = manejoTejidos[i]["id"] 
         const actividad = manejoTejidos[i]["actividad"]
@@ -45,7 +50,7 @@ const ManejosTejidoTabla = ({ navigation }) => {
         const unidadTestigo = manejoTejidos[i]["unidadTestigo"] 
         const costeUnitarioTestigo = manejoTejidos[i]["costeUnitarioTestigo"] 
         const costoTotalTestigo = manejoTejidos[i]["costoTotalTestigo"] 
-        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {navigation.navigate("manejoTejidoModificar",{id:id});}}><Text>Editar</Text></TouchableOpacity>{ id < 9 ? null:<TouchableOpacity style={styles.botonEliminar} onPress={()=>{Alert.alert(
+        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {Editar(id)}}><Text>Editar</Text></TouchableOpacity>{ id < 9 ? null:<TouchableOpacity style={styles.botonEliminar} onPress={()=>{Alert.alert(
           "Eliminar",
           "¿Esta seguro que desea eliminar esta actividad?",
           [
@@ -70,46 +75,49 @@ const ManejosTejidoTabla = ({ navigation }) => {
         tableData.push(arregloSuma)
 
   return (
-    <View style={{marginBottom:"13%"}}>
-              <View style={styles.contenedorNavegacion}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
-                        <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.contenedortitulo}>
-                <Text style={styles.titulo}>Manejo de Tejido</Text>
-            </View>
-            <ScrollView horizontal={true}>
-          <View>
-          <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-            <Row data={tableDivision} widthArr={widthArrDivision} style={styles.header} textStyle={styles.text}/>
-            </Table>
-            <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-            <Row data={tableHead} widthArr={widthArr} style={styles.header} textStyle={styles.text}/>
-            </Table>
-            <ScrollView style={styles.dataWrapper}>
-              <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-              {
-                  tableData.map((rowData, index) => (
-                    <>
-                    <Row
-                      key={index}
-                      data={rowData}
-                      widthArr={widthArr}
-                      style={[styles.row, index %2 && {backgroundColor: '#F7F6E7'}]}
-                      textStyle={styles.text}
-                    />
-                    </>
-                  )) 
-                }
-              </Table>
-            </ScrollView>
-            <NativeBaseProvider>
-              <Fab renderInPortal={false} backgroundColor="#00A5A3" shadow={2} size="sm" icon={<Icon color="white" as={AntDesign} onPress={() => {Crear()}} name="plus" size="25" />} />
-              </NativeBaseProvider>
+    <NativeBaseProvider>
+      <View style={{marginBottom:"16%"}}>
+        
+          <View style={styles.contenedorNavegacion}>
+              <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
+                <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
+              </TouchableOpacity>
           </View>
+          <View style={styles.contenedortitulo}>
+            <Text style={styles.titulo}>Manejo de Tejido</Text>
+          </View>
+          <ScrollView horizontal={true}>
+            <View>
+              <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
+                <Row data={tableDivision} widthArr={widthArrDivision} style={styles.header} textStyle={styles.text}/>
+              </Table>
+              <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
+                <Row data={tableHead} widthArr={widthArr} style={styles.header} textStyle={styles.text}/>
+              </Table>
+              <ScrollView style={styles.dataWrapper}>
+                <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
+                    {
+                        tableData.map((rowData, index) => (
+                          <>
+                          
+                          <Row
+                            key={index}
+                            data={rowData}
+                            widthArr={widthArr}
+                            style={[styles.row, index %2 && {backgroundColor: '#F7F6E7'}]}
+                            textStyle={styles.text}
+                          />
+                          </>
+                        )) 
+                      }
+                </Table>
+              </ScrollView>
+            </View>
           </ScrollView>
-      </View>
+              
+          <Fab renderInPortal={true} backgroundColor="#00A5A3" shadow={5} size="sm" icon={<Icon color="white" as={AntDesign} onPress={() => {Crear()}} name="plus" size="25" />} />
+        </View>
+      </NativeBaseProvider>
 
   );
 };
@@ -128,13 +136,13 @@ const styles = StyleSheet.create({
       backgroundColor:"#717073",
       alignItems:"flex-start",
       flexDirection:"row",
-      height:"15%"
+      height:"21%"
     },
   tamañoFlecha:{
       marginLeft:"2%",
       width:"20%",
       height:"30%",
-      marginTop: "15%"
+      marginTop: "13%"
   },
   flecha:{
       width:"40%",
@@ -148,9 +156,9 @@ const styles = StyleSheet.create({
 },
 contenedortitulo:{
     marginLeft:"5%",
-    marginTop:"5%",
+    marginTop:"2%",
     width:"90%",
-    height:"5%",
+    height:"10%",
     alignItems:"center"
 },
   });

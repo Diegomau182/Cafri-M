@@ -3,10 +3,11 @@ import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacit
 import * as Font from "expo-font"
 import { ManejoTejidoContext } from "../../context/ManejoTejidoContext"
 import {NativeBaseProvider,Input,Button} from "native-base"
-
+import * as ScreenOrientation from 'expo-screen-orientation';
 const datos = '@editar_manejoTejido:value'
 
 const ManejoTejidoPantallaEditar = ({navigation,route}) =>{
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
   const {id} = route.params
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const datosContext =  useContext(ManejoTejidoContext)
@@ -54,11 +55,15 @@ const ManejoTejidoPantallaEditar = ({navigation,route}) =>{
       await updateManejoTejido(cantidadC,unidadC,consteC,costoC,cantidadT,unidadT,consteT,costoT,id, refreshTabla);
       // Regresar a la pantalla anterior
       navigation.goBack();
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
     } else {
         console.log("error");
     }
   };
-
+  const regresar = async()=>{
+    navigation.goBack();
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
+  }
   if(fontsLoaded == false)
   {
     return (
@@ -71,7 +76,7 @@ const ManejoTejidoPantallaEditar = ({navigation,route}) =>{
       return(
         <View style={styles.fondo}>
             <View style={styles.contenedorNavegacion}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.navigate("manejosTejidoTabla")}}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
                 </TouchableOpacity>
             </View>
