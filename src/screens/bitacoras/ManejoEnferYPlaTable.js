@@ -8,8 +8,8 @@ import { ManejoPlaYEnferContext } from "../../context/ManejoPlaYEnferContext";
 
 const ManejoEnferYPlaTable = ({ navigation }) => {
   const { manejoPlaYEnfers, refreshTabla } = useContext(ManejoPlaYEnferContext);
-  const widthArr = [40, 200, 80, 80,140 ,80 , 120, 120, 80, 80 ,160 ,80 , 120, 120,160]
-  const widthArrDivision = [40, 200, 620, 640,160]
+  const widthArr = [20, 150, 68, 60,100 ,55 , 80, 70, 68, 60,100 ,55 , 80, 70,100]
+  const widthArrDivision = [20, 150, 433, 433,100]
   const tableDivision = [" "," ","Escula de Campo","Parcela Testigo"]
   const tableHead = ['N°', 'Actividad', 'Cantidad', 'Unidad', 'Producto','Dosis por MZ',"costo Unitario L.","Costo Total L.",'Cantidad', 'Unidad',"Producto","Dosis por MZ","costo Unitario L.","Costo Total L.","Accion"]
   const tableData = []
@@ -19,6 +19,10 @@ const ManejoEnferYPlaTable = ({ navigation }) => {
   
   const Regresar =() =>{
     navigation.goBack()
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+  }
+  const Editar =(id)=>{
+    navigation.navigate("ManejoEnferYPlaPantallaEditar",{id:id})
     ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
   }
   
@@ -37,7 +41,7 @@ const ManejoEnferYPlaTable = ({ navigation }) => {
         const dosisTestigo = manejoPlaYEnfers[i]["dosisTestigo"]
         const costeUnitarioTestigo = manejoPlaYEnfers[i]["costeUnitarioTestigo"] 
         const costoTotalTestigo = manejoPlaYEnfers[i]["costoTotalTestigo"] 
-        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {navigation.navigate("ManejoEnferYPlaPantallaEditar",{id:id});}}><Text>Editar</Text></TouchableOpacity></View>
+        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {Editar(id)}}><Text>Editar</Text></TouchableOpacity></View>
         const arreglo = [id,actividad,cantidadCampo,unidadCampo,productoCampo,dosisCampo,costeUnitarioCampo,costoTotalCampo,cantidadTestigo,unidadTestigo,productoTestigo,dosisTestigo,costeUnitarioTestigo,costoTotalTestigo,editar]     
         costoTotalC = costoTotalC + costoTotalCampo
         costoTotalT = costoTotalT + costoTotalTestigo
@@ -50,7 +54,7 @@ const ManejoEnferYPlaTable = ({ navigation }) => {
         tableData.push(arregloSuma)
 
   return (
-    <View style={styles.container}>
+    <View style={{marginBottom:"13%"}}>
             <View style={styles.contenedorNavegacion}>
                 <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
@@ -92,45 +96,44 @@ const ManejoEnferYPlaTable = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    header: { height: 80,backgroundColor: '#00A5A3' },
-    text: { textAlign: 'center', fontWeight: '100' },
-    dataWrapper: { marginTop: -1 },
-    row: { height: 40, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
-    botones:{alignItems:"center",flexDirection:"row"},
-    botonEditar:{marginLeft:10,backgroundColor:"#9FA617",borderRadius:10,width:"30%",height:"90%",justifyContent:"center",alignItems:"center"},
-    botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"50%",height:"90%",justifyContent:"center",alignItems:"center"},
-              
-    contenedorNavegacion: {
-      backgroundColor:"#717073",
-      alignItems:"flex-start",
-      flexDirection:"row",
-      height:"15%"
-    },
-  tamañoFlecha:{
-      marginLeft:"20%",
-      width:"60%",
-      height:"30%",
-      marginTop: "80%"
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+  header: { height: 40,backgroundColor: '#00A5A3' },
+  text: { textAlign: 'center', fontWeight: '100' },
+  dataWrapper: { marginTop: -1 },
+  row: { height: 60, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
+  botones:{alignItems:"center",flexDirection:"row",alignSelf:"center"},
+  botonEditar:{backgroundColor:"#9FA617",borderRadius:10,width:"40%",height:"90%",justifyContent:"center",alignItems:"center"},
+  botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"70%",height:"90%",justifyContent:"center",alignItems:"center"},
+            
+  contenedorNavegacion: {
+    backgroundColor:"#717073",
+    alignItems:"flex-start",
+    flexDirection:"row",
+    height:"21%"
   },
-  flecha:{
-      marginLeft:"1%",
-      width:"20%",
-      height:"100%",
-  },
-  titulo:{
-    fontFamily:"PublicSans_BoldItalic",
-    fontSize: 20,
-    alignItems:"center",
-    justifyContent:"center"
+tamañoFlecha:{
+    marginLeft:"1%",
+    width:"20%",
+    height:"30%",
+    marginTop: "13%"
+},
+flecha:{
+    width:"40%",
+    height:"100%",
+},
+titulo:{
+  fontFamily:"PublicSans_BoldItalic",
+  fontSize: 20,
+  alignItems:"center",
+  justifyContent:"center"
 },
 contenedortitulo:{
-    marginLeft:"5%",
-    marginTop:"5%",
-    width:"90%",
-    height:"5%",
-    alignItems:"center"
+  marginLeft:"5%",
+  marginTop:"2%",
+  width:"90%",
+  height:"10%",
+  alignItems:"center"
 },
-  });
+});
 
 export default ManejoEnferYPlaTable;

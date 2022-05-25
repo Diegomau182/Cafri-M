@@ -8,7 +8,7 @@ import { CosechaYVentaCafeTestigoContext } from "../../context/CosechaYVentaCafe
 
 const CosechaYVentasCafeTestigoTabla = ({ navigation }) => {
   const { cosechaYVentaCafeTestigos, refreshTabla } = useContext(CosechaYVentaCafeTestigoContext);
-  const widthArr = [40, 200, 80, 80, 140, 180, 80, 80, 140 , 120, 120, 120, 160]
+  const widthArr = [20, 150, 65, 60, 100, 160, 65, 60, 100 , 60, 100, 70, 100]
   const tableHead = ['N°', 'Detalle de cosechas ', 'Cantidad', 'Unidad', 'Tipo de café ','Entidad a la que vendió café',"Cantidad vendida","Unidad",'Tipo de café', 'Precio L./ qq ',"Premio calidad L./qq","Ingreso total L.","Accion"]
   const tableData = []
   let costoTotal = 0
@@ -17,7 +17,10 @@ const CosechaYVentasCafeTestigoTabla = ({ navigation }) => {
     navigation.goBack()
     ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
   }
-  
+  const Editar=(id)=>{
+    navigation.navigate("CosechaYVentaCafeTestigoPantallaEditar",{id:id})
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+  }
     for (let i = 0; i < cosechaYVentaCafeTestigos.length; i++) {
         const id = cosechaYVentaCafeTestigos[i]["id"] 
         const detalleCosecha = cosechaYVentaCafeTestigos[i]["detalleCosecha"]
@@ -31,7 +34,7 @@ const CosechaYVentasCafeTestigoTabla = ({ navigation }) => {
         const precioQQ = cosechaYVentaCafeTestigos[i]["precioQQ"] 
         const premioCalidad = cosechaYVentaCafeTestigos[i]["premioCalidad"]
         const ingresoTotal = cosechaYVentaCafeTestigos[i]["ingresoTotal"]
-        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {navigation.navigate("CosechaYVentaCafeTestigoPantallaEditar",{id:id});}}><Text>Editar</Text></TouchableOpacity></View>
+        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {Editar(id)}}><Text>Editar</Text></TouchableOpacity></View>
         const arreglo = [id,detalleCosecha,cantidad,unidad,tipoCafe,entidadCompra,cantidadVendida,unidadVendida,tipoCafeVendido, precioQQ, premioCalidad, ingresoTotal,editar]     
         costoTotal = costoTotal + ingresoTotal
         tableData.push(arreglo)
@@ -43,7 +46,7 @@ const CosechaYVentasCafeTestigoTabla = ({ navigation }) => {
         tableData.push(arregloSuma)
 
   return (
-    <View style={styles.container}>
+    <View style={{marginBottom:"13%"}}>
               <View style={styles.contenedorNavegacion}>
                 <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
@@ -82,45 +85,45 @@ const CosechaYVentasCafeTestigoTabla = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    header: { height: 80,backgroundColor: '#00A5A3' },
-    text: { textAlign: 'center', fontWeight: '100' },
-    dataWrapper: { marginTop: -1 },
-    row: { height: 40, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
-    botones:{alignItems:"center",flexDirection:"row"},
-    botonEditar:{marginLeft:10,backgroundColor:"#9FA617",borderRadius:10,width:"30%",height:"90%",justifyContent:"center",alignItems:"center"},
-    botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"50%",height:"90%",justifyContent:"center",alignItems:"center"},
-          
-    contenedorNavegacion: {
-      backgroundColor:"#717073",
-      alignItems:"flex-start",
-      flexDirection:"row",
-      height:"15%"
-    },
-  tamañoFlecha:{
-      marginLeft:"20%",
-      width:"60%",
-      height:"30%",
-      marginTop: "80%"
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+  header: { height: 50,backgroundColor: '#00A5A3' },
+  text: { textAlign: 'center', fontWeight: '100' },
+  dataWrapper: { marginTop: -1 },
+  row: { height: 60, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
+  botones:{alignItems:"center",flexDirection:"row",alignSelf:"center"},
+  botonEditar:{backgroundColor:"#9FA617",borderRadius:10,width:"40%",height:"90%",justifyContent:"center",alignItems:"center"},
+  botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"70%",height:"90%",justifyContent:"center",alignItems:"center"},
+            
+  contenedorNavegacion: {
+    backgroundColor:"#717073",
+    alignItems:"flex-start",
+    flexDirection:"row",
+    height:"21%"
   },
-  flecha:{
-      marginLeft:"1%",
-      width:"20%",
-      height:"100%",
-  },
-  titulo:{
-    fontFamily:"PublicSans_BoldItalic",
-    fontSize: 20,
-    alignItems:"center",
-    justifyContent:"center"
+tamañoFlecha:{
+    marginLeft:"1%",
+    width:"20%",
+    height:"30%",
+    marginTop: "13%"
+},
+flecha:{
+    width:"40%",
+    height:"100%",
+},
+titulo:{
+  fontFamily:"PublicSans_BoldItalic",
+  fontSize: 20,
+  alignItems:"center",
+  justifyContent:"center"
 },
 contenedortitulo:{
-    marginLeft:"5%",
-    marginTop:"5%",
-    width:"90%",
-    height:"5%",
-    alignItems:"center"
+  marginLeft:"5%",
+  marginTop:"2%",
+  width:"90%",
+  height:"10%",
+  alignItems:"center"
 },
-  });
+});
+
 
 export default CosechaYVentasCafeTestigoTabla;

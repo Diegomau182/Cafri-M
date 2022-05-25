@@ -3,10 +3,10 @@ import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacit
 import * as Font from "expo-font"
 import { CosechaYVentaCafeCampoContext } from "../../context/CosechaYVentaCafeCampoContext"
 import {NativeBaseProvider,CheckIcon,Select,Button,Input} from "native-base"
-
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const CosechaYVentaCafeCampoPantallaEditar = ({navigation,route}) =>{
-
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
   const {id} = route.params
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const datosContext =  useContext(CosechaYVentaCafeCampoContext)
@@ -38,14 +38,18 @@ const CosechaYVentaCafeCampoPantallaEditar = ({navigation,route}) =>{
     };
     loadFontsAsync();
   }, []);
-
+  const Regresar = () =>{
+    navigation.goBack()
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
+  }
   const handlerModifyCosechaYVentaCafeCampo = async () => {
     // Validar que la nota tiene valor
-      const costoT = cantidadV * precioQQ + premioCalidad
+      const costoT = (cantidadV * precioQQ) + (cantidadV * premioCalidad)
 
       await updateCosechaYVentaCafeCampo(cantidad,unidad,tipoCafe,entidad,cantidadV,unidadV,tipoCafeV,precioQQ,premioCalidad,costoT, id, refreshTabla);
       // Regresar a la pantalla anterior
       navigation.goBack();
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
         console.log("error");
   };
 
@@ -61,7 +65,7 @@ const CosechaYVentaCafeCampoPantallaEditar = ({navigation,route}) =>{
       return(
         <View style={styles.fondo}>
             <View style={styles.contenedorNavegacion}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.goBack()}}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
                 </TouchableOpacity>
             </View>

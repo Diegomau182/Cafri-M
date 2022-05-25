@@ -34,15 +34,15 @@ const PantallaResumenTabla = ({ navigation }) => {
   let costoTotalC = cosechaYVentaCafeCSum[0]["SUM(ingresoTotal)"] - (costoManejofincaCampo + controlCostoYBeneficiadoSum[0]["SUM(costoTotalCampo)"])
   let costoTotalT = cosechaYVentaCafeTestigoSum[0]["SUM(ingresoTotal)"] - (costoManejofincaTestigo + controlCostoYBeneficiadoSum[0]["SUM(costoTotalTestigo)"])
       
-        tableData.push([" ","Ingresos"," "])
+        tableData.push(["--------","Ingresos","--------"])
         tableData.push(["Ingreso total venta de café",cosechaYVentaCafeCSum[0]["SUM(ingresoTotal)"],cosechaYVentaCafeTestigoSum[0]["SUM(ingresoTotal)"]])
-        tableData.push([" ","Engresos"," "])
+        tableData.push(["--------","Engresos","--------"])
         tableData.push(["Costos manejo de finca",costoManejofincaCampo,costoManejofincaTestigo])
         tableData.push(["Costos de beneficiado de café",controlCostoYBeneficiadoSum[0]["SUM(costoTotalCampo)"],controlCostoYBeneficiadoSum[0]["SUM(costoTotalTestigo)"]])
         tableData.push(["Ganancia o perdida",costoTotalC,costoTotalT])
   
         return (
-    <View style={styles.container}>
+    <View style={{marginBottom:"13%"}}>
                   <View style={styles.contenedorNavegacion}>
                 <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
@@ -51,7 +51,7 @@ const PantallaResumenTabla = ({ navigation }) => {
             <View style={styles.contenedortitulo}>
                 <Text style={styles.titulo}>RESUMEN DE PÉRDIDAS O GANANCIAS</Text>
             </View>
-        <ScrollView style={{marginTop:"3%"}} horizontal={true}>
+        <ScrollView style={{alignContent:"center",alignSelf:"center"}} horizontal={true}>
           <View>
             <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
             <Row data={tableHead} widthArr={widthArr} style={styles.header} textStyle={styles.text}/>
@@ -82,7 +82,7 @@ const PantallaResumenTabla = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    header: { height: 80,backgroundColor: '#7B3D1A' },
+    header: { height: 50,backgroundColor: '#7B3D1A' },
     text: { textAlign: 'center', fontWeight: '100' },
     dataWrapper: { marginTop: -1 },
     row: { height: 40, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
@@ -94,33 +94,31 @@ const styles = StyleSheet.create({
       backgroundColor:"#717073",
       alignItems:"flex-start",
       flexDirection:"row",
-      height:"15%"
+      height:"21%"
     },
   tamañoFlecha:{
-      marginLeft:"20%",
-      width:"60%",
-      height:"30%",
-      marginTop: "80%"
-  },
-  flecha:{
       marginLeft:"1%",
       width:"20%",
+      height:"30%",
+      marginTop: "13%"
+  },
+  flecha:{
+      width:"40%",
       height:"100%",
   },
   titulo:{
     fontFamily:"PublicSans_BoldItalic",
-    fontSize: 14,
+    fontSize: 20,
     alignItems:"center",
-    justifyContent:"center",
-    height:"100%"
-},
-contenedortitulo:{
+    justifyContent:"center"
+  },
+  contenedortitulo:{
     marginLeft:"5%",
-    marginTop:"5%",
+    marginTop:"2%",
     width:"90%",
-    height:"5%",
+    height:"10%",
     alignItems:"center"
-},
+  },
   });
 
 export default PantallaResumenTabla;

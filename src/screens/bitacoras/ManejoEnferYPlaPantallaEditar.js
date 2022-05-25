@@ -3,10 +3,10 @@ import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacit
 import * as Font from "expo-font"
 import { ManejoPlaYEnferContext } from "../../context/ManejoPlaYEnferContext";
 import {NativeBaseProvider,Input,Button} from "native-base"
-
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const ManejoEnferYPlaPantallaEditar = ({navigation,route}) =>{
-
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
   const {id} = route.params
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const datosContext =  useContext(ManejoPlaYEnferContext)
@@ -32,6 +32,7 @@ const ManejoEnferYPlaPantallaEditar = ({navigation,route}) =>{
       getManejoPlaYEnferById(id);
     };
     getManejoPlaYEnfer()
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
     // Verificar si la nota tiene valor previo a extraer sus valores
   }, [id]);
    
@@ -59,6 +60,7 @@ const ManejoEnferYPlaPantallaEditar = ({navigation,route}) =>{
       await UpdateManejoPlaYEnfer(cantidadC,unidadC,productoC,dosisC,consteC,costoC,cantidadT,unidadT,productoT,dosisT,consteT,costoT,id, refreshTabla);
       // Regresar a la pantalla anterior
       navigation.goBack();
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
     } else {
         console.log("error");
     }

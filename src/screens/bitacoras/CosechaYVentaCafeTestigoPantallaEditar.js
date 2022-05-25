@@ -3,10 +3,10 @@ import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacit
 import * as Font from "expo-font"
 import { CosechaYVentaCafeTestigoContext } from "../../context/CosechaYVentaCafeTestigoContext"
 import {NativeBaseProvider,CheckIcon,Select,Button,Input} from "native-base"
-
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const CosechaYVentaCafeTestigoPantallaEditar = ({navigation,route}) =>{
-
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
   const {id} = route.params
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const datosContext =  useContext(CosechaYVentaCafeTestigoContext)
@@ -39,14 +39,20 @@ const CosechaYVentaCafeTestigoPantallaEditar = ({navigation,route}) =>{
     loadFontsAsync();
   }, []);
 
+  const Regresar = () =>{
+    navigation.goBack()
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
+  }
+
   const handlerModifyCosechaYVentaCafeCampo = async () => {
     // Validar que la nota tiene valor
-      const costoT = cantidadV * precioQQ + premioCalidad
+      const costoT = cantidadV * precioQQ + premioCalidad * cantidadV
 
       await updateCosechaYVentaCafeTestigo(cantidad,unidad,tipoCafe,entidad,cantidadV,unidadV,tipoCafeV,precioQQ,premioCalidad,costoT, id, refreshTabla);
       // Regresar a la pantalla anterior
       navigation.goBack();
-        console.log("error");
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
+      console.log("error");
   };
 
   if(fontsLoaded == false)
@@ -61,7 +67,7 @@ const CosechaYVentaCafeTestigoPantallaEditar = ({navigation,route}) =>{
       return(
         <View style={styles.fondo}>
             <View style={styles.contenedorNavegacion}>
-                <TouchableOpacity style={styles.flecha} onPress={()=>{navigation.goBack()}}>
+                <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
                 </TouchableOpacity>
             </View>
