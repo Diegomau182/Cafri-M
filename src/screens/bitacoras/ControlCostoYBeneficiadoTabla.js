@@ -8,8 +8,8 @@ import {ControlCostoYBeneficiadoContext} from "../../context/ControlCostoYBenefi
 
 const ControlCostoYBeneficiadoTabla = ({ navigation }) => {
   const { controlCostoYBeneficiados,refreshTabla } = useContext(ControlCostoYBeneficiadoContext);
-  const widthArr = [40, 200, 80, 80, 120, 120, 80, 80, 120, 120,160]
-  const widthArrDivision = [40, 200, 400, 400,160]
+  const widthArr = [20, 150, 65, 60, 72, 60,  65, 60, 72, 60,100]
+  const widthArrDivision = [20, 150, 257, 257,100]
   const tableDivision = [" "," ","Escula de Campo","Parcela Testigo"]
   const tableHead = ['N°', 'Actividad', 'Cantidad', 'Unidad',"costo Unitario L.","Costo Total L.",'Cantidad', 'Unidad',"costo Unitario L.","Costo Total L.","Accion"]
   const tableData = []
@@ -19,6 +19,11 @@ const ControlCostoYBeneficiadoTabla = ({ navigation }) => {
   const Regresar =() =>{
     navigation.goBack()
     ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+  }
+  const Editar = (id) =>{
+    navigation.navigate("ControlCostoYBeneficiadoPantallaEditar",{id:id})
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+
   }
   
     for (let i = 0; i < controlCostoYBeneficiados.length; i++) {
@@ -32,7 +37,7 @@ const ControlCostoYBeneficiadoTabla = ({ navigation }) => {
         const unidadTestigo = controlCostoYBeneficiados[i]["unidadTestigo"] 
         const costeUnitarioTestigo = controlCostoYBeneficiados[i]["costeUnitarioTestigo"] 
         const costoTotalTestigo = controlCostoYBeneficiados[i]["costoTotalTestigo"] 
-        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {navigation.navigate("ControlCostoYBeneficiadoPantallaEditar",{id:id});}}><Text>Editar</Text></TouchableOpacity></View>
+        const editar = <View style={styles.botones}><TouchableOpacity style={styles.botonEditar} onPress={() => {Editar(id)}}><Text>Editar</Text></TouchableOpacity></View>
         const arreglo = [id,actividad,cantidadCampo,unidadCampo,costeUnitarioCampo,costoTotalCampo,cantidadTestigo,unidadTestigo,costeUnitarioTestigo,costoTotalTestigo,editar]
         
         costoTotalC = costoTotalC + costoTotalCampo
@@ -45,7 +50,7 @@ const ControlCostoYBeneficiadoTabla = ({ navigation }) => {
         tableData.push(arregloSuma)
 
   return (
-    <View style={styles.container}>
+    <View style={{marginBottom:"13%"}}>
               <View style={styles.contenedorNavegacion}>
                 <TouchableOpacity style={styles.flecha} onPress={()=>{Regresar()}}>
                         <Image style={styles.tamañoFlecha} source={require('../../../assets/imagenes/flecha.png')}/>
@@ -87,44 +92,43 @@ const ControlCostoYBeneficiadoTabla = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    header: { height: 80,backgroundColor: '#00A5A3' },
-    text: { textAlign: 'center', fontWeight: '100' },
-    dataWrapper: { marginTop: -1 },
-    row: { height: 40, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
-    botones:{alignItems:"center",flexDirection:"row"},
-    botonEditar:{marginLeft:10,backgroundColor:"#9FA617",borderRadius:10,width:"30%",height:"90%",justifyContent:"center",alignItems:"center"},
-    botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"50%",height:"90%",justifyContent:"center",alignItems:"center"},
-      
-    contenedorNavegacion: {
-      backgroundColor:"#717073",
-      alignItems:"flex-start",
-      flexDirection:"row",
-      height:"15%"
-    },
-  tamañoFlecha:{
-      marginLeft:"20%",
-      width:"60%",
-      height:"30%",
-      marginTop: "80%"
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+  header: { height: 40,backgroundColor: '#00A5A3' },
+  text: { textAlign: 'center', fontWeight: '100' },
+  dataWrapper: { marginTop: -1 },
+  row: { height: 60, backgroundColor: '#E7E6E1',borderColor: '#C1C0B9', borderWidth:.5},
+  botones:{alignItems:"center",flexDirection:"row",alignSelf:"center"},
+  botonEditar:{backgroundColor:"#9FA617",borderRadius:10,width:"40%",height:"90%",justifyContent:"center",alignItems:"center"},
+  botonEliminar:{marginLeft:5,backgroundColor:"#C60651",borderRadius:10,width:"70%",height:"90%",justifyContent:"center",alignItems:"center"},
+            
+  contenedorNavegacion: {
+    backgroundColor:"#717073",
+    alignItems:"flex-start",
+    flexDirection:"row",
+    height:"21%"
   },
-  flecha:{
-      marginLeft:"1%",
-      width:"20%",
-      height:"100%",
-  },
-  titulo:{
-    fontFamily:"PublicSans_BoldItalic",
-    fontSize: 20,
-    alignItems:"center",
-    justifyContent:"center"
+tamañoFlecha:{
+    marginLeft:"1%",
+    width:"20%",
+    height:"30%",
+    marginTop: "13%"
+},
+flecha:{
+    width:"40%",
+    height:"100%",
+},
+titulo:{
+  fontFamily:"PublicSans_BoldItalic",
+  fontSize: 20,
+  alignItems:"center",
+  justifyContent:"center"
 },
 contenedortitulo:{
-    marginLeft:"5%",
-    marginTop:"5%",
-    width:"90%",
-    height:"8%",
-    alignItems:"center"
+  marginLeft:"5%",
+  marginTop:"2%",
+  width:"90%",
+  height:"10%",
+  alignItems:"center"
 },
   });
 

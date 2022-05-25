@@ -3,9 +3,10 @@ import { StyleSheet,View,ActivityIndicator,Text,ScrollView,Image,TouchableOpacit
 import * as Font from "expo-font"
 import { ControlCostoYBeneficiadoContext } from "../../context/ControlCostoYBeneficiadoContext";
 import {NativeBaseProvider,Input,Button} from "native-base"
-
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const ControlCostoYBeneficiadoPantallaEditar = ({navigation,route}) =>{
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
   const {id} = route.params
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const datosContext =  useContext(ControlCostoYBeneficiadoContext)
@@ -26,6 +27,7 @@ const ControlCostoYBeneficiadoPantallaEditar = ({navigation,route}) =>{
       getControlCostoYBeneficiadoById(id);
     };
     getControlCostoYBeneficiado()
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
     // Verificar si la nota tiene valor previo a extraer sus valores
   }, [id]);
    
