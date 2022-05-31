@@ -19,7 +19,7 @@ const PantallaBitacoraCafe = ({navigation}) =>{
             </View>
             <ScrollView>
             <View style={styles.row}>
-                <ComponenteGuia titulo="PROGRAMA DE MANEJO DE FINCA DE CAFÉ"  imagen="1" callback={()=>{navigation.navigate("guiaN1Cafe")}} />
+                <ComponenteGuia titulo="PROGRAMA DE MANEJO DE FINCA DE CAFÉ"  imagen="1" callback={()=>{navigation.navigate("pantallaImgAncha",{title:"PROGRAMA DE MANEJO DE FINCA DE CAFÉ",import:require('../../../assets/imagenes/PROGRAMA_DE_MANEJO_DE_FINCA_DE_CAFE.png')})}} />
                 <ComponenteGuia titulo="MANEJO DE TEJIDO"  imagen="2" callback={()=>{navigation.navigate("manejosTejidoTabla")}} />
                 <ComponenteGuia titulo="CONTROL Y COSTOS DE FERTILIZACIÓN DE CAFÉ"  imagen="3" callback={()=>{navigation.navigate("FertilizacionCafeTable")}} />
                 <ComponenteGuia titulo="CONTROL Y COSTOS SOBRE MANEJO INTEGRADO DE PLAGAS Y ENFERMEDADES"  imagen="4" callback={()=>{navigation.navigate("ManejoEnferYPlaTable")}} />
